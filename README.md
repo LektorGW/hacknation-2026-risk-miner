@@ -2,7 +2,7 @@
 
 Narzędzie dla gmin przygotowujących przetargi. Powstało na HackNation 2026 w ramach zadania Ministerstwa Funduszy i Polityki Regionalnej. Zespół KryptoTrop.
 
-**[Otwórz akta umowy](https://lektorgw.github.io/hacknation-2026-risk-miner/)** · [Panel aplikacji](https://spouse-advocate-iron-solutions.trycloudflare.com/) · [Film (1 min 54 s)](https://github.com/LektorGW/hacknation-2026-risk-miner/blob/main/deliverables/demo-risk-miner.mp4?raw=true) · [Prezentacja (8 slajdów)](deliverables/prezentacja-risk-miner.pdf) · [Opis projektu (PDF)](deliverables/opis-projektu.pdf)
+[Panel aplikacji](https://spouse-advocate-iron-solutions.trycloudflare.com/) · [Film (1 min 54 s)](https://github.com/LektorGW/hacknation-2026-risk-miner/blob/main/deliverables/demo-risk-miner.mp4?raw=true) · [Prezentacja (8 slajdów)](deliverables/prezentacja-risk-miner.pdf) · [Opis projektu (PDF)](deliverables/opis-projektu.pdf)
 
 ## Problem i założenia
 
