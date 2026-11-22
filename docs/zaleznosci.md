@@ -25,7 +25,7 @@ Wersje pakietów Pythona w obrazie określa `constraints.txt`. Poniższe oznacze
 | Caddy | HTTPS na własnym serwerze instytucji | [Apache-2.0](https://github.com/caddyserver/caddy/blob/master/LICENSE) |
 | cloudflared | Połączenie kopii pokazowej z siecią Cloudflare | [Apache-2.0](https://github.com/cloudflare/cloudflared/blob/master/LICENSE) |
 
-Zdjęcie ilustracyjne pulpitu wykonano przy użyciu OpenAI ImageGen. Znak i ikonografia są elementami własnego interfejsu. Fotografia nie identyfikuje konkretnej inwestycji. Interfejs używa systemowych czcionek, lokalnych modułów JavaScript i zasobów obrazu.
+Przy tworzeniu kodu, dokumentacji i materiałów demonstracyjnych zespół korzystał z OpenAI Codex. Ilustrację oczyszczalni przygotowano w OpenAI ImageGen. Techniczne oznaczenia wykonane z pomocą AI mają opis metody w [raporcie walidacji](test-niezalezny.md). Interfejs używa systemowych czcionek i lokalnych modułów JavaScript.
 
 W pokazie publicznym API, baza SQLite, reguły i OCR działają na stanowisku zespołu. Ruch HTTPS jurora przechodzi przez usługę Cloudflare Tunnel. Konfiguracja demonstracyjna nie określa regionu obsługi ruchu przez operatora sieci. Z lokalnego stanowiska udostępniane są publiczne akta umów, kopia Git i materiały konkursowe. Import, przegląd roboczych danych oraz decyzje eksperta wymagają konta. [Opis działania tunelu](https://developers.cloudflare.com/cloudflare-one/networks/connectors/cloudflare-tunnel/)
 
