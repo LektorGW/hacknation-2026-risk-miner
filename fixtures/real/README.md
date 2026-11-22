@@ -1,6 +1,6 @@
 # Przypadki referencyjne Risk Minera
 
-`cases.json` zawiera 22 publiczne przedsięwzięcia z arkusza MFiPR i 77 powiązanych dokumentów źródłowych. Każdy przypadek ma oryginalne pola arkusza, ich znormalizowaną postać, numer wiersza i propozycje powiązań. `projects.csv` służy do samodzielnego sprawdzenia importu i zapytań do rejestrów. W aplikacji decyzja eksperta jest osobnym rekordem.
+`cases.json` zawiera 22 publiczne przedsięwzięcia z arkusza MFiPR i 77 powiązanych dokumentów źródłowych. Każdy przypadek ma oryginalne pola arkusza, ich znormalizowaną postać, numer wiersza i propozycje powiązań. Polecenie odtworzenia danych podane poniżej tworzy również `projects.csv` do samodzielnego sprawdzenia importu i zapytań do rejestrów. W aplikacji decyzja eksperta jest osobnym rekordem.
 
 | Źródło | Co zawiera próbka | Pochodzenie |
 |---|---|---|

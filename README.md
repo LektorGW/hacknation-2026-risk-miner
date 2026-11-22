@@ -4,11 +4,13 @@ Zespół KryptoTrop. Zadanie Ministerstwa Funduszy i Polityki Regionalnej.
 
 Risk Miner pomaga osobie przygotowującej inwestycję wodociągowo-kanalizacyjną ustalić, o co zapytać projektanta przed przetargiem. Łączy źródła publiczne z dokumentacją samorządu, pokazuje podobne kontrakty i pozwala obronić każde ustalenie przed ekspertem. Wynik można włączyć do akt jako edytowalną kartę Word.
 
+**[Prezentacja projektu (PDF)](deliverables/prezentacja-risk-miner.pdf)** · **[Otwórz demo Risk Minera](https://spouse-advocate-iron-solutions.trycloudflare.com/)**
+
+Demo korzysta z tymczasowego tunelu. Do logowania służy token przekazany jury przez zespół.
+
 ![Pulpit Risk Minera z porównaniem dwóch ogłoszeń z Zagrodna](deliverables/pulpit-inwestycji.png)
 
 ## Pierwsze uruchomienie
-
-Instancja produkcyjna na tym komputerze działa pod adresem [localhost:8180](http://127.0.0.1:8180). Dostęp administratora znajduje się w lokalnym pliku `var/pierwszy-dostep.txt`. Wklej jego zawartość do formularza logowania. Kontener uruchamia się ponownie po restarcie silnika Docker.
 
 Na nowym stanowisku z Docker Compose i Pythonem 3.12 wykonaj w katalogu projektu poniższe polecenia. Polecenie bootstrap korzysta z biblioteki standardowej Pythona, tworzy lokalny token i plik konfiguracyjny. Seed importuje dostarczony arkusz i załączniki oraz odtwarza kandydatury powiązań z kopii publicznych danych.
 
@@ -17,6 +19,8 @@ python -m riskminer.cli bootstrap
 docker compose up -d --build
 docker compose exec app python -m riskminer.cli seed
 ```
+
+Po uruchomieniu otwórz [lokalną aplikację](http://127.0.0.1:8180) i zaloguj się tokenem z pliku `var/pierwszy-dostep.txt`.
 
 ## Pierwsze pięć minut
 
@@ -37,7 +41,6 @@ Materiały startowe obejmują 22 rekordy inwestycji, dwa dokumenty eksperckie wy
 - [Obsługa, architektura, konfiguracja i kopie zapasowe](docs/wdrozenie.md)
 - [Pochodzenie kopii danych i odtwarzanie](fixtures/real/README.md)
 - [Sprawdzenie publicznych źródeł i ograniczenia próby](docs/walidacja-zrodel.md)
-- [Wnioski z HackNation 2025 zastosowane w produkcie](docs/hacknation-2025.md)
 - [Wykaz zależności i licencji](docs/zaleznosci.md)
 - [Raport z testu wydania i materiały dla jury](docs/test-wydania.md)
 - [Przegląd techniczny trzech inwestycji](docs/przeglad-trzech-spraw.md)

@@ -12,3 +12,10 @@ node_modules/
 *.log
 dist/
 .tmp/
+
+# Robocze materiały zespołu i odtwarzalne eksporty
+/deliverables/formularz-hacktribe.txt
+/docs/hacknation-2025.md
+/fixtures/real/projects.csv
+/odtworzony-zestaw/
+/risk_miner_bzp_kopia.zip
