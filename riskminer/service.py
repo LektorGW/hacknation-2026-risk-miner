@@ -14,7 +14,7 @@ from pathlib import Path
 from urllib.parse import quote, urlsplit
 
 from fastapi import Body, Depends, FastAPI, File, Form, HTTPException, Request, UploadFile
-from fastapi.responses import FileResponse, JSONResponse, Response
+from fastapi.responses import FileResponse, HTMLResponse, JSONResponse, Response
 from fastapi.staticfiles import StaticFiles
 from starlette.middleware.trustedhost import TrustedHostMiddleware
 from starlette.middleware.gzip import GZipMiddleware
@@ -22,6 +22,7 @@ from starlette.middleware.gzip import GZipMiddleware
 from . import analysis, db, jobs, workflow
 from .preview import mark_provisional, preview_cases
 from .case_view import detailed_view
+from .dossier import CASES, dossier
 
 
 MAX_UPLOAD = 16 * 1024 * 1024
@@ -157,6 +158,16 @@ def health():
 @app.get("/")
 def index():
     return FileResponse(db.ROOT / "static" / "index.html")
+
+
+@app.get("/pokaz", response_class=HTMLResponse)
+def public_dossier(sprawa: str = "zagrodno", etap: int | None = None):
+    if sprawa not in CASES:
+        raise HTTPException(404, "Nie znaleziono inwestycji.")
+    try:
+        return dossier(sprawa, etap)
+    except IndexError:
+        raise HTTPException(404, "Nie znaleziono etapu publikacji.")
 
 
 def state_data(conn):

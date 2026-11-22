@@ -177,7 +177,7 @@ function allDocs() {
 }
 function loginView(error = '') {
   return `<div class="entry"><section class="entry-form"><div class="entry-brand"><img src="/static/assets/znak.svg" alt="">Risk Miner</div>
-    <div><h1>Dostęp do Risk Minera</h1><form id="login-form">${error ? notice(error, true) : ''}${field('Token dostępu', '<input name="token" type="password" autofocus required autocomplete="current-password" aria-describedby="token-help"><small id="token-help">Wpisz token otrzymany od administratora.</small>')}
+    <div><p><a href="/pokaz">Przejrzyj publiczne akta umowy</a></p><h1>Dostęp do Risk Minera</h1><form id="login-form">${error ? notice(error, true) : ''}${field('Token dostępu', '<input name="token" type="password" autofocus required autocomplete="current-password" aria-describedby="token-help"><small id="token-help">Wpisz token otrzymany od administratora.</small>')}
     <button class="button primary" type="submit">Zaloguj się ${icon('right')}</button>${statusLine}</form></div></section>
     <aside class="entry-photo"><div><span class="hero-label">${icon('water')} Inwestycje wodno-kanalizacyjne</span><p>Co warto sprawdzić<br>przed przetargiem?</p><span>Dokumenty, ryzyka i doświadczenia gmin w jednym miejscu.</span></div></aside></div>`;
 }

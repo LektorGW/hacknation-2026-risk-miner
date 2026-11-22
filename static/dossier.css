@@ -1,0 +1,225 @@
+:root {
+  color-scheme: light;
+  font: 16px/1.55 "Segoe UI",system-ui,sans-serif;
+  color: #15342e;
+  background: #f6f7f2;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+header {
+  background: #152e30;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px max(5vw,20px);
+  font-size: .9rem;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  font-size: 1.4rem;
+  font-weight: 650;
+  letter-spacing: -.05em;
+}
+
+.brand img {
+  width: 36px;
+}
+
+main {
+  max-width: 1160px;
+  margin: auto;
+  padding: 24px clamp(16px,4vw,56px) 60px;
+}
+
+a {
+  color: #164e40;
+  text-underline-offset: .2em;
+}
+
+a:focus-visible {
+  outline: 3px solid #b16d1b;
+  outline-offset: 3px;
+}
+
+.cases,.timeline {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.cases a,.timeline a {
+  display: block;
+  text-decoration: none;
+  padding: 8px 15px;
+  border: 1px solid #bccdc1;
+  border-radius: 5px;
+  background: white;
+}
+
+.cases a[aria-current],.timeline a[aria-current] {
+  background: #204e43;
+  color: white;
+  border-color: #204e43;
+}
+
+.cases a:hover,.timeline a:hover {
+  text-decoration: underline;
+}
+
+.cover {
+  margin: 20px 0 28px;
+  color: white;
+  border-radius: 9px;
+  background: linear-gradient(90deg,#102d28 8%,#102d28e8 46%,#102d2830),url('/static/assets/oczyszczalnia.webp') center 56%/cover;
+  padding: clamp(22px,4vw,48px);
+}
+
+.cover div {
+  max-width: 620px;
+}
+
+.cover p:last-child {
+  margin: 0;
+}
+
+.caption,article small {
+  font-size: .76rem;
+  font-weight: 650;
+  text-transform: uppercase;
+  letter-spacing: .07em;
+}
+
+h1,h2,h3 {
+  line-height: 1.13;
+  margin: 0;
+}
+
+h1,h3,.verdict h2 {
+  font-family: Georgia,serif;
+  font-weight: 400;
+  letter-spacing: -.035em;
+}
+
+h1 {
+  font-size: clamp(38px,6vw,70px);
+  margin: 8px 0 12px;
+}
+
+h2 {
+  font-size: clamp(21px,2.6vw,32px);
+}
+
+p {
+  margin: 8px 0 15px;
+}
+
+.timeline a {
+  flex: 1;
+  min-width: 150px;
+  border-top-width: 3px;
+}
+
+.timeline span {
+  display: block;
+  font-size: .82rem;
+}
+
+.verdict {
+  padding: 20px 24px;
+  background: #e5eddd;
+  border-left: 4px solid #3a6550;
+  margin: 20px 0;
+}
+
+.verdict p:last-child {
+  margin-bottom: 0;
+}
+
+.verdict .caption,.cover .caption {
+  margin: 0 0 8px;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(min(235px,100%),1fr));
+  gap: 12px;
+}
+
+article {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #d0dccf;
+  border-radius: 7px;
+  background: white;
+  padding: 20px;
+}
+
+article h3 {
+  font-size: 1.8rem;
+  margin: 9px 0;
+}
+
+blockquote {
+  margin: 6px 0 17px;
+  border-left: 2px solid #9cb2a5;
+  padding-left: 12px;
+  font-size: .92rem;
+}
+
+article a {
+  margin-top: auto;
+  font-weight: 600;
+  font-size: .86rem;
+}
+
+.actual {
+  font-size: .84rem;
+  color: #48645b;
+}
+
+@media(max-width:580px) {
+  main {
+    padding-top: 16px;
+  }
+  .timeline {
+    flex-direction: column;
+  }
+  .timeline a {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+  }
+  .cases a {
+    padding: 7px 9px;
+    font-size: .85rem;
+  }
+}
+
+@media print {
+  header,.cases,.timeline {
+    display: none;
+  }
+  .cover {
+    background: none;
+    color: #152e30;
+    padding: 0;
+  }
+  .cards {
+    display: block;
+  }
+  article {
+    break-inside: avoid;
+    margin-bottom: 12px;
+  }
+}

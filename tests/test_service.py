@@ -236,3 +236,17 @@ def test_persistent_job_queue_recovers_claim_and_runs_once(http, monkeypatch):
     assert job["status"] == "done" and job["total"] == job["finished"] == 1
     with db.connection() as conn:
         assert conn.execute("SELECT attempt FROM tasks WHERE job_id=?", (jid,)).fetchone()[0] == 2
+
+def test_public_dossier_reconstructs_only_published_contract_fields(http):
+    early = http.get("/pokaz", params={"sprawa": "zagrodno", "etap": 1})
+    assert early.status_code == 200
+    assert "00143366/01" in early.text and "00277648/01" not in early.text
+    assert "3 miesiące" not in early.text and "01.06.2026" not in early.text
+    second = http.get("/pokaz?sprawa=zagrodno&etap=2").text
+    assert "00277648/01" in second and "00285691/01" not in second
+    final = http.get("/pokaz").text
+    assert "00285691/01" in final and "88 dni" in final and "różne okresy" in final
+    for name in ("zlawies-wielka", "grodzisko-dolne"):
+        assert "ten sam termin umowy" in http.get("/pokaz", params={"sprawa": name}).text
+    for query in ("etap=0", "etap=4", "sprawa=inne"):
+        assert http.get("/pokaz?" + query).status_code == 404

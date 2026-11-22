@@ -6,7 +6,8 @@ Wydanie sprawdzono 22 listopada 2026 r. na Windowsie z Docker Desktop i w konten
 
 | Sprawdzenie | Wynik |
 |---|---|
-| Testy automatyczne z repozytorium | 39 testów i 4 podtesty zakończyły się powodzeniem. Biblioteka klienta testowego informuje o przyszłej zmianie zależności. |
+| Testy automatyczne z repozytorium | 40 testów i 4 podtesty zakończyły się powodzeniem. Biblioteka klienta testowego informuje o przyszłej zmianie zależności. |
+| Publiczne akta umowy | Sprawdzono wybór daty i trzy inwestycje w przeglądarce przy szerokościach 390 i 1440 px. Widok pokazuje tylko dokumenty opublikowane do wybranego dnia. |
 | Pulpit i porównanie źródeł | Na szerokościach 1440 i 390 px sprawdzono logowanie, pulpit i przejście do rozbieżności. W obu ogłoszeniach z Zagrodna otwarto pole 4.2 z oryginalnym okresem umowy. Test pominięcia Biecza dał 396–442 dni, a wybrany wariant zapisano w Wordzie i JSON. |
 | Integralność wejścia | Arkusz dał 22 projekty. Załączniki rozpoznano jako 26 akapitów DOCX, stronę tekstowego PDF i stronę skanu odczytaną OCR. |
 | Walidacja odnośników | Wszystkie 76 plików BZP z migawki pobrano i porównano numer ogłoszenia na pierwszej stronie. Dodatkowy wpis pochodzi z rejestru KPO. [Szczegóły prób i ograniczeń](walidacja-zrodel.md) |

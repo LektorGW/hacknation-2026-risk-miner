@@ -1,5 +1,17 @@
 # Wdrożenie i utrzymanie
 
+## Uruchomienie na własnym stanowisku
+
+W katalogu projektu, z Pythonem 3.12 i Docker Compose, wykonaj:
+
+```sh
+python -m riskminer.cli bootstrap
+docker compose up -d --build
+docker compose exec app python -m riskminer.cli seed
+```
+
+Pod adresem `http://127.0.0.1:8180/pokaz` dostępne są akta trzech publicznych zamówień. Przestrzeń robocza pod `http://127.0.0.1:8180/` wymaga tokenu zapisanego przez bootstrap w `var/pierwszy-dostep.txt`.
+
 ## Pilot pod stałą domeną
 
 Na serwerze z Docker Compose 2.24.4 lub nowszym skieruj domenę na publiczny adres serwera i udostępnij porty TCP 80 oraz 443. Wygeneruj lokalną konfigurację kont poleceniem `python -m riskminer.cli bootstrap`, a następnie dopisz do `.env` zmienną `RISKMINER_DOMAIN` z rzeczywistą nazwą hosta, bez protokołu i ścieżki. Utwórz oddzielne konta dla użytkowników pilotażu zgodnie z instrukcją poniżej.
