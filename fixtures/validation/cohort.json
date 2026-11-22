@@ -1,0 +1,64 @@
+{
+  "strata_population": {
+    "without_change": 1308,
+    "with_change": 112
+  },
+  "sample": [
+    {
+      "id": "H01",
+      "ocid": "ocds-148610-f091c9ef-7f19-416b-900f-a27c4ac0e538",
+      "stratum": "with_change",
+      "plan_number": "2025/BZP 00128811/01",
+      "date": "2025-03-03"
+    },
+    {
+      "id": "H02",
+      "ocid": "ocds-148610-bd38a602-ec17-488e-b3fa-78fcb5807ea2",
+      "stratum": "with_change",
+      "plan_number": "2025/BZP 00159466/01",
+      "date": "2025-03-24"
+    },
+    {
+      "id": "H03",
+      "ocid": "ocds-148610-84b8ac7e-a3b2-4f98-a2ff-263fa93b0638",
+      "stratum": "with_change",
+      "plan_number": "2025/BZP 00151525/01",
+      "date": "2025-03-18"
+    },
+    {
+      "id": "H04",
+      "ocid": "ocds-148610-c5a97bb5-6e64-4083-8ea1-9736c7abed09",
+      "stratum": "with_change",
+      "plan_number": "2025/BZP 00264579/01",
+      "date": "2025-06-06"
+    },
+    {
+      "id": "H05",
+      "ocid": "ocds-148610-f0da24f0-7dff-4e21-8b08-2e1d2982bbef",
+      "stratum": "without_change",
+      "plan_number": "2025/BZP 00146979/01",
+      "date": "2025-03-14"
+    },
+    {
+      "id": "H06",
+      "ocid": "ocds-148610-67055818-2e55-40d3-80de-227792d65a92",
+      "stratum": "without_change",
+      "plan_number": "2025/BZP 00228432/01",
+      "date": "2025-05-13"
+    },
+    {
+      "id": "H07",
+      "ocid": "ocds-148610-f1d56e23-a34c-4f3c-b45a-4ec7b3eced59",
+      "stratum": "without_change",
+      "plan_number": "2025/BZP 00213496/01",
+      "date": "2025-04-30"
+    },
+    {
+      "id": "H08",
+      "ocid": "ocds-148610-627a0864-7475-4d26-bd90-5f8c43e4a33b",
+      "stratum": "without_change",
+      "plan_number": "2025/BZP 00419564/01",
+      "date": "2025-09-11"
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="pl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Ocena dokumentacji wodno-kanalizacyjnej</title><style>
+*{box-sizing:border-box}body{margin:0;font:16px/1.5 system-ui,sans-serif;color:#193a30;background:#f3f6f1}header,main{max-width:1200px;margin:auto;padding:22px}header{background:#173b2f;color:white;max-width:none}header>div{max-width:1156px;margin:auto}h1{font:normal 32px Georgia,serif;margin:0 0 5px}h2{font:normal 25px Georgia,serif}p{max-width:88ch}.toolbar,.actions{display:flex;gap:12px;align-items:center;flex-wrap:wrap}.field{display:flex;flex-direction:column;gap:3px;font-size:14px}button,select,input,textarea{font:inherit;padding:8px;border-radius:4px;border:1px solid #a4b6a8;background:white;max-width:100%}button{cursor:pointer}button.primary{background:#235840;color:white;border-color:#235840}article,details{background:white;border:1px solid #d1dbd0;border-radius:6px;padding:12px 15px;margin:10px 0}summary{cursor:pointer}pre{white-space:pre-wrap;overflow-wrap:anywhere;max-height:50vh;overflow:auto;background:#f7f8f4;padding:10px;font:14px/1.45 system-ui,sans-serif}.rows{display:grid;grid-template-columns:minmax(220px,1fr) minmax(200px,1fr);gap:10px}textarea{width:100%}.msg{font-weight:600;color:#335b28}.note{color:#54675b;font-size:14px}a{color:#156448}.error{color:#963e23}#status{min-height:24px}.actions{position:sticky;bottom:0;padding:12px;background:#edf3e9;border-top:1px solid #cad6c9}h3{margin:0 0 10px}label{display:block}@media(max-width:700px){.rows{grid-template-columns:1fr}main{padding:12px}}
+</style></head>
+<body><header><div><h1>Ocena dokumentacji wodno-kanalizacyjnej</h1><span>Niezależna ocena ekspercka · 8 postępowań · 15 kategorii ryzyka</span></div></header>
+<main><details open><summary><strong>Instrukcja dla eksperta</strong></summary>
+<p>Przeczytaj ogłoszenia o zmianie i wykonaniu umowy. Dla każdej kategorii zaznacz, co dokumenty mówią o zdarzeniu, jego przyczynie lub warunku wpływającym na realizację. Zachowaj odrębność umów w opisie skutków. Jednostką oceny jest całe postępowanie.</p>
+<ul><li><b>Potwierdzone</b> oznacza, że wskazany fragment dokumentuje zdarzenie lub warunek z tej kategorii.</li>
+<li><b>Niejednoznaczne</b> oznacza, że dokument dopuszcza różne interpretacje.</li>
+<li><b>Wyraźnie zaprzeczone</b> wymaga stwierdzenia, że dany warunek lub zdarzenie nie wystąpiło.</li>
+<li><b>Brak wzmianki</b> oznacza brak podstawy źródłowej do rozstrzygnięcia. Samo podpisanie aneksu lub przekroczenie terminu nie ustala przyczyny.</li></ul>
+<p>Przy pierwszych trzech ocenach wybierz źródło i wklej dokładny fragment z widocznego tekstu. Formularz sprawdzi cytat. Pole uzasadnienia służy do wyjaśnienia interpretacji i lokalizacji. Do ukończenia potrzebne są wszystkie decyzje.</p>
+<p>Pracuj na tej kopii bez otwierania wyniku systemu, repozytorium projektu ani ocen innych osób. „Pobierz szkic” zapisuje plik do późniejszego wznowienia. Po zakończeniu przekaż pobrany plik osobie koordynującej ocenę. Formularz przetwarza odpowiedzi na tym urządzeniu.</p></details>
+<div class="toolbar"><label class="field">Osoba oceniająca lub identyfikator<input id="assessor" autocomplete="off"></label>
+<label class="field">Postępowanie<select id="case"></select></label><span id="progress" aria-live="polite"></span></div>
+<h2 id="title"></h2><div id="sources"></div><h2>Kategorie</h2><div id="labels"></div>
+<label class="field">Skutki udokumentowane w poszczególnych umowach (opcjonalnie)<textarea id="effects" rows="3" placeholder="Identyfikator umowy, termin pierwotny i końcowy lub wypłata. Podaj źródło i lokalizację."></textarea></label>
+<p id="status" role="status"></p><div class="actions"><button id="draft">Pobierz szkic</button><label>Wczytaj szkic <input id="restore" type="file" accept="application/json,.json"></label><button class="primary" id="finish">Pobierz końcową ocenę</button></div></main>
+<script type="application/json" id="packet">__BLIND_PACKET__</script><script>
+"use strict";
+const packet=JSON.parse(document.querySelector("#packet").textContent), q=s=>document.querySelector(s);
+const options={"":"Wybierz ocenę",positive:"Potwierdzone",ambiguous:"Niejednoznaczne",explicit_negative:"Wyraźnie zaprzeczone",not_documented:"Brak wzmianki"};
+const make=(tag,txt)=>{const e=document.createElement(tag);if(txt!=null)e.textContent=txt;return e};
+const opt=(val,txt)=>{const e=make("option",txt);e.value=val;return e};
+let draft={packet:packet.id,assessor:"",rows:{},effects:{}};
+function normal(t){return String(t||"").replace(/\s+/g," ").trim()}
+function rowKey(h,c){return h+"/"+c}
+function row(h,c){return draft.rows[rowKey(h,c)]||{decision:"",source_id:"",excerpt:"",reason:""}}
+function update(h,c,k,v){draft.rows[rowKey(h,c)]={...row(h,c),[k]:v};progress()}
+function progress(){const n=Object.values(draft.rows).filter(x=>x.decision).length;q("#progress").textContent=n+" / "+(packet.cases.length*packet.catalog.length)+" ocen"}
+function current(){return packet.cases.find(c=>c.id===q("#case").value)}
+function message(s,error=false){q("#status").className=error?"error":"msg";q("#status").textContent=s}
+function render(){const c=current();q("#title").textContent=c.id+" · "+c.docs[0].title;q("#sources").replaceChildren();q("#labels").replaceChildren();q("#effects").value=draft.effects[c.id]||"";
+ for(const d of c.docs){const detail=make("details"),s=make("summary",d.external_id+" · "+d.published_at.slice(0,10)),
+ link=make("a","Otwórz oryginalne ogłoszenie BZP"),pre=make("pre",d.text);link.href=d.url;link.target="_blank";link.rel="noopener noreferrer";detail.append(s,link,pre);q("#sources").append(detail)}
+ for(const r of packet.catalog){const data=row(c.id,r.id),a=make("article"),h=make("h3",r.id+" · "+r.title),ex=make("p",r.impact);ex.className="note";
+  const grid=make("div");grid.className="rows";a.append(h,ex,grid);
+  const field=(name,control,k)=>{const l=make("label",name);l.className="field";control.value=data[k]||"";control.oninput=()=>update(c.id,r.id,k,control.value);l.append(control);grid.append(l)};
+  const dec=make("select");for(const [v,name] of Object.entries(options))dec.append(opt(v,name));field("Ocena",dec,"decision");
+  const src=make("select");src.append(opt("","Wybierz ogłoszenie"));for(const d of c.docs)src.append(opt(d.external_id,d.external_id));field("Dowód źródłowy",src,"source_id");
+  const quote=make("textarea"),why=make("textarea");quote.rows=3;why.rows=3;field("Dosłowny cytat",quote,"excerpt");field("Lokalizacja i uzasadnienie",why,"reason");q("#labels").append(a)}
+ progress();message("")}
+function download(name,data){const url=URL.createObjectURL(new Blob([JSON.stringify(data,null,2)],{type:"application/json"}));const a=make("a");a.href=url;a.download=name;a.click();setTimeout(()=>URL.revokeObjectURL(url),5000)}
+function finish(){if(!draft.assessor.trim())return message("Wpisz identyfikator osoby oceniającej.",true);
+ const cases=[];for(const c of packet.cases){const out={case_id:c.id,positive:[],ambiguous:[],explicit_negative:[],not_documented:[],evidence:[],effects:{notes:draft.effects[c.id]||""}};
+  for(const r of packet.catalog){const v=row(c.id,r.id);if(!v.decision||!Object.hasOwn(out,v.decision))return message("Uzupełnij ocenę "+c.id+" / "+r.id+".",true);
+   if(v.decision!=="not_documented"){const source=c.docs.find(d=>d.external_id===v.source_id);if(!source||!normal(v.excerpt)||!normal(source.text).includes(normal(v.excerpt)))return message("Sprawdź cytat i numer źródła dla "+c.id+" / "+r.id+".",true);
+     out.evidence.push({category:r.id,source_id:source.external_id,excerpt:v.excerpt,reason:v.reason})}out[v.decision].push(r.id)}
+  cases.push(out)}
+ download("ocena-eksperta.json",{packet:packet.id,assessor:draft.assessor,completed_at:new Date().toISOString(),cases});message("Zapisano plik z końcową oceną.")}
+q("#assessor").oninput=e=>draft.assessor=e.target.value;q("#effects").oninput=e=>draft.effects[current().id]=e.target.value;
+q("#draft").onclick=()=>download("szkic-oceny.json",draft);q("#finish").onclick=finish;
+q("#restore").onchange=async e=>{try{const v=JSON.parse(await e.target.files[0].text());if(v.packet!==packet.id||!v.rows||!v.effects||typeof v.assessor!=="string")throw Error();draft=v;q("#assessor").value=v.assessor;render();message("Wczytano szkic.")}catch{message("Nie udało się wczytać szkicu tego zestawu.",true)}};
+for(const c of packet.cases)q("#case").append(opt(c.id,c.id));q("#case").onchange=render;render();
+</script></body></html>

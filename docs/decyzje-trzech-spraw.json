@@ -1,0 +1,1013 @@
+[
+  {
+    "project_id": "RM-2026-002",
+    "review_id": "review-419d7fec58e2a20bd5b530a5",
+    "entity_id": "evt-029755061ac01b3e7e170764",
+    "group": "events",
+    "version": 1,
+    "source_id": "doc-ee622c0f3bc9406bc040cac4",
+    "source_key": "2026/BZP 00285691/01",
+    "source_sha256": "fd2c99597f58651f53172a6ca401bce1bc59dee99e4e7960d73cdaa7c7bd1f0a",
+    "decision": "rejected",
+    "comment": "Pole V.5.5 podaje 5 350 782,65 zł wypłaconego wynagrodzenia. Samo rozliczenie nie dowodzi wadliwego doboru modelu wynagrodzenia."
+  },
+  {
+    "project_id": "RM-2026-002",
+    "review_id": "review-d76ee215b7e9200948833fad",
+    "entity_id": "evt-187e4c9cfac92800545743f3",
+    "group": "events",
+    "version": 1,
+    "source_id": "doc-420357cc844a36f007173773",
+    "source_key": "2026/BZP 00143366/01",
+    "source_sha256": "1c362946fb85f9b179c56c213e898b60c465beaea2229377dcb6abda5b541499",
+    "decision": "rejected",
+    "comment": "W wyniku przetargu przytoczono zakres czynności wykonawcy, w tym pozwolenie konserwatora. Brak opisu trudności w uzyskaniu tego pozwolenia. Wymóg figuruje już w ogłoszeniu pierwotnym.",
+    "jury_variant": {
+      "review_id": "review-b54424fd03e6975bf86e3129",
+      "entity_id": "evt-3879fba849e85333415d958d"
+    }
+  },
+  {
+    "project_id": "RM-2026-002",
+    "review_id": "review-c6d2a7fbd8ac211e41063923",
+    "entity_id": "evt-1f683f3113e22da1610b84ac",
+    "group": "events",
+    "version": 1,
+    "source_id": "doc-e235611d8a833936f34efb49",
+    "source_key": "2026/BZP 00277648/01",
+    "source_sha256": "5d3ae3fc291d1b9d96f1825e33144f1af48709d5d5b61dbc860f99a25456c11b",
+    "decision": "rejected",
+    "comment": "Sekcja V.5.4.5 stwierdza przedłużenie o miesiąc przy stałym wynagrodzeniu. Wniosek R08 o niedopasowanym modelu płatności wykracza poza ten zapis."
+  },
+  {
+    "project_id": "RM-2026-002",
+    "review_id": "review-cb295aa3e5606bbc9bff9f24",
+    "entity_id": "evt-2af2feb795c83bd5bced20f3",
+    "group": "events",
+    "version": 1,
+    "source_id": "doc-44e5404ecebe0e9286dfed34",
+    "source_key": "strona 1",
+    "source_sha256": "9de18e39ce3ae7eae33ea36f984865915cebd45dcc76f9b54e7e42a0d93f1f87",
+    "decision": "corrected",
+    "comment": "Protokół z 5 maja, s. 1, wymienia konkretną kolizję i urządzenie. Późniejsze ogłoszenie 00285691 w V.5.4.5 potwierdza kolizję jako przyczynę zmiany terminu.",
+    "patch": {
+      "kind": "candidate_event",
+      "title": "Kolizja z wodociągiem uniemożliwiła posadowienie pompowni PM2",
+      "description": "Protokół z 5 maja, s. 1, wymienia konkretną kolizję i urządzenie. Późniejsze ogłoszenie 00285691 w V.5.4.5 potwierdza kolizję jako przyczynę zmiany terminu."
+    },
+    "jury_variant": {
+      "review_id": "review-e286981a636c6070266e2b2a",
+      "entity_id": "evt-c595bddd463b34bff544682c"
+    }
+  },
+  {
+    "project_id": "RM-2026-002",
+    "review_id": "review-4209aa2eeb255e40349f9554",
+    "entity_id": "evt-34a13ef9ca6e267533b46d2c",
+    "group": "events",
+    "version": 1,
+    "source_id": "doc-44e5404ecebe0e9286dfed34",
+    "source_key": "strona 1",
+    "source_sha256": "9de18e39ce3ae7eae33ea36f984865915cebd45dcc76f9b54e7e42a0d93f1f87",
+    "decision": "corrected",
+    "comment": "Autor protokołu na s. 1 opisuje zależność techniczną pomiędzy inwestycjami. To przesłanka do sprawdzenia terminu uzyskania efektu użytkowego; data uruchomienia pozostaje niepotwierdzona.",
+    "patch": {
+      "kind": "signal",
+      "title": "Uruchomienie sieci zależy od przyłącza do oczyszczalni",
+      "description": "Autor protokołu na s. 1 opisuje zależność techniczną pomiędzy inwestycjami. To przesłanka do sprawdzenia terminu uzyskania efektu użytkowego; data uruchomienia pozostaje niepotwierdzona."
+    },
+    "jury_merged_into": "review-46ede1988d2040b09b41d9cd"
+  },
+  {
+    "project_id": "RM-2026-002",
+    "review_id": "review-8cc29a5b77d15d486218471c",
+    "entity_id": "evt-69edd85da2a5b113369c7c06",
+    "group": "events",
+    "version": 1,
+    "source_id": "doc-44e5404ecebe0e9286dfed34",
+    "source_key": "strona 1",
+    "source_sha256": "9de18e39ce3ae7eae33ea36f984865915cebd45dcc76f9b54e7e42a0d93f1f87",
+    "decision": "corrected",
+    "comment": "Protokół wskazuje warunki gruntowe w miejscu pompowni. Pozwala przytoczyć tę obserwację; ocena jakości badań sprzed przetargu wymaga materiału geotechnicznego.",
+    "patch": {
+      "kind": "signal",
+      "title": "Wysoki poziom wód gruntowych w wykopie pod PM2",
+      "description": "Protokół wskazuje warunki gruntowe w miejscu pompowni. Pozwala przytoczyć tę obserwację; ocena jakości badań sprzed przetargu wymaga materiału geotechnicznego."
+    },
+    "jury_variant": {
+      "review_id": "review-e6e2d8099c30f4b9f72cb25f",
+      "entity_id": "evt-cbf73999e786989c201b7681"
+    }
+  },
+  {
+    "project_id": "RM-2026-002",
+    "review_id": "review-505d848186dcfbf6a9bf9317",
+    "entity_id": "evt-6c72be2f650a891bb291279d",
+    "group": "events",
+    "version": 1,
+    "source_id": "doc-da3ac0de8372bc3d1a834f7e",
+    "source_key": "2026/BZP 00089794/01",
+    "source_sha256": "6dfd61a2b6c2ab3351ab5847c9def1e4fb009110690bb9f6b3e0d591c75ea265",
+    "decision": "rejected",
+    "comment": "Cytat pochodzi z informacji o inspektorze ochrony danych. Dotyczy kontaktu w sprawie danych osobowych i nie opisuje braków zakresu robót."
+  },
+  {
+    "project_id": "RM-2026-002",
+    "review_id": "review-5970e09a4dc85b0a483dcda6",
+    "entity_id": "evt-775221a6d22e808f3370f693",
+    "group": "events",
+    "version": 1,
+    "source_id": "doc-44e5404ecebe0e9286dfed34",
+    "source_key": "strona 1",
+    "source_sha256": "9de18e39ce3ae7eae33ea36f984865915cebd45dcc76f9b54e7e42a0d93f1f87",
+    "decision": "rejected",
+    "comment": "Urwana fraza o zasadności przedłużenia pochodzi z tego samego protokołu co konkretna propozycja miesiąca. Nie dowodzi osobnego zdarzenia ani nierealności planu.",
+    "jury_variant": {
+      "review_id": "review-7abf604aa22e349bc9eea2b6",
+      "entity_id": "evt-203a11a13d8634759c8aae11"
+    }
+  },
+  {
+    "project_id": "RM-2026-002",
+    "review_id": "review-5d6cd01ce7532695624aa150",
+    "entity_id": "evt-7f1596427d506235994344a1",
+    "group": "events",
+    "version": 1,
+    "source_id": "doc-e235611d8a833936f34efb49",
+    "source_key": "2026/BZP 00277648/01",
+    "source_sha256": "5d3ae3fc291d1b9d96f1825e33144f1af48709d5d5b61dbc860f99a25456c11b",
+    "decision": "rejected",
+    "comment": "W pierwszym ogłoszeniu o wykonaniu pole V.5.5 jest jedynie kwotą wypłaty. Źródło nie stawia tezy o nieodpowiednim modelu wynagrodzenia."
+  },
+  {
+    "project_id": "RM-2026-002",
+    "review_id": "review-e82a82b7fbe371bca1050a97",
+    "entity_id": "evt-908059a49d8744d59c73fdbc",
+    "group": "events",
+    "version": 1,
+    "source_id": "doc-44e5404ecebe0e9286dfed34",
+    "source_key": "strona 1",
+    "source_sha256": "9de18e39ce3ae7eae33ea36f984865915cebd45dcc76f9b54e7e42a0d93f1f87",
+    "decision": "corrected",
+    "comment": "W części „Proponowana zmiana” protokołu wskazano trzy miesiące od zawarcia umowy. Zachowano jako propozycję dokumentu, odrębną od pierwotnych dwóch miesięcy z wyniku BZP.",
+    "patch": {
+      "kind": "signal",
+      "title": "Propozycja zmiany okresu wykonania na trzy miesiące",
+      "description": "W części „Proponowana zmiana” protokołu wskazano trzy miesiące od zawarcia umowy. Zachowano jako propozycję dokumentu, odrębną od pierwotnych dwóch miesięcy z wyniku BZP."
+    },
+    "jury_variant": {
+      "review_id": "review-caa3dbd727ed59a2f681e42d",
+      "entity_id": "evt-f9c11db7da30f6ad3662bf70"
+    }
+  },
+  {
+    "project_id": "RM-2026-002",
+    "review_id": "review-ba582c0fbf558a85eecbef8b",
+    "entity_id": "evt-93bd86dc498042c670c20da9",
+    "group": "events",
+    "version": 1,
+    "source_id": "doc-da3ac0de8372bc3d1a834f7e",
+    "source_key": "2026/BZP 00089794/01",
+    "source_sha256": "6dfd61a2b6c2ab3351ab5847c9def1e4fb009110690bb9f6b3e0d591c75ea265",
+    "decision": "rejected",
+    "comment": "Pole III.3.6 opisuje obsługę korespondencji elektronicznej w postępowaniu. Nie stanowi dowodu niejednoznaczności technicznych wymagań dla sieci."
+  },
+  {
+    "project_id": "RM-2026-002",
+    "review_id": "review-16229770d90b6af5e2944988",
+    "entity_id": "evt-95a4a0a99f3972690efdeb9c",
+    "group": "events",
+    "version": 1,
+    "source_id": "doc-44e5404ecebe0e9286dfed34",
+    "source_key": "strona 1",
+    "source_sha256": "9de18e39ce3ae7eae33ea36f984865915cebd45dcc76f9b54e7e42a0d93f1f87",
+    "decision": "rejected",
+    "comment": "Pierwsze zdanie protokołu uzasadnia potrzebę aneksu o jeden miesiąc. To ponowne wskazanie tej samej propozycji, ujętej już w odrębnym pomiarze, bez dowodu wadliwego zaplanowania.",
+    "jury_variant": {
+      "review_id": "review-9fe7680565efa3dedf3ebbb1",
+      "entity_id": "evt-57ce5c8c4a1c03db9fdefb9c"
+    }
+  },
+  {
+    "project_id": "RM-2026-002",
+    "review_id": "review-2c3807b41880dcc5b0863fbd",
+    "entity_id": "evt-9a1d36968da9d408867e37dd",
+    "group": "events",
+    "version": 1,
+    "source_id": "doc-da3ac0de8372bc3d1a834f7e",
+    "source_key": "2026/BZP 00089794/01",
+    "source_sha256": "6dfd61a2b6c2ab3351ab5847c9def1e4fb009110690bb9f6b3e0d591c75ea265",
+    "decision": "pending",
+    "comment": "SWZ dopuszcza zmianę warunków płatności. Należy porównać załącznik nr 6, podpisaną umowę i ewentualną korespondencję finansową, aby ocenić znaczenie klauzuli dla płynności. Brak potwierdzenia materializacji."
+  },
+  {
+    "project_id": "RM-2026-002",
+    "review_id": "review-ce500f9ad25e3c91726bdef5",
+    "entity_id": "evt-aa1f3f208441d92b5d67f1b1",
+    "group": "events",
+    "version": 1,
+    "source_id": "doc-44e5404ecebe0e9286dfed34",
+    "source_key": "strona 1",
+    "source_sha256": "9de18e39ce3ae7eae33ea36f984865915cebd45dcc76f9b54e7e42a0d93f1f87",
+    "decision": "corrected",
+    "comment": "Sformułowanie „przewidywane” odnosi się do możliwości przyłączenia do oczyszczalni w Modlikowicach. Potwierdzono prognozę autora protokołu; rzeczywisty czas oczekiwania pozostaje do ustalenia.",
+    "patch": {
+      "kind": "signal",
+      "title": "Przewidywane cztery miesiące opóźnienia efektu użytkowego",
+      "description": "Sformułowanie „przewidywane” odnosi się do możliwości przyłączenia do oczyszczalni w Modlikowicach. Potwierdzono prognozę autora protokołu; rzeczywisty czas oczekiwania pozostaje do ustalenia."
+    },
+    "jury_variant": {
+      "review_id": "review-46ede1988d2040b09b41d9cd",
+      "entity_id": "evt-ef64681c98fd99e237edf2cc"
+    }
+  },
+  {
+    "project_id": "RM-2026-002",
+    "review_id": "review-4bbc30516472d624dcf2700a",
+    "entity_id": "evt-b313dd952132670d5cef10fd",
+    "group": "events",
+    "version": 1,
+    "source_id": "doc-da3ac0de8372bc3d1a834f7e",
+    "source_key": "2026/BZP 00089794/01",
+    "source_sha256": "6dfd61a2b6c2ab3351ab5847c9def1e4fb009110690bb9f6b3e0d591c75ea265",
+    "decision": "rejected",
+    "comment": "Numer telefonu i zredagowany adres e-mail w ogłoszeniu są danymi kontaktowymi. Nie opisują zakresu technicznego zamówienia."
+  },
+  {
+    "project_id": "RM-2026-002",
+    "review_id": "review-c7cad3c8e8d709d762156dfa",
+    "entity_id": "evt-d6b2e8954e48367cf9127cd3",
+    "group": "events",
+    "version": 1,
+    "source_id": "doc-ee622c0f3bc9406bc040cac4",
+    "source_key": "2026/BZP 00285691/01",
+    "source_sha256": "fd2c99597f58651f53172a6ca401bce1bc59dee99e4e7960d73cdaa7c7bd1f0a",
+    "decision": "corrected",
+    "comment": "Pole V.5.4.5 późniejszego ogłoszenia o wykonaniu odnosi zmianę terminu do kolizji na budowie. Jest to drugie źródło dla zdarzenia PM2, a nie kolejna kolizja.",
+    "patch": {
+      "kind": "candidate_event",
+      "title": "W ogłoszeniu wskazano kolizję jako przyczynę zmiany terminu",
+      "description": "Pole V.5.4.5 późniejszego ogłoszenia o wykonaniu odnosi zmianę terminu do kolizji na budowie. Jest to drugie źródło dla zdarzenia PM2, a nie kolejna kolizja."
+    },
+    "jury_variant": {
+      "review_id": "review-7bd2da0b2a93210d54e64fe1",
+      "entity_id": "evt-b299451f9950b39c82298767"
+    }
+  },
+  {
+    "project_id": "RM-2026-002",
+    "review_id": "review-ab8319f14ecb033af6e1d935",
+    "entity_id": "evt-ebd77a314bf35cad93ee91dd",
+    "group": "events",
+    "version": 1,
+    "source_id": "doc-ee622c0f3bc9406bc040cac4",
+    "source_key": "2026/BZP 00285691/01",
+    "source_sha256": "fd2c99597f58651f53172a6ca401bce1bc59dee99e4e7960d73cdaa7c7bd1f0a",
+    "decision": "rejected",
+    "comment": "Późniejsze ogłoszenie powtarza obowiązek uzyskania opinii i pozwolenia konserwatora z opisu robót. Potwierdzoną przyczyną zmiany w V.5.4.5 jest kolizja.",
+    "jury_variant": {
+      "review_id": "review-410b8e97347684e3d42d032f",
+      "entity_id": "evt-b742e4c2de44e54a1dca99fe"
+    }
+  },
+  {
+    "project_id": "RM-2026-002",
+    "review_id": "review-2f12215dbda5222e385f6ba8",
+    "entity_id": "evt-ed6e1c89b2fdf1e44456daef",
+    "group": "events",
+    "version": 1,
+    "source_id": "doc-e235611d8a833936f34efb49",
+    "source_key": "2026/BZP 00277648/01",
+    "source_sha256": "5d3ae3fc291d1b9d96f1825e33144f1af48709d5d5b61dbc860f99a25456c11b",
+    "decision": "rejected",
+    "comment": "W pierwszym ogłoszeniu o wykonaniu ponownie przytoczono obowiązek uzyskania opinii. Brakuje informacji o odmowie, zwłoce czy problemie z pozwoleniem.",
+    "jury_variant": {
+      "review_id": "review-7ad6fcaf76aaebe228e5f3ec",
+      "entity_id": "evt-3a96b633755bf1f08d70817d"
+    }
+  },
+  {
+    "project_id": "RM-2026-002",
+    "review_id": "review-ffdc5ae609081d5490c2f649",
+    "entity_id": "evt-fbcb67da61aa912cdfd9a453",
+    "group": "events",
+    "version": 1,
+    "source_id": "doc-da3ac0de8372bc3d1a834f7e",
+    "source_key": "2026/BZP 00089794/01",
+    "source_sha256": "6dfd61a2b6c2ab3351ab5847c9def1e4fb009110690bb9f6b3e0d591c75ea265",
+    "decision": "rejected",
+    "comment": "Odesłanie do regulaminu portalu dotyczy przesyłania elektronicznej korespondencji. W tym fragmencie brak parametrów projektowanej kanalizacji i dowodu ich niejednoznaczności."
+  },
+  {
+    "project_id": "RM-2026-002",
+    "review_id": "review-a2f5053df2ac2a916d51da3f",
+    "entity_id": "evt-fd7d41d1d029e6467636ef92",
+    "group": "events",
+    "version": 1,
+    "source_id": "doc-da3ac0de8372bc3d1a834f7e",
+    "source_key": "2026/BZP 00089794/01",
+    "source_sha256": "6dfd61a2b6c2ab3351ab5847c9def1e4fb009110690bb9f6b3e0d591c75ea265",
+    "decision": "corrected",
+    "comment": "W ogłoszeniu pierwotnym wskazano wymagane pozwolenie. Potwierdzono wymaganie przed przetargiem; źródło nie potwierdza późniejszej zwłoki organu.",
+    "patch": {
+      "kind": "signal",
+      "title": "Pozwolenie konserwatora na badania archeologiczne w zakresie wykonawcy",
+      "description": "W ogłoszeniu pierwotnym wskazano wymagane pozwolenie. Potwierdzono wymaganie przed przetargiem; źródło nie potwierdza późniejszej zwłoki organu."
+    },
+    "jury_variant": {
+      "review_id": "review-12af032a7a86b12add910aa3",
+      "entity_id": "evt-96e027b226fa52c0bf5e233d"
+    }
+  },
+  {
+    "project_id": "RM-2026-002",
+    "review_id": "review-8e7692058ad410dbcad73d8e",
+    "entity_id": "measure-5887dd7d91a405e198dbd2dd",
+    "group": "measurements",
+    "version": 1,
+    "source_id": "doc-44e5404ecebe0e9286dfed34",
+    "source_key": "strona 1",
+    "source_sha256": "9de18e39ce3ae7eae33ea36f984865915cebd45dcc76f9b54e7e42a0d93f1f87",
+    "decision": "accepted",
+    "comment": "W protokole na s. 1 przewidywano 4 miesiące opóźnienia efektu użytkowego wynikającego z zależności od oczyszczalni. Jednostka i kwalifikacja pomiaru jako prognozy są trafne."
+  },
+  {
+    "project_id": "RM-2026-002",
+    "review_id": "review-73bb08ff3032fb46cd7fcb08",
+    "entity_id": "measure-725ad2ed73c8853bb9b3fd7e",
+    "group": "measurements",
+    "version": 1,
+    "source_id": "doc-44e5404ecebe0e9286dfed34",
+    "source_key": "strona 1",
+    "source_sha256": "9de18e39ce3ae7eae33ea36f984865915cebd45dcc76f9b54e7e42a0d93f1f87",
+    "decision": "accepted",
+    "comment": "Na s. 1 wprost wnioskowano o przedłużenie umowy o 1 miesiąc. Pomiar poprawnie wyraża przyrost; projektowany całkowity okres po zmianie wynosił 3 miesiące."
+  },
+  {
+    "project_id": "RM-2026-002",
+    "review_id": "review-a5dd5948fc3bacdb2a617530",
+    "entity_id": "obs-18bd3019bd51069562ef83c6",
+    "group": "observations",
+    "version": 1,
+    "source_id": "doc-420357cc844a36f007173773",
+    "source_key": "2026/BZP 00143366/01",
+    "source_sha256": "1c362946fb85f9b179c56c213e898b60c465beaea2229377dcb6abda5b541499",
+    "decision": "accepted",
+    "comment": "Wynik BZP w II.2.14 wskazuje 2026/BZP 00089794, zgodny OCID i nazwę Modlikowic. W VIII.8.1–8.3 wpisano 05.03.2026, 5 350 782,65 zł oraz pierwotne 2 miesiące."
+  },
+  {
+    "project_id": "RM-2026-002",
+    "review_id": "review-58d8d9054f16ef9b699144a5",
+    "entity_id": "obs-6aa50b0ca51cd1b862cebb0a",
+    "group": "observations",
+    "version": 1,
+    "source_id": "doc-e235611d8a833936f34efb49",
+    "source_key": "2026/BZP 00277648/01",
+    "source_sha256": "5d3ae3fc291d1b9d96f1825e33144f1af48709d5d5b61dbc860f99a25456c11b",
+    "decision": "accepted",
+    "comment": "Zgodne OCID, numer ogłoszenia początkowego, podpisanie i kwota umowy. Pierwsze wykonanie przytacza 3 miesiące w IV.4.2 oraz +1 miesiąc bez wzrostu wynagrodzenia w V.5.4.5. Zachować jako osobny raport tej samej umowy."
+  },
+  {
+    "project_id": "RM-2026-002",
+    "review_id": "review-ccb0b0e6c9e161fe33ff664d",
+    "entity_id": "obs-9590f9e7230ee0bf1dd611e1",
+    "group": "observations",
+    "version": 1,
+    "source_id": "doc-da3ac0de8372bc3d1a834f7e",
+    "source_key": "2026/BZP 00089794/01",
+    "source_sha256": "6dfd61a2b6c2ab3351ab5847c9def1e4fb009110690bb9f6b3e0d591c75ea265",
+    "decision": "accepted",
+    "comment": "PDF ogłoszenia potwierdza gminę, budowę kanalizacji w Modlikowicach i OCID 7ae14583-9ae6-40e4-bbf5-11c0fdbdaff8. Zakres w arkuszu obejmuje całe postępowanie. Wykaz UMWD potwierdza podmiot i przedsięwzięcie KPO."
+  },
+  {
+    "project_id": "RM-2026-002",
+    "review_id": "review-d0969cb25472f050cd544c90",
+    "entity_id": "obs-bf755441e657fca5304cdf05",
+    "group": "observations",
+    "version": 1,
+    "source_id": "doc-ee622c0f3bc9406bc040cac4",
+    "source_key": "2026/BZP 00285691/01",
+    "source_sha256": "fd2c99597f58651f53172a6ca401bce1bc59dee99e4e7960d73cdaa7c7bd1f0a",
+    "decision": "accepted",
+    "comment": "Drugie wykonanie wskazuje tę samą datę zawarcia, OCID, kwotę i zakończenie 01.06.2026. IV.4.2 podaje 2 miesiące zamiast 3 z wcześniejszego raportu. V.5.4.6 zawiera wartość całej umowy przy V.5.4.8 „Nie”; brak podstaw do naliczenia takiego wzrostu."
+  },
+  {
+    "project_id": "RM-2026-002",
+    "review_id": "review-d88c1bb03662d22ab73508c2",
+    "entity_id": "obs-dfa2d6655a8e750cd31c00cb",
+    "group": "observations",
+    "version": 1,
+    "source_id": "doc-23e59ff34c33718eefec3a6f",
+    "source_key": "KPOD.03.15-IW.13-0004/25",
+    "source_sha256": "b76e697fd4943e5939292ddda4fbf2907a2363e293718ad0b4e1a5b4a647f9ab",
+    "decision": "accepted",
+    "comment": "UMWD, s. 2, poz. 25: identyczny KPOD.03.15-IW.13-0004/25, gmina i tytuł. 4 770 558,05 zł jest wnioskowaną kwotą wsparcia; koszt kontraktu wynika niezależnie z BZP."
+  },
+  {
+    "project_id": "RM-2026-005",
+    "review_id": "review-72fd35569f0e38ee85ab604b",
+    "entity_id": "evt-04e83f2556b473648261115f",
+    "group": "events",
+    "version": 1,
+    "source_id": "doc-313ea8eb6540fbee6c76140a",
+    "source_key": "akapit 18",
+    "source_sha256": "2cd9009fd888208c90c6a7aa88cef3db2c78873102af9a9378945cea6fd4e578",
+    "decision": "corrected",
+    "comment": "Ak. 18 opisuje wskazaną przez sporządzających zależność terminu od dodatkowych robót. Ocena, czy przy przygotowaniu można je było przewidzieć, pozostaje merytoryczna.",
+    "patch": {
+      "kind": "signal",
+      "title": "Wskazano potrzebę wydłużenia terminu z powodu dodatkowych prac",
+      "description": "Ak. 18 opisuje wskazaną przez sporządzających zależność terminu od dodatkowych robót. Ocena, czy przy przygotowaniu można je było przewidzieć, pozostaje merytoryczna."
+    }
+  },
+  {
+    "project_id": "RM-2026-005",
+    "review_id": "review-0ed6891f62eee0dc10a36762",
+    "entity_id": "evt-301997f4e729bd4ea1f23f1d",
+    "group": "events",
+    "version": 1,
+    "source_id": "doc-6ef129763031641e6cb7ad41",
+    "source_key": "2026/BZP 00021981/01",
+    "source_sha256": "13b824378d980e0a12179269f31635514426496c0d74c7cff7bb7a11f6dc237d",
+    "decision": "rejected",
+    "comment": "Raport z wykonania ponownie przytacza zapis ofertowy o ryczałcie. Jest to opis formy wynagrodzenia; właściwość tej formy wymaga odrębnej oceny."
+  },
+  {
+    "project_id": "RM-2026-005",
+    "review_id": "review-241366cbe2e9b27334dd8918",
+    "entity_id": "evt-3b7d3a0bfa58b1c695ee3d64",
+    "group": "events",
+    "version": 1,
+    "source_id": "doc-e62bd5cad04d7c997d224eab",
+    "source_key": "2025/BZP 00245492/01",
+    "source_sha256": "ffd496071697f027c48a321bde5dbee17251f50003d8710267e368c40f96a042",
+    "decision": "rejected",
+    "comment": "W ogłoszeniu pierwotnym wybrano nagłówek listy prac w ramach wynagrodzenia. Sam nagłówek nie określa problemu modelu rozliczenia."
+  },
+  {
+    "project_id": "RM-2026-005",
+    "review_id": "review-15576be4e134989f3f0b1029",
+    "entity_id": "evt-55ff4c1060656f790a883280",
+    "group": "events",
+    "version": 1,
+    "source_id": "doc-c2201b8dc04b99352a7c5233",
+    "source_key": "2025/BZP 00342797/01",
+    "source_sha256": "6a01831c9b9a06da774a53da67b9ec4865acfc58ca9a3e9c9df2bd397b44739f",
+    "decision": "rejected",
+    "comment": "Ogłoszenie o wyniku przywołuje wymóg ryczałtowej wyceny oferty. Jego powtórzenie nie dokumentuje niedopasowania ryczałtu w realizacji."
+  },
+  {
+    "project_id": "RM-2026-005",
+    "review_id": "review-c9d076bb9ae9aab88daca442",
+    "entity_id": "evt-57f84540106de2df21eb0b9d",
+    "group": "events",
+    "version": 1,
+    "source_id": "doc-c2201b8dc04b99352a7c5233",
+    "source_key": "2025/BZP 00342797/01",
+    "source_sha256": "6a01831c9b9a06da774a53da67b9ec4865acfc58ca9a3e9c9df2bd397b44739f",
+    "decision": "rejected",
+    "comment": "W opisie zawartym w wyniku postępowania jest to wstęp do wykazu obowiązków. Cytat nie uzasadnia zgłoszenia zdarzenia R08."
+  },
+  {
+    "project_id": "RM-2026-005",
+    "review_id": "review-edf9c665d771aeaf7e02f75e",
+    "entity_id": "evt-582f89c40dba24a0ddd3e2ab",
+    "group": "events",
+    "version": 1,
+    "source_id": "doc-e62bd5cad04d7c997d224eab",
+    "source_key": "2025/BZP 00245492/01",
+    "source_sha256": "ffd496071697f027c48a321bde5dbee17251f50003d8710267e368c40f96a042",
+    "decision": "rejected",
+    "comment": "Odesłanie do punktu 16 SWZ dotyczy komunikacji elektronicznej w postępowaniu. Brak związku z mierzalnością parametrów filtrów lub sieci."
+  },
+  {
+    "project_id": "RM-2026-005",
+    "review_id": "review-37f293e9ecf4c4f7ba70ed27",
+    "entity_id": "evt-5b88b18bfb6adb18f843880a",
+    "group": "events",
+    "version": 1,
+    "source_id": "doc-e62bd5cad04d7c997d224eab",
+    "source_key": "2025/BZP 00245492/01",
+    "source_sha256": "ffd496071697f027c48a321bde5dbee17251f50003d8710267e368c40f96a042",
+    "decision": "rejected",
+    "comment": "Informacja o inspektorze ochrony danych nie opisuje cech przedsięwzięcia. Wyszukanie słowa w klauzuli informacyjnej jest fałszywym trafieniem R01."
+  },
+  {
+    "project_id": "RM-2026-005",
+    "review_id": "review-5ea40e18f49803fe8f9b2f4e",
+    "entity_id": "evt-766ce6a43a7cb4f379dae32e",
+    "group": "events",
+    "version": 1,
+    "source_id": "doc-40372b9639661352c615de5b",
+    "source_key": "akapit 22",
+    "source_sha256": "415ca51d2a414bb2e8c41416bc4c50cb0d8e34490e9eeef2449eda3317b40343",
+    "decision": "corrected",
+    "comment": "Ak. 22 wpisuje 151 481,54 zł brutto. Zapis potwierdza wycenę na etapie protokołu. Wykonanie robót i kwotę zmiany potwierdza późniejsze BZP w V.5.4.4–5.4.7.",
+    "patch": {
+      "kind": "signal",
+      "title": "W protokole ustalono proponowaną wartość prac dodatkowych",
+      "description": "Ak. 22 wpisuje 151 481,54 zł brutto. Zapis potwierdza wycenę na etapie protokołu. Wykonanie robót i kwotę zmiany potwierdza późniejsze BZP w V.5.4.4–5.4.7."
+    }
+  },
+  {
+    "project_id": "RM-2026-005",
+    "review_id": "review-a60fd8c98fe389b38cd6ae20",
+    "entity_id": "evt-7e13c0ee887557fd8ff6e04c",
+    "group": "events",
+    "version": 1,
+    "source_id": "doc-16fb6206503ad40bdf08c082",
+    "source_key": "akapit 17",
+    "source_sha256": "5e11e4c134e274d197abf074ba79ecc065c7e869c4dccb27edc6b404b730ebb3",
+    "decision": "corrected",
+    "comment": "W ak. 17 odnotowano potrzebę zmiany; ak. 19–21 nazywają ją proponowaną. Dokonanie zmiany wynika dopiero z V.5.4.5 w ogłoszeniu o wykonaniu.",
+    "patch": {
+      "kind": "signal",
+      "title": "Protokół uzasadniał przesunięcie terminu pracami dodatkowymi",
+      "description": "W ak. 17 odnotowano potrzebę zmiany; ak. 19–21 nazywają ją proponowaną. Dokonanie zmiany wynika dopiero z V.5.4.5 w ogłoszeniu o wykonaniu."
+    }
+  },
+  {
+    "project_id": "RM-2026-005",
+    "review_id": "review-a2db9fcf46613eb7a6e98768",
+    "entity_id": "evt-9228a92de0a7c4d9cf6b924a",
+    "group": "events",
+    "version": 1,
+    "source_id": "doc-e62bd5cad04d7c997d224eab",
+    "source_key": "2025/BZP 00245492/01",
+    "source_sha256": "ffd496071697f027c48a321bde5dbee17251f50003d8710267e368c40f96a042",
+    "decision": "rejected",
+    "comment": "Ulica, telefon i adres e-mail w ogłoszeniu identyfikują punkt kontaktowy. Nie są przesłanką niepełnego opisu robót."
+  },
+  {
+    "project_id": "RM-2026-005",
+    "review_id": "review-39f9e083ec7aa276a604b517",
+    "entity_id": "evt-a1c6942e2fea90f892271611",
+    "group": "events",
+    "version": 1,
+    "source_id": "doc-6ef129763031641e6cb7ad41",
+    "source_key": "2026/BZP 00021981/01",
+    "source_sha256": "13b824378d980e0a12179269f31635514426496c0d74c7cff7bb7a11f6dc237d",
+    "decision": "rejected",
+    "comment": "Zdanie pochodzi z opisu zmiany ceny po robotach dodatkowych. R08 przypisuje jej ocenę modelu wynagrodzenia, której źródło nie zawiera. Sama zmiana jest ujęta w R07 i w danych finansowych."
+  },
+  {
+    "project_id": "RM-2026-005",
+    "review_id": "review-bdb186bfc2ddf29f14e6c5da",
+    "entity_id": "evt-a4956a275edaf457f86bb196",
+    "group": "events",
+    "version": 1,
+    "source_id": "doc-6ef129763031641e6cb7ad41",
+    "source_key": "2026/BZP 00021981/01",
+    "source_sha256": "13b824378d980e0a12179269f31635514426496c0d74c7cff7bb7a11f6dc237d",
+    "decision": "corrected",
+    "comment": "W polu V.5.4.4 wpisano roboty dodatkowe, a V.5.4.5–5.4.7 podają nowy termin, cenę i wartość zmiany 151 481,54 zł. Potwierdzono zdarzenie źródłowe R07.",
+    "patch": {
+      "kind": "candidate_event",
+      "title": "Roboty dodatkowe wskazane w ogłoszeniu o wykonaniu",
+      "description": "W polu V.5.4.4 wpisano roboty dodatkowe, a V.5.4.5–5.4.7 podają nowy termin, cenę i wartość zmiany 151 481,54 zł. Potwierdzono zdarzenie źródłowe R07."
+    },
+    "jury_variant": {
+      "review_id": "review-eb2456d625410b278f2091cf",
+      "entity_id": "evt-d448a32a6f70b8c1512faafc"
+    }
+  },
+  {
+    "project_id": "RM-2026-005",
+    "review_id": "review-6b1b5b95c62337c58cd474aa",
+    "entity_id": "evt-ab997321c02760bca3e9fad4",
+    "group": "events",
+    "version": 1,
+    "source_id": "doc-e62bd5cad04d7c997d224eab",
+    "source_key": "2025/BZP 00245492/01",
+    "source_sha256": "ffd496071697f027c48a321bde5dbee17251f50003d8710267e368c40f96a042",
+    "decision": "rejected",
+    "comment": "Wyłączenie zautomatyzowanego podejmowania decyzji dotyczy danych osobowych. Nie pochodzi z procedury uzyskiwania pozwoleń na budowę."
+  },
+  {
+    "project_id": "RM-2026-005",
+    "review_id": "review-04230bdc932e250ab6c641fd",
+    "entity_id": "evt-ac170fddc12860f469993f3e",
+    "group": "events",
+    "version": 1,
+    "source_id": "doc-313ea8eb6540fbee6c76140a",
+    "source_key": "akapit 18",
+    "source_sha256": "2cd9009fd888208c90c6a7aa88cef3db2c78873102af9a9378945cea6fd4e578",
+    "decision": "rejected",
+    "comment": "W ak. 18 uzasadnienie utrzymaniem jakości powtarza jedną potrzebę zmiany. Nie wykazano osobnego zdarzenia ani zaniedbania w pierwotnym harmonogramie."
+  },
+  {
+    "project_id": "RM-2026-005",
+    "review_id": "review-6b1e709fec302a0a0eebcdc8",
+    "entity_id": "evt-afd5f9e0d48ce5cf37f2299c",
+    "group": "events",
+    "version": 1,
+    "source_id": "doc-6ef129763031641e6cb7ad41",
+    "source_key": "2026/BZP 00021981/01",
+    "source_sha256": "13b824378d980e0a12179269f31635514426496c0d74c7cff7bb7a11f6dc237d",
+    "decision": "rejected",
+    "comment": "Wykaz robót w opisie zamówienia w raporcie końcowym powtarza wcześniejszą informację o zakresie. Nie dokumentuje problemu w rozliczeniu ryczałtu."
+  },
+  {
+    "project_id": "RM-2026-005",
+    "review_id": "review-14c5bca801082d14bf8a748d",
+    "entity_id": "evt-b41c8e2df93d515d6c7faa1e",
+    "group": "events",
+    "version": 1,
+    "source_id": "doc-e62bd5cad04d7c997d224eab",
+    "source_key": "2025/BZP 00245492/01",
+    "source_sha256": "ffd496071697f027c48a321bde5dbee17251f50003d8710267e368c40f96a042",
+    "decision": "corrected",
+    "comment": "Fragment pierwotnego ogłoszenia określa obowiązki w razie uszkodzenia urządzeń podczas robót. Zachowano jako zapis do sprawdzenia przed przetargiem. Nie udokumentowano uszkodzenia.",
+    "patch": {
+      "kind": "signal",
+      "title": "SWZ określa sposób uzgadniania napraw uzbrojenia",
+      "description": "Fragment pierwotnego ogłoszenia określa obowiązki w razie uszkodzenia urządzeń podczas robót. Zachowano jako zapis do sprawdzenia przed przetargiem. Nie udokumentowano uszkodzenia."
+    },
+    "jury_variant": {
+      "review_id": "review-c9e8aef3a50c11d66652a454",
+      "entity_id": "evt-501308f2279419d4c54a1884"
+    }
+  },
+  {
+    "project_id": "RM-2026-005",
+    "review_id": "review-8be2f7e1ad89d2f1856f6904",
+    "entity_id": "evt-ba48509e1aa46da31d371a8e",
+    "group": "events",
+    "version": 1,
+    "source_id": "doc-e62bd5cad04d7c997d224eab",
+    "source_key": "2025/BZP 00245492/01",
+    "source_sha256": "ffd496071697f027c48a321bde5dbee17251f50003d8710267e368c40f96a042",
+    "decision": "corrected",
+    "comment": "Wskazany warunek dotyczy podziału odpowiedzialności za potencjalne uszkodzenia uzbrojenia. Nie potwierdza wystąpienia kolizji.",
+    "patch": {
+      "kind": "signal",
+      "title": "SWZ przypisuje wykonawcy odpowiedzialność za naruszenie sieci",
+      "description": "Wskazany warunek dotyczy podziału odpowiedzialności za potencjalne uszkodzenia uzbrojenia. Nie potwierdza wystąpienia kolizji."
+    }
+  },
+  {
+    "project_id": "RM-2026-005",
+    "review_id": "review-0073bc149eedeb0ecb90d561",
+    "entity_id": "evt-c5bd44c1d4e87f552d3ddc6e",
+    "group": "events",
+    "version": 1,
+    "source_id": "doc-6ef129763031641e6cb7ad41",
+    "source_key": "2026/BZP 00021981/01",
+    "source_sha256": "13b824378d980e0a12179269f31635514426496c0d74c7cff7bb7a11f6dc237d",
+    "decision": "rejected",
+    "comment": "V.5.5 podaje wynagrodzenie faktycznie wypłacone. Sama kwota 3 087 491,54 zł nie jest oceną dopasowania ryczałtu."
+  },
+  {
+    "project_id": "RM-2026-005",
+    "review_id": "review-b398e0849b31753e1b7eec28",
+    "entity_id": "evt-d44df8911bbd1e52b2b218b4",
+    "group": "events",
+    "version": 1,
+    "source_id": "doc-e62bd5cad04d7c997d224eab",
+    "source_key": "2025/BZP 00245492/01",
+    "source_sha256": "ffd496071697f027c48a321bde5dbee17251f50003d8710267e368c40f96a042",
+    "decision": "pending",
+    "comment": "W pierwotnym ogłoszeniu rzeczywiście przewidziano ryczałt. Ocena jego dopasowania do niepewności co do stanu filtrów wymaga warunków kontraktu oraz wiedzy o stanie znanym przy szacowaniu."
+  },
+  {
+    "project_id": "RM-2026-005",
+    "review_id": "review-6c8f4fcf95fbdb6176e271e8",
+    "entity_id": "evt-d7723d1e7a7cee23d661d773",
+    "group": "events",
+    "version": 1,
+    "source_id": "doc-be7d92c46ad5d07d9aa63f8e",
+    "source_key": "akapit 7",
+    "source_sha256": "bf52e92aecee4c6d8b7241fc6eec946d47b8d4f51837fe7f31ed31f5179a88d1",
+    "decision": "rejected",
+    "comment": "Ak. 7 jest samym nagłówkiem protokołu. Treść prac opisano w ak. 9–15, a zdarzenie potwierdza BZP w V.5.4.4. Sam nagłówek powiela zgłoszenie."
+  },
+  {
+    "project_id": "RM-2026-005",
+    "review_id": "review-21526aa2af1efd95413d7fe6",
+    "entity_id": "evt-e3daab4f9fdb722f5295b5d2",
+    "group": "events",
+    "version": 1,
+    "source_id": "doc-6ef129763031641e6cb7ad41",
+    "source_key": "2026/BZP 00021981/01",
+    "source_sha256": "13b824378d980e0a12179269f31635514426496c0d74c7cff7bb7a11f6dc237d",
+    "decision": "rejected",
+    "comment": "Raport z wykonania powtarza warunek odpowiedzialności za uzbrojenie. W V.5.4.4 podaje roboty dodatkowe; nie stwierdza naruszenia sieci."
+  },
+  {
+    "project_id": "RM-2026-005",
+    "review_id": "review-4ff854992e13f382c4010685",
+    "entity_id": "evt-ed259e29261f48f2f286ec0d",
+    "group": "events",
+    "version": 1,
+    "source_id": "doc-6ef129763031641e6cb7ad41",
+    "source_key": "2026/BZP 00021981/01",
+    "source_sha256": "13b824378d980e0a12179269f31635514426496c0d74c7cff7bb7a11f6dc237d",
+    "decision": "corrected",
+    "comment": "W ogłoszeniu o wykonaniu, V.5.4.5, potwierdzono zmianę terminu. V.5.2 podaje datę faktycznego wykonania 05.12.2025. Pierwotnym terminem w ogłoszeniu o wyniku był 30.10.2025.",
+    "patch": {
+      "kind": "candidate_event",
+      "title": "Termin wykonania umowy wydłużono do 5 grudnia 2025 r.",
+      "description": "W ogłoszeniu o wykonaniu, V.5.4.5, potwierdzono zmianę terminu. V.5.2 podaje datę faktycznego wykonania 05.12.2025. Pierwotnym terminem w ogłoszeniu o wyniku był 30.10.2025."
+    }
+  },
+  {
+    "project_id": "RM-2026-005",
+    "review_id": "review-1bcc8cb0a3498ca8677db8fd",
+    "entity_id": "evt-f4d5945ccc45a2ba6a74f5ff",
+    "group": "events",
+    "version": 1,
+    "source_id": "doc-c2201b8dc04b99352a7c5233",
+    "source_key": "2025/BZP 00342797/01",
+    "source_sha256": "6a01831c9b9a06da774a53da67b9ec4865acfc58ca9a3e9c9df2bd397b44739f",
+    "decision": "rejected",
+    "comment": "Wynik postępowania powtarza zasadę uzgodnienia napraw, znaną z ogłoszenia początkowego. Nie ma opisu faktycznie uszkodzonego urządzenia.",
+    "jury_variant": {
+      "review_id": "review-f2c320860b7dd383a2f7ee7b",
+      "entity_id": "evt-3a2e5a2ffec1478653fbdd10"
+    }
+  },
+  {
+    "project_id": "RM-2026-005",
+    "review_id": "review-d523db8d5d6b614592d64b3a",
+    "entity_id": "evt-f6364b76fff5aa45ea710571",
+    "group": "events",
+    "version": 1,
+    "source_id": "doc-6ef129763031641e6cb7ad41",
+    "source_key": "2026/BZP 00021981/01",
+    "source_sha256": "13b824378d980e0a12179269f31635514426496c0d74c7cff7bb7a11f6dc237d",
+    "decision": "rejected",
+    "comment": "Treść obowiązku uzgadniania ewentualnych napraw w raporcie końcowym jest powtórzeniem zakresu SWZ. Brakuje opisu wystąpienia uszkodzeń.",
+    "jury_variant": {
+      "review_id": "review-f828ded3e60586da5e01dfbf",
+      "entity_id": "evt-c353ff2b924bc80246b9d965"
+    }
+  },
+  {
+    "project_id": "RM-2026-005",
+    "review_id": "review-1020383528bd8f5ad78909b2",
+    "entity_id": "evt-fe230b4637f7d482022a348d",
+    "group": "events",
+    "version": 1,
+    "source_id": "doc-c2201b8dc04b99352a7c5233",
+    "source_key": "2025/BZP 00342797/01",
+    "source_sha256": "6a01831c9b9a06da774a53da67b9ec4865acfc58ca9a3e9c9df2bd397b44739f",
+    "decision": "rejected",
+    "comment": "Wynik przetargu powtarza odpowiedzialność wykonawcy określoną na etapie planowania. Brak podstaw do rejestrowania odrębnej kolizji."
+  },
+  {
+    "project_id": "RM-2026-005",
+    "review_id": "review-d39d0c41c873fb4c981b2507",
+    "entity_id": "measure-05148e60702845fb6c9217c8",
+    "group": "measurements",
+    "version": 1,
+    "source_id": "doc-cf9c3b5921222e71ab330052",
+    "source_key": "akapit 20; akapit 21",
+    "source_sha256": "0d8fc8723eda5af3cdecf34f11d24239ca1c747b0440528916b21ea6b7cb3d7b",
+    "decision": "accepted",
+    "comment": "Ak. 20–21 podają 30.10 i 05.12.2025. Różnica kalendarzowa to 36 dni. W DOCX jest propozycją; BZP odnotowuje późniejsze wydłużenie do 05.12. Rozbieżność daty podpisania między dokumentami zachowano osobno."
+  },
+  {
+    "project_id": "RM-2026-005",
+    "review_id": "review-319bf7bec8dd3a5fd839fd53",
+    "entity_id": "measure-e1edf5242ae77b331b436350",
+    "group": "measurements",
+    "version": 1,
+    "source_id": "doc-40372b9639661352c615de5b",
+    "source_key": "akapit 22",
+    "source_sha256": "415ca51d2a414bb2e8c41416bc4c50cb0d8e34490e9eeef2449eda3317b40343",
+    "decision": "accepted",
+    "comment": "W ak. 22 protokół wskazuje dokładnie 151 481,54 zł brutto. Zaakceptowano wartość proponowaną w protokole. Potwierdzenie wartości zmiany występuje odrębnie w V.5.4.6 BZP."
+  },
+  {
+    "project_id": "RM-2026-005",
+    "review_id": "review-7b321e17e9f9377552d61498",
+    "entity_id": "obs-4986f7d008891f861eed5189",
+    "group": "observations",
+    "version": 1,
+    "source_id": "doc-e62bd5cad04d7c997d224eab",
+    "source_key": "2025/BZP 00245492/01",
+    "source_sha256": "ffd496071697f027c48a321bde5dbee17251f50003d8710267e368c40f96a042",
+    "decision": "accepted",
+    "comment": "Nazwa zamawiającego i cały zakres Zławieś Wielka, Zławieś Mała i SUW Pędzewo odpowiadają arkuszowi. OCID 178b5ecf-5d3b-4d67-8a10-2a0d1597c00d jest wspólny z wynikiem i wykonaniem."
+  },
+  {
+    "project_id": "RM-2026-005",
+    "review_id": "review-23fa47254eceb2c4ae9c5780",
+    "entity_id": "obs-a9243233afa574a2f84d7792",
+    "group": "observations",
+    "version": 1,
+    "source_id": "doc-c2201b8dc04b99352a7c5233",
+    "source_key": "2025/BZP 00342797/01",
+    "source_sha256": "6a01831c9b9a06da774a53da67b9ec4865acfc58ca9a3e9c9df2bd397b44739f",
+    "decision": "accepted",
+    "comment": "W II.2.14 wynik przywołuje 2025/BZP 00245492. VIII.8.1–8.3 wskazują 14.07.2025, 2 936 010,00 zł i 30.10.2025. Data 14.02.2025 z ak. 3 protokołu nie zgadza się z tym dokumentem."
+  },
+  {
+    "project_id": "RM-2026-005",
+    "review_id": "review-d82cbc7fcdd3077490148fd9",
+    "entity_id": "obs-a99ecc7ece87e024f577b5ea",
+    "group": "observations",
+    "version": 1,
+    "source_id": "doc-6ef129763031641e6cb7ad41",
+    "source_key": "2026/BZP 00021981/01",
+    "source_sha256": "13b824378d980e0a12179269f31635514426496c0d74c7cff7bb7a11f6dc237d",
+    "decision": "accepted",
+    "comment": "Raport wskazuje właściwy numer ogłoszenia oraz OCID. IV.4.1 i IV.4.4 są zgodne z wynikiem. V.5.4.5–5.5 potwierdzają 05.12.2025 i 3 087 491,54 zł. Protokół i BZP odmiennie podają datę zawarcia umowy; rozstrzygnięcie wymaga podpisanego oryginału."
+  },
+  {
+    "project_id": "RM-2026-010",
+    "review_id": "review-9d912e839081b6a437153589",
+    "entity_id": "evt-1eaa4b80b1e36f7375a59bdc",
+    "group": "events",
+    "version": 1,
+    "source_id": "doc-68ba6aa3411ec10f36d78490",
+    "source_key": "2026/BZP 00004536/01",
+    "source_sha256": "5bbf38516f9b042e3ee4aa9c33dd7e3c16771277c6bc35476bfb647bb861ae91",
+    "decision": "rejected",
+    "comment": "Kwota wypłacona w V.5.5 odpowiada wartości umowy, 3 348 882,44 zł. Pole nie dowodzi niedopasowania modelu wynagrodzenia."
+  },
+  {
+    "project_id": "RM-2026-010",
+    "review_id": "review-d47624ce74512e2788dc04d7",
+    "entity_id": "evt-2e1a902a546e0b9d10177877",
+    "group": "events",
+    "version": 1,
+    "source_id": "doc-68ba6aa3411ec10f36d78490",
+    "source_key": "2026/BZP 00004536/01",
+    "source_sha256": "5bbf38516f9b042e3ee4aa9c33dd7e3c16771277c6bc35476bfb647bb861ae91",
+    "decision": "corrected",
+    "comment": "W V.5.4.4 zamawiający wprost wskazał wydłużający się proces instalacji. Dalsze przyczyny z pisma KPO wymagają osobnego przypisania.",
+    "patch": {
+      "kind": "candidate_event",
+      "title": "Wydłużony montaż rurociągów podano jako przyczynę zmiany",
+      "description": "W V.5.4.4 zamawiający wprost wskazał wydłużający się proces instalacji. Dalsze przyczyny z pisma KPO wymagają osobnego przypisania."
+    }
+  },
+  {
+    "project_id": "RM-2026-010",
+    "review_id": "review-b53aa99132864f09009baf35",
+    "entity_id": "evt-3fdff8cfc27abe1d04dba85b",
+    "group": "events",
+    "version": 1,
+    "source_id": "doc-a25dbf7de11fa3e8e4de124b",
+    "source_key": "2025/BZP 00211437/01",
+    "source_sha256": "337145f137c5b07769e2df8f83d8abf565a66975ee2e91b97b8cd36619f33825",
+    "decision": "rejected",
+    "comment": "Sformułowanie o sprzecznych interesach dotyczy oceny zdolności wykonawcy w przetargu. Brak dowodu, że zakres kanalizacji był niepełny."
+  },
+  {
+    "project_id": "RM-2026-010",
+    "review_id": "review-5f9d54de628dc42710edae9d",
+    "entity_id": "evt-465aac2da4ce88df514134a2",
+    "group": "events",
+    "version": 1,
+    "source_id": "doc-68ba6aa3411ec10f36d78490",
+    "source_key": "2026/BZP 00004536/01",
+    "source_sha256": "5bbf38516f9b042e3ee4aa9c33dd7e3c16771277c6bc35476bfb647bb861ae91",
+    "decision": "corrected",
+    "comment": "BZP, V.5.4.5, potwierdza dokonaną zmianę, a V.5.2 wykonanie 30.12.2025. Jest to termin kontraktu; gmina osobno wnioskowała w KPO o 31.12.2025.",
+    "patch": {
+      "kind": "candidate_event",
+      "title": "Termin umowy wydłużono do 30 grudnia 2025 r.",
+      "description": "BZP, V.5.4.5, potwierdza dokonaną zmianę, a V.5.2 wykonanie 30.12.2025. Jest to termin kontraktu; gmina osobno wnioskowała w KPO o 31.12.2025."
+    }
+  },
+  {
+    "project_id": "RM-2026-010",
+    "review_id": "review-0237e95568168cfcf865b62b",
+    "entity_id": "evt-46d5fbb236273bfabc7f4fa7",
+    "group": "events",
+    "version": 1,
+    "source_id": "doc-a25dbf7de11fa3e8e4de124b",
+    "source_key": "2025/BZP 00211437/01",
+    "source_sha256": "337145f137c5b07769e2df8f83d8abf565a66975ee2e91b97b8cd36619f33825",
+    "decision": "rejected",
+    "comment": "Obowiązek złożenia zobowiązania podmiotu udostępniającego zasoby jest warunkiem udziału w postępowaniu. Brak udokumentowanego problemu z decyzjami lub pozwoleniami inwestycyjnymi."
+  },
+  {
+    "project_id": "RM-2026-010",
+    "review_id": "review-1634d8e5b52a40661cd51946",
+    "entity_id": "evt-4d3c6117877f22e1fa4b05ff",
+    "group": "events",
+    "version": 1,
+    "source_id": "doc-bf0b38b5f5fd120ea0343454",
+    "source_key": "strona 1 (OCR)",
+    "source_sha256": "70e8909352ae9aa65ff74f39112223e779c941f6e1dee0f1e4c9ef0aae11c5b0",
+    "decision": "corrected",
+    "comment": "Skan pisma RI.041.1.2025 z 06.11.2025 zawiera prośbę do UMWP. Data dotyczy projektu KPO. Nie odnaleziono w tym piśmie odpowiedzi instytucji ani decyzji przyznającej wydłużenie.",
+    "patch": {
+      "kind": "signal",
+      "title": "Gmina wnioskowała o wydłużenie projektu KPO do 31 grudnia",
+      "description": "Skan pisma RI.041.1.2025 z 06.11.2025 zawiera prośbę do UMWP. Data dotyczy projektu KPO. Nie odnaleziono w tym piśmie odpowiedzi instytucji ani decyzji przyznającej wydłużenie."
+    }
+  },
+  {
+    "project_id": "RM-2026-010",
+    "review_id": "review-b471f434041e7fd1f56d054d",
+    "entity_id": "evt-955d1006b08ef679068bf388",
+    "group": "events",
+    "version": 1,
+    "source_id": "doc-a25dbf7de11fa3e8e4de124b",
+    "source_key": "2025/BZP 00211437/01",
+    "source_sha256": "337145f137c5b07769e2df8f83d8abf565a66975ee2e91b97b8cd36619f33825",
+    "decision": "rejected",
+    "comment": "Pole III.3.6 opisuje korespondencję elektroniczną i odsyła do SWZ. Brak związku z mierzalnością parametrów technicznych rurociągu."
+  },
+  {
+    "project_id": "RM-2026-010",
+    "review_id": "review-b33c64e7e45c83ae1b220b02",
+    "entity_id": "evt-bcfcfbde2a3e3cadf736a3b0",
+    "group": "events",
+    "version": 1,
+    "source_id": "doc-a25dbf7de11fa3e8e4de124b",
+    "source_key": "2025/BZP 00211437/01",
+    "source_sha256": "337145f137c5b07769e2df8f83d8abf565a66975ee2e91b97b8cd36619f33825",
+    "decision": "rejected",
+    "comment": "Cytat opisuje sposób i okres korzystania z zasobów innego podmiotu w postępowaniu zakupowym. Nie opisuje uzgodnień terenowych ani pozwolenia."
+  },
+  {
+    "project_id": "RM-2026-010",
+    "review_id": "review-f5037701ad068833c8053a48",
+    "entity_id": "evt-eb80389451fe9a6d1e1b01b1",
+    "group": "events",
+    "version": 1,
+    "source_id": "doc-bf0b38b5f5fd120ea0343454",
+    "source_key": "strona 1 (OCR)",
+    "source_sha256": "70e8909352ae9aa65ff74f39112223e779c941f6e1dee0f1e4c9ef0aae11c5b0",
+    "decision": "rejected",
+    "comment": "Urwany fragment wstępu pisma powtarza ten sam wniosek do UMWP. Wniosek i konkretny dzień są już zachowane w pomiarze i w opisanym sygnale.",
+    "jury_variant": {
+      "review_id": "review-d49f5fb97a5b81599b045e78",
+      "entity_id": "evt-7aa5d9545ca62b3feea2477e"
+    }
+  },
+  {
+    "project_id": "RM-2026-010",
+    "review_id": "review-9961b670d75a28dd97148ad5",
+    "entity_id": "evt-ee9e136980be1c0034d23886",
+    "group": "events",
+    "version": 1,
+    "source_id": "doc-bf0b38b5f5fd120ea0343454",
+    "source_key": "strona 1 (OCR)",
+    "source_sha256": "70e8909352ae9aa65ff74f39112223e779c941f6e1dee0f1e4c9ef0aae11c5b0",
+    "decision": "corrected",
+    "comment": "Na oryginalnym skanie, s. 1, gmina wiąże dodatkowe uzgodnienia z mieszkańcami i modyfikacje przebiegu z nową zabudową i roślinnością. Potwierdzono treść relacji nadawcy, bez przypisania liczby dni.",
+    "patch": {
+      "kind": "candidate_event",
+      "title": "Gmina zgłosiła wstrzymywanie robót podczas uzgodnień tras",
+      "description": "Na oryginalnym skanie, s. 1, gmina wiąże dodatkowe uzgodnienia z mieszkańcami i modyfikacje przebiegu z nową zabudową i roślinnością. Potwierdzono treść relacji nadawcy, bez przypisania liczby dni."
+    },
+    "jury_variant": {
+      "review_id": "review-0628e8c551cf14674099a2d6",
+      "entity_id": "evt-c595fd828d5d9f6e21a53b51"
+    }
+  },
+  {
+    "project_id": "RM-2026-010",
+    "review_id": "review-a97d8aa8275e20982a94d2bf",
+    "entity_id": "measure-97c13cb9f7695625402401a5",
+    "group": "measurements",
+    "version": 1,
+    "source_id": "doc-bf0b38b5f5fd120ea0343454",
+    "source_key": "strona 1 (OCR)",
+    "source_sha256": "70e8909352ae9aa65ff74f39112223e779c941f6e1dee0f1e4c9ef0aae11c5b0",
+    "decision": "accepted",
+    "comment": "Na obrazie s. 1, w ostatnim akapicie, gmina wnioskuje o dzień 31.12.2025. OCR odczytał datę prawidłowo. Pole zachowuje charakter wnioskowany; BZP podaje 30.12.2025 dla kontraktu."
+  },
+  {
+    "project_id": "RM-2026-010",
+    "review_id": "review-5313d815057bd4ed465cd197",
+    "entity_id": "obs-9f3d8672fbc52395d354f58a",
+    "group": "observations",
+    "version": 1,
+    "source_id": "doc-a25dbf7de11fa3e8e4de124b",
+    "source_key": "2025/BZP 00211437/01",
+    "source_sha256": "337145f137c5b07769e2df8f83d8abf565a66975ee2e91b97b8cd36619f33825",
+    "decision": "accepted",
+    "comment": "Tytuł, obie miejscowości i zamawiający odpowiadają arkuszowi. Identyfikator 308b01d6-76cd-4660-ac66-193bc03593ae powtarza się w wyniku i wykonaniu. Pismo KPO ma zgodny numer przedsięwzięcia, ale odmienny NIP w nagłówku."
+  },
+  {
+    "project_id": "RM-2026-010",
+    "review_id": "review-bf05ec9c2f06bf5b60f48604",
+    "entity_id": "obs-e49efd98402588c3c40c4d6d",
+    "group": "observations",
+    "version": 1,
+    "source_id": "doc-48b7a13394b14aa886a482d7",
+    "source_key": "2025/BZP 00347687/01",
+    "source_sha256": "f760979c051de2614ca75c8e5d8093e257de761066ea46dfa7d1fa616c608d1b",
+    "decision": "accepted",
+    "comment": "Sekcja II.2.14 powołuje 2025/BZP 00211437. W VIII.8.1–8.3 widnieją 28.07.2025, 3 348 882,44 zł i pierwotny termin 15.11.2025."
+  },
+  {
+    "project_id": "RM-2026-010",
+    "review_id": "review-590a9328c9ce2bda58a099c4",
+    "entity_id": "obs-edc292fc6f4e51cbe217b2f4",
+    "group": "observations",
+    "version": 1,
+    "source_id": "doc-68ba6aa3411ec10f36d78490",
+    "source_key": "2026/BZP 00004536/01",
+    "source_sha256": "5bbf38516f9b042e3ee4aa9c33dd7e3c16771277c6bc35476bfb647bb861ae91",
+    "decision": "accepted",
+    "comment": "Wykonanie przywołuje właściwe ogłoszenie początkowe, OCID i kwotę. V.5.2 i V.5.4.5 podają 30.12.2025, V.5.5 potwierdza 3 348 882,44 zł. Termin wnioskowany przez gminę dla KPO jest osobną informacją."
+  }
+]

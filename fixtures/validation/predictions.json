@@ -1,0 +1,444 @@
+[
+  {
+    "id": "H01",
+    "cutoff": "2025-03-03",
+    "plan_number": "2025/BZP 00128811/01",
+    "title": "Rozbudowa drogi powiatowej 1512 K w km od 1+650 do km 2+900 w miejscowości Krynica - Zdrój wraz z budową sieci wodociągowej i kanalizacyjnej",
+    "url": "https://ezamowienia.gov.pl/mo-board/api/v1/Board/GetNoticePdfById?noticeId=08dd5a62-6216-5eff-8f1b-b600017ce250",
+    "categories": [
+      "R01",
+      "R03",
+      "R06",
+      "R08",
+      "R09",
+      "R13"
+    ],
+    "top_three": [
+      "R01",
+      "R03",
+      "R06"
+    ],
+    "comparison_ids": [
+      "RM-2026-011"
+    ],
+    "preview_exact_links": 49,
+    "risk_evidence": {
+      "R01": [
+        {
+          "locator": "treść ogłoszenia BZP",
+          "excerpt": "W szczególnie uzasadnionych przypadkach uniemożliwiających komunikację wykonawcy i Zamawiającego za pośrednictwem Platformy e-Zamówienia, Zamawiający dopuszcza komunikację za pomocą poczty elektronicznej na adres e-mail: [adres e-mail pominięty] (nie dotyczy składania ofert)."
+        }
+      ],
+      "R03": [
+        {
+          "locator": "treść ogłoszenia BZP",
+          "excerpt": "Branża gazowa - przebudowa sieci gazowej i przyłącza,\nd."
+        }
+      ],
+      "R06": [
+        {
+          "locator": "treść ogłoszenia BZP",
+          "excerpt": "zmiana, w tym wydłużenie terminu wykonania zamówienia w związku z:\na."
+        }
+      ],
+      "R08": [
+        {
+          "locator": "treść ogłoszenia BZP",
+          "excerpt": "zaistnieniem niemożliwych do wcześniejszego przewidzenia i niezależnych od stron umowy okoliczności powodujących niecelowość, zbędność, czy bezzasadność realizacji poszczególnych elementów przedmiotu zamówienia z punktu widzenia realizowanego zamówienia, jego społeczno-gospodarczego przeznaczenia, czy interesu społecznego lub interesu Zamawiającego jako dysponenta środków publicznych, przy jednoczesnym obniżeniu wynagrodzenia umownego o wartość niezrealizowanych elementów przedmiotu zamówienia\ne."
+        }
+      ],
+      "R09": [
+        {
+          "locator": "treść ogłoszenia BZP",
+          "excerpt": "3.6.) Wymagania techniczne i organizacyjne dotyczące korespondencji elektronicznej: 1."
+        }
+      ],
+      "R13": [
+        {
+          "locator": "treść ogłoszenia BZP",
+          "excerpt": "1.11 zmianę zasad płatności."
+        }
+      ]
+    }
+  },
+  {
+    "id": "H02",
+    "cutoff": "2025-03-24",
+    "plan_number": "2025/BZP 00159466/01",
+    "title": "Budowa wodociągu i kanalizacji wraz z modernizacją pompowni i zbiornika wody pitnej przy ul. Świętego Józefa w Złotym Potoku",
+    "url": "https://ezamowienia.gov.pl/mo-board/api/v1/Board/GetNoticePdfById?noticeId=08dd6ac9-0378-48b7-8f1b-b600017da2b3",
+    "categories": [
+      "R01",
+      "R04",
+      "R08",
+      "R09"
+    ],
+    "top_three": [
+      "R01",
+      "R04",
+      "R08"
+    ],
+    "comparison_ids": [
+      "RM-2026-011"
+    ],
+    "preview_exact_links": 49,
+    "risk_evidence": {
+      "R01": [
+        {
+          "locator": "treść ogłoszenia BZP",
+          "excerpt": "3.5.) Informacje o środkach komunikacji elektronicznej, przy użyciu których zamawiający będzie komunikował się z wykonawcami - adres strony internetowej: W postępowaniu o udzielenie zamówienia komunikacja między zamawiającym a\nwykonawcami odbywa się przy użyciu środków komunikacji elektronicznej, przy użyciu Platformy e-Zamówienia, która dostępna jest pod adresem https://ezamowienia.gov.pl, oraz poczty elektronicznej: [adres e-mail pominięty]"
+        }
+      ],
+      "R04": [
+        {
+          "locator": "treść ogłoszenia BZP",
+          "excerpt": "Prace ziemne należy prowadzić pod nadzorem archeologicznym, po uzyskaniu pozwolenia na badania archeologiczne (w formie nadzoru)."
+        }
+      ],
+      "R08": [
+        {
+          "locator": "treść ogłoszenia BZP",
+          "excerpt": "b) Osobą, która wykona dokumentację projektowo-kosztorysową, posiadającą uprawnienia do projektowania w specjalności instalacyjnej w zakresie sieci wodociągowych i kanalizacyjnych bez ograniczeń."
+        }
+      ],
+      "R09": [
+        {
+          "locator": "treść ogłoszenia BZP",
+          "excerpt": "3.6.) Wymagania techniczne i organizacyjne dotyczące korespondencji elektronicznej: Oferta musi być podpisana kwalifikowanym podpisem elektronicznym lub podpisem zaufanym lub podpisem osobistym."
+        }
+      ]
+    }
+  },
+  {
+    "id": "H03",
+    "cutoff": "2025-03-18",
+    "plan_number": "2025/BZP 00151525/01",
+    "title": "Budowa kanalizacji sanitarnej grawitacyjno-tłocznej wraz z przyłączami kanalizacji sanitarnej w miejscowości Kaliski w gminie Paprotnia",
+    "url": "https://ezamowienia.gov.pl/mo-board/api/v1/Board/GetNoticePdfById?noticeId=08dd661a-7635-b0f3-8f1b-b600017d7084",
+    "categories": [
+      "R01",
+      "R06",
+      "R07",
+      "R08",
+      "R09"
+    ],
+    "top_three": [
+      "R01",
+      "R06",
+      "R07"
+    ],
+    "comparison_ids": [
+      "RM-2026-013"
+    ],
+    "preview_exact_links": 49,
+    "risk_evidence": {
+      "R01": [
+        {
+          "locator": "treść ogłoszenia BZP",
+          "excerpt": "3 maja 2, 08-107 Paprotnia, adres e-mail [adres e-mail pominięty], tel./fax 256312110;- z Inspektorem Ochrony Danych - wyznaczonym do kontaktów z osobami, których dane dotyczą w sprawach związanych z przetwarzaniem ich danych osobowych oraz z wykonywaniem praw przysługujących im na mocy RODO - można skontaktować się pisząc pod adresem e-mail: [adres e-mail pominięty] lub adres siedziby wskazany w pkt 1);"
+        }
+      ],
+      "R06": [
+        {
+          "locator": "treść ogłoszenia BZP",
+          "excerpt": "1) dopuszcza się zmianę terminu realizacji do 4 miesięcy na podstawie zgodnej woli stron,"
+        }
+      ],
+      "R07": [
+        {
+          "locator": "treść ogłoszenia BZP",
+          "excerpt": "4) wprowadzeniu robót zamiennych z powodu:\na) uzasadnionych zmian w zakresie sposobu wykonania przedmiotu umowy proponowanych przez Zamawiającego lub Wykonawcę, jeżeli zmiany te są korzystne dla Zamawiającego,\nb) aktualizacji rozwiązań projektowych w uwagi na postęp technologiczny,\nc) zaprzestania produkcji materiałów budowlanych, których użycie Zamawiający przewidział przy realizacji przedmiotu umowy,\nd) wad dokumentacji projektowej,\ne) zmiany przepisów prawa budowlanego w trakcie realizacji przedmiotu umowy."
+        }
+      ],
+      "R08": [
+        {
+          "locator": "treść ogłoszenia BZP",
+          "excerpt": "2) dopuszcza się zmianę terminu wypłaty wynagrodzenia za wykonanie poszczególnych części robót, w przypadku wprowadzenia zmian w dofinansowaniu przedmiotu umowy związanych\nz realizacją Programu Interreg NEXT Polska - Ukraina 2021-2027,"
+        }
+      ],
+      "R09": [
+        {
+          "locator": "treść ogłoszenia BZP",
+          "excerpt": "3.6.) Wymagania techniczne i organizacyjne dotyczące korespondencji elektronicznej: Wymagania techniczne wysyłania i odbierania dokumentów elektronicznych, rejestracja na Platformie, w tym złożenie oferty w formie elektronicznej:"
+        }
+      ]
+    }
+  },
+  {
+    "id": "H04",
+    "cutoff": "2025-06-06",
+    "plan_number": "2025/BZP 00264579/01",
+    "title": "Rozbudowa sieci kanalizacji sanitarnej w miejscowości Żmijewko",
+    "url": "https://ezamowienia.gov.pl/mo-board/api/v1/Board/GetNoticePdfById?noticeId=08dda4cc-98eb-9723-e710-760001de8bf6",
+    "categories": [
+      "R01",
+      "R03",
+      "R09"
+    ],
+    "top_three": [
+      "R01",
+      "R03",
+      "R09"
+    ],
+    "comparison_ids": [
+      "RM-2026-013",
+      "RM-2026-016"
+    ],
+    "preview_exact_links": 49,
+    "risk_evidence": {
+      "R01": [
+        {
+          "locator": "treść ogłoszenia BZP",
+          "excerpt": "56 493 93 17, e-mail: [adres e-mail pominięty]"
+        }
+      ],
+      "R03": [
+        {
+          "locator": "treść ogłoszenia BZP",
+          "excerpt": "W skład uzbrojenia wchodzą:"
+        }
+      ],
+      "R09": [
+        {
+          "locator": "treść ogłoszenia BZP",
+          "excerpt": "3.6.) Wymagania techniczne i organizacyjne dotyczące korespondencji elektronicznej: 1."
+        }
+      ]
+    }
+  },
+  {
+    "id": "H05",
+    "cutoff": "2025-03-14",
+    "plan_number": "2025/BZP 00146979/01",
+    "title": "Budowa kanalizacji sanitarnej ul. Spokojna i Słoneczna w Solcu nad Wisłą",
+    "url": "https://ezamowienia.gov.pl/mo-board/api/v1/Board/GetNoticePdfById?noticeId=08dd62ef-f34f-c9d1-8f1b-b600017d551d",
+    "categories": [
+      "R01",
+      "R04",
+      "R09"
+    ],
+    "top_three": [
+      "R01",
+      "R04",
+      "R09"
+    ],
+    "comparison_ids": [
+      "RM-2026-013"
+    ],
+    "preview_exact_links": 49,
+    "risk_evidence": {
+      "R01": [
+        {
+          "locator": "treść ogłoszenia BZP",
+          "excerpt": "W szczególnie uzasadnionych przypadkach uniemożliwiających komunikację wykonawcy i Zamawiającego za pośrednictwem Platformy e-Zamówienia, Zamawiający dopuszcza komunikację za pomocą poczty elektronicznej na adres e-mail: [adres e-mail pominięty] (nie dotyczy składania ofert)."
+        }
+      ],
+      "R04": [
+        {
+          "locator": "treść ogłoszenia BZP",
+          "excerpt": "6) w odniesieniu do Pani/Pana danych osobowych decyzje nie będą podejmowane w sposób zautomatyzowany, stosowanie do art."
+        }
+      ],
+      "R09": [
+        {
+          "locator": "treść ogłoszenia BZP",
+          "excerpt": "3.6.) Wymagania techniczne i organizacyjne dotyczące korespondencji elektronicznej: 1."
+        }
+      ]
+    }
+  },
+  {
+    "id": "H06",
+    "cutoff": "2025-05-13",
+    "plan_number": "2025/BZP 00228432/01",
+    "title": "Gospodarka wodno-ściekowa w gminie Pokój poprzez rozbudowę sieci wodociągowej i przydomowych oczyszczalni ścieków",
+    "url": "https://ezamowienia.gov.pl/mo-board/api/v1/Board/GetNoticePdfById?noticeId=08dd920b-e077-8afb-eaaa-350001a43f80",
+    "categories": [
+      "R01",
+      "R03",
+      "R04",
+      "R06",
+      "R09",
+      "R10"
+    ],
+    "top_three": [
+      "R01",
+      "R03",
+      "R04"
+    ],
+    "comparison_ids": [
+      "RM-2026-016",
+      "RM-2026-011",
+      "RM-2026-006"
+    ],
+    "preview_exact_links": 49,
+    "risk_evidence": {
+      "R01": [
+        {
+          "locator": "treść ogłoszenia BZP",
+          "excerpt": "3.5.) Informacje o środkach komunikacji elektronicznej, przy użyciu których zamawiający będzie komunikował się z wykonawcami - adres strony internetowej: Komunikacja między Zamawiającym a Wykonawcami odbywa się w j.polskim, przy użyciu Platformy e-Zamówienia (https://ezamowienia.gov.pl) oraz poczty elektronicznej Zamawiającego [adres e-mail pominięty]."
+        }
+      ],
+      "R03": [
+        {
+          "locator": "treść ogłoszenia BZP",
+          "excerpt": "1, może nastąpić w przypadku wystąpienia kolizji z instalacjami wewnętrznymi nieujawnionymi w dokumentacji projektowej, lub innymi robotami prowadzonymi przez innego wykonawcę, przy czym przedłużenie terminu realizacji zamówienia nastąpi o liczbę dni niezbędną Wykonawcy na usunięcie kolizji z instalacjami wewnętrznymi nieujawnionymi w dokumentacji projektowej lub o liczbę dni niezbędnych do wykonania robót przez innego wykonawcę – o ile usunięcie kolizji wymagać będzie przedłużenia terminu realizacji;\n(...)"
+        }
+      ],
+      "R04": [
+        {
+          "locator": "treść ogłoszenia BZP",
+          "excerpt": "w odniesieniu do danych osobowych Wykonawcy decyzje nie będą podejmowane w sposób zautomatyzowany, stosowanie do art."
+        }
+      ],
+      "R06": [
+        {
+          "locator": "treść ogłoszenia BZP",
+          "excerpt": "1) przedłużenie terminu realizacji zamówienia, o którym mowa w § 2 ust."
+        }
+      ],
+      "R09": [
+        {
+          "locator": "treść ogłoszenia BZP",
+          "excerpt": "3.6.) Wymagania techniczne i organizacyjne dotyczące korespondencji elektronicznej: Zamawiający wyznacza następujące osoby do kontaktu z Wykonawcami: W zakresie procedury postępowania: Pani Agnieszka Hadamik tel."
+        }
+      ],
+      "R10": [
+        {
+          "locator": "treść ogłoszenia BZP",
+          "excerpt": "4) Budowa przydomowych biologicznych oczyszczalni ścieków (PBOŚ): Budowa 64 sztuk PBOŚ zgodnych z normą PN-EN 12566-3+A2:2013.Zakres robót budowlanych obejmuje budowę biologicznej oczyszczalni ścieków z odbiornikiem ścieków oczyszczonych/zbiornikiem bezodpływowym, zasilaniem elektrycznym, wentylacją wysoką, rozruchem technicznym i technologicznym."
+        }
+      ]
+    }
+  },
+  {
+    "id": "H07",
+    "cutoff": "2025-04-30",
+    "plan_number": "2025/BZP 00213496/01",
+    "title": "„Roboty remontowe i usuwanie awarii kanalizacji deszczowej”  - na terenie miasta Giżycka.",
+    "url": "https://ezamowienia.gov.pl/mo-board/api/v1/Board/GetNoticePdfById?noticeId=08dd87de-a150-a987-eaaa-350001a3e205",
+    "categories": [
+      "R01",
+      "R06",
+      "R08",
+      "R09"
+    ],
+    "top_three": [
+      "R01",
+      "R06",
+      "R08"
+    ],
+    "comparison_ids": [],
+    "preview_exact_links": 49,
+    "risk_evidence": {
+      "R01": [
+        {
+          "locator": "treść ogłoszenia BZP",
+          "excerpt": "Inspektorem ochrony danych osobowych jest Katarzyna Furmaniak, , e-mail: [adres e-mail pominięty]"
+        }
+      ],
+      "R06": [
+        {
+          "locator": "treść ogłoszenia BZP",
+          "excerpt": "5) Sformułowanie zobowiązania Gwaranta do nieodwołalnego i bezwarunkowego zapłacenia kwoty zobowiązania na pierwsze żądanie zapłaty w przypadku, gdy Wykonawca:\na) nie wykonał robót budowlanych w terminie wynikającym z umowy,\nb) wykonał roboty budowlane objęte umową z nienależytą starannością,\nc) nie przedłużył lub nie wniósł nowego zabezpieczenia na 30 dni przed upływem terminu ważności dotychczasowego zabezpieczenia w przypadku gdy wystąpiła konieczność przedłużenia terminu realizacji zamówienia."
+        }
+      ],
+      "R08": [
+        {
+          "locator": "treść ogłoszenia BZP",
+          "excerpt": "Zamawiający przewiduje możliwość zmiany wysokości wynagrodzenia należnego Wykonawcy w przypadku zmiany cen materiałów lub kosztów związanych z realizacją zamówienia, z tym zastrzeżeniem, że:"
+        }
+      ],
+      "R09": [
+        {
+          "locator": "treść ogłoszenia BZP",
+          "excerpt": "3.6.) Wymagania techniczne i organizacyjne dotyczące korespondencji elektronicznej: 1."
+        }
+      ]
+    }
+  },
+  {
+    "id": "H08",
+    "cutoff": "2025-09-11",
+    "plan_number": "2025/BZP 00419564/01",
+    "title": "Uzbrojenie i włączenie studni S-4 do sieci wodociągowej w miejscowości Zimnice Małe, gm. Prószków, woj. opolskie w formule zaprojektuj i wybuduj.",
+    "url": "https://ezamowienia.gov.pl/mo-board/api/v1/Board/GetNoticePdfById?noticeId=08ddf159-71b1-c2df-d903-3900014eb1f0",
+    "categories": [
+      "R01",
+      "R03",
+      "R04",
+      "R06",
+      "R07",
+      "R08",
+      "R09",
+      "R10",
+      "R13"
+    ],
+    "top_three": [
+      "R01",
+      "R03",
+      "R04"
+    ],
+    "comparison_ids": [
+      "RM-2026-016",
+      "RM-2026-011"
+    ],
+    "preview_exact_links": 49,
+    "risk_evidence": {
+      "R01": [
+        {
+          "locator": "treść ogłoszenia BZP",
+          "excerpt": "Osobą uprawnioną przez Zamawiającego do kontaktów z Wykonawcami jest: Agata Przybyła, e-mail: [adres e-mail pominięty]"
+        }
+      ],
+      "R03": [
+        {
+          "locator": "treść ogłoszenia BZP",
+          "excerpt": "Uzbrojenie i włączenie studni S-4 do sieci wodociągowej w miejscowości Zimnice Małe, gm."
+        }
+      ],
+      "R04": [
+        {
+          "locator": "treść ogłoszenia BZP",
+          "excerpt": "7) w odniesieniu do Pani/Pana danych osobowych decyzje nie będą podejmowane w sposób zautomatyzowany, stosownie do art."
+        }
+      ],
+      "R06": [
+        {
+          "locator": "treść ogłoszenia BZP",
+          "excerpt": "1) zmiany terminu przewidzianego na zakończenie robót oraz zmiana terminu na złożenia oświadczenia o odstąpieniu od umowy, które są spowodowane w szczególności przez:\na) klęski żywiołowe;\nb) niekorzystne warunki atmosferyczne, które uniemożliwiały lub znacznie utrudniały prowadzenie robót zgodnie z technologią ich wykonania, przeprowadzanie prób i sprawdzeń, dokonywanie odbiorów;\nc) spowodowanego odmową wydania przez organy administracji lub inne podmioty lub przedłużającą się procedurą wymaganych decyzji, zezwoleń, uzgodnień z przyczyn niezawinionych przez Wykonawcę;\nd) uchybienia terminowi załatwiania spraw i wydania stosownych decyzji (w tym opinii, uzgodnień, stanowisk, pozwoleń itp.) przez organy administracji publicznej gestorów sieci, zarządców, administratorów terenów, urządzeń ponad terminy określone w przepisach Kodeksu postępowania administracyjnego w tym zakresie, przez co Strony rozumieją, że wniosek w danej sprawie powinien zostać rozpatrzony, a sprawa zakończona merytory"
+        }
+      ],
+      "R07": [
+        {
+          "locator": "treść ogłoszenia BZP",
+          "excerpt": "eżących po stronie Zamawiającego;\ni) spowodowanego koniecznością wykonania robót dodatkowych lub zamiennych, które wstrzymują lub opóźniają realizację Przedmiotu umowy."
+        }
+      ],
+      "R08": [
+        {
+          "locator": "treść ogłoszenia BZP",
+          "excerpt": "2) w zakresie obowiązków Stron, terminu wykonania umowy, wysokości wynagrodzenia, warunków i sposobów płatności, podstaw odstąpienia od umowy lub jej rozwiązania, terminu na złożenie oświadczenia o odstąpieniu od umowy, wysokości i podstaw naliczenia kar umownych:\n,..."
+        }
+      ],
+      "R09": [
+        {
+          "locator": "treść ogłoszenia BZP",
+          "excerpt": "3.6.) Wymagania techniczne i organizacyjne dotyczące korespondencji elektronicznej: 11.1."
+        }
+      ],
+      "R10": [
+        {
+          "locator": "treść ogłoszenia BZP",
+          "excerpt": "5.) Wykonanie rozruchu z osiągnięciem wymaganych przez zamawiającego parametrów,"
+        }
+      ],
+      "R13": [
+        {
+          "locator": "treść ogłoszenia BZP",
+          "excerpt": "2) w zakresie obowiązków Stron, terminu wykonania umowy, wysokości wynagrodzenia, warunków i sposobów płatności, podstaw odstąpienia od umowy lub jej rozwiązania, terminu na złożenie oświadczenia o odstąpieniu od umowy, wysokości i podstaw naliczenia kar umownych:\n,..."
+        }
+      ]
+    }
+  }
+]

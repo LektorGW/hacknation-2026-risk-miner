@@ -1,0 +1,588 @@
+{
+  "all": {
+    "cases": 8,
+    "excluded": 1,
+    "f1": 0.046512,
+    "fn": 2,
+    "fp": 39,
+    "fp_explicit": 0,
+    "fp_undocumented": 39,
+    "precision": 0.025,
+    "recall": 0.333333,
+    "scored_pairs": 119,
+    "tn": 77,
+    "tp": 1
+  },
+  "by_stratum": {
+    "with_change": {
+      "cases": 4,
+      "excluded": 1,
+      "f1": 0.095238,
+      "fn": 2,
+      "fp": 17,
+      "fp_explicit": 0,
+      "fp_undocumented": 17,
+      "precision": 0.055556,
+      "recall": 0.333333,
+      "scored_pairs": 59,
+      "tn": 39,
+      "tp": 1
+    },
+    "without_change": {
+      "cases": 4,
+      "excluded": 0,
+      "f1": 0.0,
+      "fn": 0,
+      "fp": 22,
+      "fp_explicit": 0,
+      "fp_undocumented": 22,
+      "precision": 0.0,
+      "recall": null,
+      "scored_pairs": 60,
+      "tn": 38,
+      "tp": 0
+    }
+  },
+  "cases": [
+    {
+      "all": {
+        "excluded": [],
+        "fn": [
+          "R07"
+        ],
+        "fp_explicit": [],
+        "fp_undocumented": [
+          "R01",
+          "R03",
+          "R06",
+          "R08",
+          "R09",
+          "R13"
+        ],
+        "tn": [
+          "R02",
+          "R04",
+          "R05",
+          "R10",
+          "R11",
+          "R12",
+          "R14",
+          "R15"
+        ],
+        "tp": []
+      },
+      "id": "H01",
+      "positive": [
+        "R07"
+      ],
+      "prediction": [
+        "R01",
+        "R03",
+        "R06",
+        "R08",
+        "R09",
+        "R13"
+      ],
+      "stratum": "with_change",
+      "top_three": {
+        "excluded": [],
+        "fn": [
+          "R07"
+        ],
+        "fp_explicit": [],
+        "fp_undocumented": [
+          "R01",
+          "R03",
+          "R06"
+        ],
+        "tn": [
+          "R02",
+          "R04",
+          "R05",
+          "R08",
+          "R09",
+          "R10",
+          "R11",
+          "R12",
+          "R13",
+          "R14",
+          "R15"
+        ],
+        "tp": []
+      }
+    },
+    {
+      "all": {
+        "excluded": [
+          "R07"
+        ],
+        "fn": [
+          "R12"
+        ],
+        "fp_explicit": [],
+        "fp_undocumented": [
+          "R01",
+          "R04",
+          "R08",
+          "R09"
+        ],
+        "tn": [
+          "R02",
+          "R03",
+          "R05",
+          "R06",
+          "R10",
+          "R11",
+          "R13",
+          "R14",
+          "R15"
+        ],
+        "tp": []
+      },
+      "id": "H02",
+      "positive": [
+        "R12"
+      ],
+      "prediction": [
+        "R01",
+        "R04",
+        "R08",
+        "R09"
+      ],
+      "stratum": "with_change",
+      "top_three": {
+        "excluded": [
+          "R07"
+        ],
+        "fn": [
+          "R12"
+        ],
+        "fp_explicit": [],
+        "fp_undocumented": [
+          "R01",
+          "R04",
+          "R08"
+        ],
+        "tn": [
+          "R02",
+          "R03",
+          "R05",
+          "R06",
+          "R09",
+          "R10",
+          "R11",
+          "R13",
+          "R14",
+          "R15"
+        ],
+        "tp": []
+      }
+    },
+    {
+      "all": {
+        "excluded": [],
+        "fn": [],
+        "fp_explicit": [],
+        "fp_undocumented": [
+          "R01",
+          "R06",
+          "R08",
+          "R09"
+        ],
+        "tn": [
+          "R02",
+          "R03",
+          "R04",
+          "R05",
+          "R10",
+          "R11",
+          "R12",
+          "R13",
+          "R14",
+          "R15"
+        ],
+        "tp": [
+          "R07"
+        ]
+      },
+      "id": "H03",
+      "positive": [
+        "R07"
+      ],
+      "prediction": [
+        "R01",
+        "R06",
+        "R07",
+        "R08",
+        "R09"
+      ],
+      "stratum": "with_change",
+      "top_three": {
+        "excluded": [],
+        "fn": [],
+        "fp_explicit": [],
+        "fp_undocumented": [
+          "R01",
+          "R06"
+        ],
+        "tn": [
+          "R02",
+          "R03",
+          "R04",
+          "R05",
+          "R08",
+          "R09",
+          "R10",
+          "R11",
+          "R12",
+          "R13",
+          "R14",
+          "R15"
+        ],
+        "tp": [
+          "R07"
+        ]
+      }
+    },
+    {
+      "all": {
+        "excluded": [],
+        "fn": [],
+        "fp_explicit": [],
+        "fp_undocumented": [
+          "R01",
+          "R03",
+          "R09"
+        ],
+        "tn": [
+          "R02",
+          "R04",
+          "R05",
+          "R06",
+          "R07",
+          "R08",
+          "R10",
+          "R11",
+          "R12",
+          "R13",
+          "R14",
+          "R15"
+        ],
+        "tp": []
+      },
+      "id": "H04",
+      "positive": [],
+      "prediction": [
+        "R01",
+        "R03",
+        "R09"
+      ],
+      "stratum": "with_change",
+      "top_three": {
+        "excluded": [],
+        "fn": [],
+        "fp_explicit": [],
+        "fp_undocumented": [
+          "R01",
+          "R03",
+          "R09"
+        ],
+        "tn": [
+          "R02",
+          "R04",
+          "R05",
+          "R06",
+          "R07",
+          "R08",
+          "R10",
+          "R11",
+          "R12",
+          "R13",
+          "R14",
+          "R15"
+        ],
+        "tp": []
+      }
+    },
+    {
+      "all": {
+        "excluded": [],
+        "fn": [],
+        "fp_explicit": [],
+        "fp_undocumented": [
+          "R01",
+          "R04",
+          "R09"
+        ],
+        "tn": [
+          "R02",
+          "R03",
+          "R05",
+          "R06",
+          "R07",
+          "R08",
+          "R10",
+          "R11",
+          "R12",
+          "R13",
+          "R14",
+          "R15"
+        ],
+        "tp": []
+      },
+      "id": "H05",
+      "positive": [],
+      "prediction": [
+        "R01",
+        "R04",
+        "R09"
+      ],
+      "stratum": "without_change",
+      "top_three": {
+        "excluded": [],
+        "fn": [],
+        "fp_explicit": [],
+        "fp_undocumented": [
+          "R01",
+          "R04",
+          "R09"
+        ],
+        "tn": [
+          "R02",
+          "R03",
+          "R05",
+          "R06",
+          "R07",
+          "R08",
+          "R10",
+          "R11",
+          "R12",
+          "R13",
+          "R14",
+          "R15"
+        ],
+        "tp": []
+      }
+    },
+    {
+      "all": {
+        "excluded": [],
+        "fn": [],
+        "fp_explicit": [],
+        "fp_undocumented": [
+          "R01",
+          "R03",
+          "R04",
+          "R06",
+          "R09",
+          "R10"
+        ],
+        "tn": [
+          "R02",
+          "R05",
+          "R07",
+          "R08",
+          "R11",
+          "R12",
+          "R13",
+          "R14",
+          "R15"
+        ],
+        "tp": []
+      },
+      "id": "H06",
+      "positive": [],
+      "prediction": [
+        "R01",
+        "R03",
+        "R04",
+        "R06",
+        "R09",
+        "R10"
+      ],
+      "stratum": "without_change",
+      "top_three": {
+        "excluded": [],
+        "fn": [],
+        "fp_explicit": [],
+        "fp_undocumented": [
+          "R01",
+          "R03",
+          "R04"
+        ],
+        "tn": [
+          "R02",
+          "R05",
+          "R06",
+          "R07",
+          "R08",
+          "R09",
+          "R10",
+          "R11",
+          "R12",
+          "R13",
+          "R14",
+          "R15"
+        ],
+        "tp": []
+      }
+    },
+    {
+      "all": {
+        "excluded": [],
+        "fn": [],
+        "fp_explicit": [],
+        "fp_undocumented": [
+          "R01",
+          "R06",
+          "R08",
+          "R09"
+        ],
+        "tn": [
+          "R02",
+          "R03",
+          "R04",
+          "R05",
+          "R07",
+          "R10",
+          "R11",
+          "R12",
+          "R13",
+          "R14",
+          "R15"
+        ],
+        "tp": []
+      },
+      "id": "H07",
+      "positive": [],
+      "prediction": [
+        "R01",
+        "R06",
+        "R08",
+        "R09"
+      ],
+      "stratum": "without_change",
+      "top_three": {
+        "excluded": [],
+        "fn": [],
+        "fp_explicit": [],
+        "fp_undocumented": [
+          "R01",
+          "R06",
+          "R08"
+        ],
+        "tn": [
+          "R02",
+          "R03",
+          "R04",
+          "R05",
+          "R07",
+          "R09",
+          "R10",
+          "R11",
+          "R12",
+          "R13",
+          "R14",
+          "R15"
+        ],
+        "tp": []
+      }
+    },
+    {
+      "all": {
+        "excluded": [],
+        "fn": [],
+        "fp_explicit": [],
+        "fp_undocumented": [
+          "R01",
+          "R03",
+          "R04",
+          "R06",
+          "R07",
+          "R08",
+          "R09",
+          "R10",
+          "R13"
+        ],
+        "tn": [
+          "R02",
+          "R05",
+          "R11",
+          "R12",
+          "R14",
+          "R15"
+        ],
+        "tp": []
+      },
+      "id": "H08",
+      "positive": [],
+      "prediction": [
+        "R01",
+        "R03",
+        "R04",
+        "R06",
+        "R07",
+        "R08",
+        "R09",
+        "R10",
+        "R13"
+      ],
+      "stratum": "without_change",
+      "top_three": {
+        "excluded": [],
+        "fn": [],
+        "fp_explicit": [],
+        "fp_undocumented": [
+          "R01",
+          "R03",
+          "R04"
+        ],
+        "tn": [
+          "R02",
+          "R05",
+          "R06",
+          "R07",
+          "R08",
+          "R09",
+          "R10",
+          "R11",
+          "R12",
+          "R13",
+          "R14",
+          "R15"
+        ],
+        "tp": []
+      }
+    }
+  ],
+  "labels_sha256": "7be19612b05fca179f7f17f0cc9719440ba5deeaa3197e7e6bdfc1a14e2069b4",
+  "leave_one_procedure_out": {
+    "f1": {
+      "max": 0.058824,
+      "min": 0.0
+    },
+    "precision": {
+      "max": 0.032258,
+      "min": 0.0
+    },
+    "recall": {
+      "max": 0.5,
+      "min": 0.0
+    }
+  },
+  "lock_sha256": "fc672022236afc4d90eef7e98f7dae01b29478d1d4889b36249a451da407f6d8",
+  "top_three": {
+    "cases": 8,
+    "excluded": 1,
+    "f1": 0.074074,
+    "fn": 2,
+    "fp": 23,
+    "fp_explicit": 0,
+    "fp_undocumented": 23,
+    "precision": 0.041667,
+    "recall": 0.333333,
+    "scored_pairs": 119,
+    "tn": 93,
+    "tp": 1
+  }
+}

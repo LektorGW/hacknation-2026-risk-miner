@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="pl">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#173c31" />
+    <title>Risk Miner · Pulpit inwestycji</title>
+    <link rel="icon" href="/static/assets/znak.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="/static/ui.css" />
+    <script type="module" src="/static/app.js"></script>
+  </head>
+  <body>
+    <a class="skip" href="#main">Przejdź do treści</a>
+    <aside id="sidebar" class="sidebar" aria-label="Przestrzeń robocza">
+      <a href="#pulpit" class="brand" aria-label="Risk Miner, pulpit"
+        ><img src="/static/assets/znak.svg" alt="" /><span>Risk Miner</span></a
+      >
+      <button class="mobile-close ghost square" aria-label="Zamknij menu" data-act="menu">×</button>
+      <nav id="nav" aria-label="Menu główne"></nav>
+      <div class="sidebar-bottom" id="account"></div>
+    </aside>
+    <button id="scrim" class="scrim" data-act="menu" aria-label="Zamknij menu"></button>
+    <div class="workspace">
+      <header class="topbar">
+        <button class="mobile-menu ghost square" data-act="menu" aria-label="Otwórz menu" aria-controls="sidebar">
+          ☰
+        </button>
+        <div class="crumb">
+          <span>Przestrzeń robocza</span><span class="slash">/</span><b id="breadcrumb">Pulpit</b>
+        </div>
+        <button class="search-button" data-act="search" aria-label="Szukaj inwestycji">
+          <span id="search-icon"></span><span>Szukaj inwestycji</span><kbd>/</kbd>
+        </button>
+      </header>
+      <main id="main" tabindex="-1"><p class="loading" role="status">Wczytywanie bazy doświadczeń…</p></main>
+    </div>
+    <dialog id="modal" aria-labelledby="modal-title"><div id="modal-content"></div></dialog>
+    <div class="toast" role="status" aria-live="polite" id="toast"></div>
+    <noscript>Włącz JavaScript w przeglądarce, aby otworzyć Risk Miner.</noscript>
+  </body>
+</html>

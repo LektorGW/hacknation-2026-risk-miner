@@ -1,0 +1,41 @@
+Project name
+KryptoTrop — Risk Miner
+
+Challenge
+Risk Miner · Ministerstwo Funduszy i Polityki Regionalnej
+
+Solution description
+Gmina przygotowująca przetarg może sprawdzić, co podniosło koszty lub przesunęło terminy podobnych inwestycji wod-kan. Risk Miner łączy publiczne ogłoszenia z dokumentacją samorządu i pokazuje konkretne fragmenty źródeł. Urzędnik wgrywa opis planowanych robót, otrzymuje porównanie kontraktów, pytania do projektanta oraz kartę Word do akt.
+
+Approach
+Importujemy arkusz organizatora i dokumenty, w tym skany. System wyszukuje materiały w BZP, TED i regionalnym wykazie KPO. Wiąże rekordy po identyfikatorach, oddziela przedsięwzięcie od umowy i zapisuje podstawę dopasowania. Sygnał ryzyka, propozycja aneksu i dokonana zmiana mają odrębne znaczenie. Ekspert zatwierdza, poprawia lub odrzuca propozycje. Domyślny tryb reguł i OCR działa lokalnie, a model zewnętrzny jest opcjonalny.
+
+Progress and validation
+W teście wrażliwości juror pomija pojedynczy projekt, porównuje historyczne przedziały kosztu lub czasu i otwiera źródła. Wybrany wariant można pobrać w Wordzie i JSON. Działa prototyp z 22 inwestycjami, archiwum 76 ogłoszeń BZP i wpisem KPO. Jury może przejść od importu przez automatyczne wzbogacenie do samodzielnej analizy i eksportu. Weryfikacja techniczna trzech spraw zachowuje uzasadnienia i historię ocen. W odrębnym teście na ośmiu postępowaniach późniejsze dokumenty potwierdziły 1 z 40 sygnałów. System wskazał 1 z 3 udokumentowanych kategorii. Zespół przygotował pusty formularz dla eksperta wod-kan do niezależnego powtórzenia oceny.
+
+AI and contributions
+Przygotowanie kodu, dokumentacji, materiałów demonstracyjnych i technicznej oceny przypadków wspierał Codex. Ilustrację interfejsu wygenerowano narzędziem OpenAI ImageGen. Referencję testową przygotował osobny recenzent AI przed ujawnieniem mu przewidywań. Przegląd techniczny wymaga odrębnej decyzji człowieka.
+
+Presentation
+prezentacja-risk-miner.pdf
+
+Video repository (prywatne)
+https://github.com/Kubus0083/risk-miner-demo-hacknation-2026
+
+Video
+https://spouse-advocate-iron-solutions.trycloudflare.com/materialy/film.mp4 (konto jury)
+
+Prototype
+https://spouse-advocate-iron-solutions.trycloudflare.com/
+
+Source code repository
+https://github.com/LektorGW/hacknation-2026-risk-miner (prywatne repozytorium zespołu)
+
+Source code access for jury
+https://spouse-advocate-iron-solutions.trycloudflare.com/materialy/risk-miner.git
+
+Additional materials
+https://spouse-advocate-iron-solutions.trycloudflare.com/materialy/
+
+Dostęp dla jurora
+Token do aplikacji zespół udostępnia osobno jury. W materiałach i Git login to jury, a hasłem jest ten sam token. Adres aplikacji dotyczy bieżącego tunelu demonstracyjnego.

@@ -1,0 +1,1192 @@
+{
+  "schema_version": 1,
+  "reference_type": "blinded_ai_technical_document_reference",
+  "human_expert_verified": false,
+  "cohort_commit": "dc1cfb3da8617f8bdb353336e22730c3a4333038",
+  "protocol_sha256": "ebbc64703795f42ca29e5cda7de2a968a472e0ba735a514ad421547c041dbc8f",
+  "evaluation_unit": "postępowanie (OCID) × kategoria R01–R15; skutki zachowują zakres konkretnej umowy",
+  "taxonomy_source": "MFiPR, Risk_Miner_material_porady_fazy_dokumenty_ryzyka_ciekawostki.docx, tabela 13, wiersze 2–16",
+  "coverage": "Wyłącznie dostarczone ogłoszenia o zmianach i wykonaniu umów; inne dokumenty lub zdarzenia mogą istnieć.",
+  "taxonomy": [
+    "R01",
+    "R02",
+    "R03",
+    "R04",
+    "R05",
+    "R06",
+    "R07",
+    "R08",
+    "R09",
+    "R10",
+    "R11",
+    "R12",
+    "R13",
+    "R14",
+    "R15"
+  ],
+  "cases": [
+    {
+      "case_id": "H01",
+      "ocid": "ocds-148610-f091c9ef-7f19-416b-900f-a27c4ac0e538",
+      "title": "Rozbudowa drogi powiatowej 1512 K w km od 1+650 do km 2+900 w miejscowości Krynica - Zdrój wraz z budową sieci wodociągowej i kanalizacyjnej",
+      "outcomes_sha256": "693b75a6ea8d6343565491f3bf05aa2edb76e649d20c3bae6c539a9105408706",
+      "positive": [
+        "R07"
+      ],
+      "ambiguous": [],
+      "explicit_negative": [],
+      "not_documented": [
+        "R01",
+        "R02",
+        "R03",
+        "R04",
+        "R05",
+        "R06",
+        "R08",
+        "R09",
+        "R10",
+        "R11",
+        "R12",
+        "R13",
+        "R14",
+        "R15"
+      ],
+      "evidence": [
+        {
+          "source_id": "2026/BZP 00460362/01",
+          "url": "https://ezamowienia.gov.pl/mo-board/api/v1/Board/GetNoticePdfById?noticeId=08df1dfb-f75a-27e0-db89-6a000146bb54",
+          "locator": "5.4",
+          "excerpt": "Zwiększa się zakres zamówienia o roboty dodatkowe zgodnie z kosztorysem robót dodatkowych stanowiącym załącznik do protokołu konieczności z jednoczesnym zwiększeniem wartości wynagrodzenia o kwotę 386.820,49 zł brutto.",
+          "categories": [
+            "R07"
+          ],
+          "status": "documented"
+        },
+        {
+          "source_id": "2026/BZP 00476738/01",
+          "url": "https://ezamowienia.gov.pl/mo-board/api/v1/Board/GetNoticePdfById?noticeId=08df2506-17a9-737f-647d-de00018bd4a1",
+          "locator": "5.4",
+          "excerpt": "Zwiększa się zakres zamówienia o wykonanie następujących robót dodatkowych – budowę kanalizacji deszczowej z rur PP fi 500 w km 1+873,00 – 2+134",
+          "categories": [
+            "R07"
+          ],
+          "status": "documented"
+        },
+        {
+          "source_id": "2026/BZP 00476738/01",
+          "url": "https://ezamowienia.gov.pl/mo-board/api/v1/Board/GetNoticePdfById?noticeId=08df2506-17a9-737f-647d-de00018bd4a1",
+          "locator": "5.4",
+          "excerpt": "z jednoczesnym zwiększeniem wynagrodzenia Wykonawcy o kwotę 498.737,76 zł brutto",
+          "categories": [],
+          "status": "source_fact"
+        },
+        {
+          "source_id": "2026/BZP 00476738/01",
+          "url": "https://ezamowienia.gov.pl/mo-board/api/v1/Board/GetNoticePdfById?noticeId=08df2506-17a9-737f-647d-de00018bd4a1",
+          "locator": "5.3",
+          "excerpt": "ryzyko zwiększenia kosztów i opóźnienia.",
+          "categories": [],
+          "status": "hypothetical",
+          "reason": "Konsekwencja rozważanego powierzenia dodatkowych robót innemu wykonawcy."
+        },
+        {
+          "source_id": "2026/BZP 00460362/01",
+          "url": "https://ezamowienia.gov.pl/mo-board/api/v1/Board/GetNoticePdfById?noticeId=08df1dfb-f75a-27e0-db89-6a000146bb54",
+          "locator": "4.4",
+          "excerpt": "4.4.) Wartość umowy/umowy ramowej: 7579960,68 PLN",
+          "categories": [],
+          "status": "source_fact"
+        },
+        {
+          "source_id": "2026/BZP 00496329/01",
+          "url": "https://ezamowienia.gov.pl/mo-board/api/v1/Board/GetNoticePdfById?noticeId=08df2e92-f8df-dc01-701a-d0000155f3a7",
+          "locator": "4.4.",
+          "excerpt": "4.4.) Wartość umowy: 3907145,42 PLN",
+          "categories": [],
+          "status": "source_fact"
+        },
+        {
+          "source_id": "2026/BZP 00496329/01",
+          "url": "https://ezamowienia.gov.pl/mo-board/api/v1/Board/GetNoticePdfById?noticeId=08df2e92-f8df-dc01-701a-d0000155f3a7",
+          "locator": "5.1.",
+          "excerpt": "5.1.) Czy umowa została wykonana: Tak",
+          "categories": [],
+          "status": "source_fact"
+        },
+        {
+          "source_id": "2026/BZP 00496329/01",
+          "url": "https://ezamowienia.gov.pl/mo-board/api/v1/Board/GetNoticePdfById?noticeId=08df2e92-f8df-dc01-701a-d0000155f3a7",
+          "locator": "5.2.",
+          "excerpt": "5.2.) Termin wykonania umowy: 2026-09-27",
+          "categories": [],
+          "status": "source_fact"
+        },
+        {
+          "source_id": "2026/BZP 00496329/01",
+          "url": "https://ezamowienia.gov.pl/mo-board/api/v1/Board/GetNoticePdfById?noticeId=08df2e92-f8df-dc01-701a-d0000155f3a7",
+          "locator": "5.3.",
+          "excerpt": "5.3.) Czy umowę wykonano w pierwotnie określonym terminie: Tak",
+          "categories": [],
+          "status": "source_fact"
+        },
+        {
+          "source_id": "2026/BZP 00496329/01",
+          "url": "https://ezamowienia.gov.pl/mo-board/api/v1/Board/GetNoticePdfById?noticeId=08df2e92-f8df-dc01-701a-d0000155f3a7",
+          "locator": "5.4.1.",
+          "excerpt": "5.4.1.) Liczba zmian: 0",
+          "categories": [],
+          "status": "source_fact"
+        },
+        {
+          "source_id": "2026/BZP 00496329/01",
+          "url": "https://ezamowienia.gov.pl/mo-board/api/v1/Board/GetNoticePdfById?noticeId=08df2e92-f8df-dc01-701a-d0000155f3a7",
+          "locator": "5.5.",
+          "excerpt": "5.5.) Łączna wartość wynagrodzenia wypłacona z tytułu zrealizowanej umowy: 3907145,42 PLN",
+          "categories": [],
+          "status": "source_fact"
+        },
+        {
+          "source_id": "2026/BZP 00496329/01",
+          "url": "https://ezamowienia.gov.pl/mo-board/api/v1/Board/GetNoticePdfById?noticeId=08df2e92-f8df-dc01-701a-d0000155f3a7",
+          "locator": "5.6.",
+          "excerpt": "5.6.) Czy umowa została wykonana należycie: Tak",
+          "categories": [],
+          "status": "source_fact"
+        },
+        {
+          "source_id": "2026/BZP 00496329/01",
+          "url": "https://ezamowienia.gov.pl/mo-board/api/v1/Board/GetNoticePdfById?noticeId=08df2e92-f8df-dc01-701a-d0000155f3a7",
+          "locator": "VI",
+          "excerpt": "Ogłoszenie o wykonaniu umowy dotyczy zadania nr 2",
+          "categories": [],
+          "status": "source_fact"
+        }
+      ],
+      "effects": {
+        "contracts": [
+          {
+            "scope": "Umowa pierwotna 7 579 960,68 zł; 21 miesięcy",
+            "original_value_pln": "7579960.68",
+            "documented_changes": [
+              {
+                "date": "2026-05-12",
+                "increase_pln": "386820.49",
+                "source_id": "2026/BZP 00460362/01"
+              },
+              {
+                "date": "2026-10-01",
+                "increase_pln": "498737.76",
+                "source_id": "2026/BZP 00476738/01"
+              }
+            ],
+            "total_paid_pln": null,
+            "completion_date": null
+          },
+          {
+            "scope": "Zadanie nr 2, odrębna umowa gminy, 16 miesięcy",
+            "completion_source": "2026/BZP 00496329/01",
+            "reported": {
+              "initial_value_pln": "3907145.42",
+              "executed": true,
+              "completion_date": "2026-09-27",
+              "within_original_term": true,
+              "number_of_changes": 0,
+              "total_paid_pln": "3907145.42",
+              "proper_performance": true
+            }
+          }
+        ]
+      },
+      "notes": "Dwie różne umowy w jednym postępowaniu. Zbiorcza etykieta R07 dotyczy wyłącznie umowy za 7 579 960,68 zł. Terminowość i brak zmian w ogłoszeniu o wykonaniu dotyczą zadania 2. Źródła nie wykazują błędu w pierwotnej dokumentacji.",
+      "sources": [
+        {
+          "external_id": "2026/BZP 00460362/01",
+          "url": "https://ezamowienia.gov.pl/mo-board/api/v1/Board/GetNoticePdfById?noticeId=08df1dfb-f75a-27e0-db89-6a000146bb54",
+          "published_at": "2026-09-29T07:33:33.344112Z",
+          "kind": "change"
+        },
+        {
+          "external_id": "2026/BZP 00476738/01",
+          "url": "https://ezamowienia.gov.pl/mo-board/api/v1/Board/GetNoticePdfById?noticeId=08df2506-17a9-737f-647d-de00018bd4a1",
+          "published_at": "2026-10-08T06:33:40.5989535Z",
+          "kind": "change"
+        },
+        {
+          "external_id": "2026/BZP 00496329/01",
+          "url": "https://ezamowienia.gov.pl/mo-board/api/v1/Board/GetNoticePdfById?noticeId=08df2e92-f8df-dc01-701a-d0000155f3a7",
+          "published_at": "2026-10-20T10:14:48.5274577Z",
+          "kind": "completion"
+        }
+      ]
+    },
+    {
+      "case_id": "H02",
+      "ocid": "ocds-148610-bd38a602-ec17-488e-b3fa-78fcb5807ea2",
+      "title": "Budowa wodociągu i kanalizacji wraz z modernizacją pompowni i zbiornika wody pitnej przy ul. Świętego Józefa w Złotym Potoku",
+      "outcomes_sha256": "901e760bfba4c44d2d067229d8d62bed259e3fe3cc246edb261bad6c00ea4243",
+      "positive": [
+        "R12"
+      ],
+      "ambiguous": [
+        "R07"
+      ],
+      "explicit_negative": [],
+      "not_documented": [
+        "R01",
+        "R02",
+        "R03",
+        "R04",
+        "R05",
+        "R06",
+        "R08",
+        "R09",
+        "R10",
+        "R11",
+        "R13",
+        "R14",
+        "R15"
+      ],
+      "evidence": [
+        {
+          "source_id": "2026/BZP 00287660/01",
+          "url": "https://ezamowienia.gov.pl/mo-board/api/v1/Board/GetNoticePdfById?noticeId=08dec864-d90c-71ff-5fad-950001128a37",
+          "locator": "5.3",
+          "excerpt": "ze względu na zmiany projektowe w czasie prowadzonych prac, niesprzyjające warunki atmosferyczne oraz opóźnienia dostawy materiałów.",
+          "categories": [
+            "R12"
+          ],
+          "status": "documented",
+          "reason": "Zamawiający relacjonuje przyczyny wniosku wykonawcy. Dowód dotyczy opóźnień dostaw, bez ustalenia udziału poszczególnych przyczyn."
+        },
+        {
+          "source_id": "2026/BZP 00287660/01",
+          "url": "https://ezamowienia.gov.pl/mo-board/api/v1/Board/GetNoticePdfById?noticeId=08dec864-d90c-71ff-5fad-950001128a37",
+          "locator": "5.3",
+          "excerpt": "zmiany projektowe w czasie prowadzonych prac",
+          "categories": [
+            "R07"
+          ],
+          "status": "ambiguous",
+          "reason": "Zmiany projektowe zaistniały, lecz nie określono ich zakresu, wcześniejszej przewidywalności ani wykonania dodatkowych robót."
+        },
+        {
+          "source_id": "2026/BZP 00287660/01",
+          "url": "https://ezamowienia.gov.pl/mo-board/api/v1/Board/GetNoticePdfById?noticeId=08dec864-d90c-71ff-5fad-950001128a37",
+          "locator": "5.3",
+          "excerpt": "Zamawiający w uzgodnieniu z Wykonawcą dokonał zmiany umowy, wydłużając termin wykonania całości przedmiotu zamówienia do dnia 15 grudnia 2025 r.",
+          "categories": [],
+          "status": "source_fact"
+        },
+        {
+          "source_id": "2026/BZP 00287660/01",
+          "url": "https://ezamowienia.gov.pl/mo-board/api/v1/Board/GetNoticePdfById?noticeId=08dec864-d90c-71ff-5fad-950001128a37",
+          "locator": "4.2",
+          "excerpt": "do 2025-10-31",
+          "categories": [],
+          "status": "source_fact"
+        },
+        {
+          "source_id": "2026/BZP 00287660/01",
+          "url": "https://ezamowienia.gov.pl/mo-board/api/v1/Board/GetNoticePdfById?noticeId=08dec864-d90c-71ff-5fad-950001128a37",
+          "locator": "5.5.3",
+          "excerpt": "5.5.3.) Wzrost ceny w związku ze zmianą umowy/umowy ramowej: Nie",
+          "categories": [],
+          "status": "source_fact"
+        },
+        {
+          "source_id": "2026/BZP 00287692/01",
+          "url": "https://ezamowienia.gov.pl/mo-board/api/v1/Board/GetNoticePdfById?noticeId=08dec865-8b29-6a5e-5fad-950001128a5c",
+          "locator": "4.4.",
+          "excerpt": "4.4.) Wartość umowy: 2255820,00 PLN",
+          "categories": [],
+          "status": "source_fact"
+        },
+        {
+          "source_id": "2026/BZP 00287692/01",
+          "url": "https://ezamowienia.gov.pl/mo-board/api/v1/Board/GetNoticePdfById?noticeId=08dec865-8b29-6a5e-5fad-950001128a5c",
+          "locator": "5.1.",
+          "excerpt": "5.1.) Czy umowa została wykonana: Tak",
+          "categories": [],
+          "status": "source_fact"
+        },
+        {
+          "source_id": "2026/BZP 00287692/01",
+          "url": "https://ezamowienia.gov.pl/mo-board/api/v1/Board/GetNoticePdfById?noticeId=08dec865-8b29-6a5e-5fad-950001128a5c",
+          "locator": "5.2.",
+          "excerpt": "5.2.) Termin wykonania umowy: 2025-12-15",
+          "categories": [],
+          "status": "source_fact"
+        },
+        {
+          "source_id": "2026/BZP 00287692/01",
+          "url": "https://ezamowienia.gov.pl/mo-board/api/v1/Board/GetNoticePdfById?noticeId=08dec865-8b29-6a5e-5fad-950001128a5c",
+          "locator": "5.3.",
+          "excerpt": "5.3.) Czy umowę wykonano w pierwotnie określonym terminie: Nie",
+          "categories": [],
+          "status": "source_fact"
+        },
+        {
+          "source_id": "2026/BZP 00287692/01",
+          "url": "https://ezamowienia.gov.pl/mo-board/api/v1/Board/GetNoticePdfById?noticeId=08dec865-8b29-6a5e-5fad-950001128a5c",
+          "locator": "5.4.1.",
+          "excerpt": "5.4.1.) Liczba zmian: 1",
+          "categories": [],
+          "status": "source_fact"
+        },
+        {
+          "source_id": "2026/BZP 00287692/01",
+          "url": "https://ezamowienia.gov.pl/mo-board/api/v1/Board/GetNoticePdfById?noticeId=08dec865-8b29-6a5e-5fad-950001128a5c",
+          "locator": "5.5.",
+          "excerpt": "5.5.) Łączna wartość wynagrodzenia wypłacona z tytułu zrealizowanej umowy: 2255820,00 PLN",
+          "categories": [],
+          "status": "source_fact"
+        },
+        {
+          "source_id": "2026/BZP 00287692/01",
+          "url": "https://ezamowienia.gov.pl/mo-board/api/v1/Board/GetNoticePdfById?noticeId=08dec865-8b29-6a5e-5fad-950001128a5c",
+          "locator": "5.6.",
+          "excerpt": "5.6.) Czy umowa została wykonana należycie: Tak",
+          "categories": [],
+          "status": "source_fact"
+        }
+      ],
+      "effects": {
+        "contracts": [
+          {
+            "scope": "Umowa na budowę wodociągu i kanalizacji oraz modernizację pompowni i zbiornika",
+            "completion_source": "2026/BZP 00287692/01",
+            "reported": {
+              "initial_value_pln": "2255820.00",
+              "executed": true,
+              "completion_date": "2025-12-15",
+              "within_original_term": false,
+              "number_of_changes": 1,
+              "total_paid_pln": "2255820.00",
+              "proper_performance": true
+            },
+            "original_deadline": "2025-10-31",
+            "new_deadline": "2025-12-15",
+            "extension_calendar_days_calculated": 45,
+            "price_increase_in_amendment": false,
+            "reported_additional_factors": [
+              "niesprzyjające warunki atmosferyczne",
+              "zmiany projektowe podczas prac"
+            ]
+          }
+        ]
+      },
+      "notes": "Wykonawca wskazał opóźnienia dostaw wśród przyczyn, zamawiający uzgodnił późniejszy termin. Powołano również pogodę i zmiany projektowe. Zakres zmian projektowych oraz ewentualnych dodatkowych robót nie został określony.",
+      "sources": [
+        {
+          "external_id": "2026/BZP 00287660/01",
+          "url": "https://ezamowienia.gov.pl/mo-board/api/v1/Board/GetNoticePdfById?noticeId=08dec864-d90c-71ff-5fad-950001128a37",
+          "published_at": "2026-06-12T09:27:39.6848332Z",
+          "kind": "change"
+        },
+        {
+          "external_id": "2026/BZP 00287692/01",
+          "url": "https://ezamowienia.gov.pl/mo-board/api/v1/Board/GetNoticePdfById?noticeId=08dec865-8b29-6a5e-5fad-950001128a5c",
+          "published_at": "2026-06-12T09:32:29.7329376Z",
+          "kind": "completion"
+        }
+      ]
+    },
+    {
+      "case_id": "H03",
+      "ocid": "ocds-148610-84b8ac7e-a3b2-4f98-a2ff-263fa93b0638",
+      "title": "Budowa kanalizacji sanitarnej grawitacyjno-tłocznej wraz z przyłączami kanalizacji sanitarnej w miejscowości Kaliski w gminie Paprotnia",
+      "outcomes_sha256": "d601ce8f88b5815ff20f16c8d44a79b2dee8b1336d293bba5d672ad2dcfc3704",
+      "positive": [
+        "R07"
+      ],
+      "ambiguous": [],
+      "explicit_negative": [],
+      "not_documented": [
+        "R01",
+        "R02",
+        "R03",
+        "R04",
+        "R05",
+        "R06",
+        "R08",
+        "R09",
+        "R10",
+        "R11",
+        "R12",
+        "R13",
+        "R14",
+        "R15"
+      ],
+      "evidence": [
+        {
+          "source_id": "2026/BZP 00485860/01",
+          "url": "https://ezamowienia.gov.pl/mo-board/api/v1/Board/GetNoticePdfById?noticeId=08df29b9-a3a2-614f-5997-b2000149a87b",
+          "locator": "5.4",
+          "excerpt": "Zwiększenie wartości zadani w związku z wykonaniem zwiększonego zakresu robót, który był niezbędny do prawidłowego wykonania umowy",
+          "categories": [
+            "R07"
+          ],
+          "status": "documented"
+        },
+        {
+          "source_id": "2026/BZP 00485860/01",
+          "url": "https://ezamowienia.gov.pl/mo-board/api/v1/Board/GetNoticePdfById?noticeId=08df29b9-a3a2-614f-5997-b2000149a87b",
+          "locator": "5.5.1",
+          "excerpt": "5.5.1.) Wartość zmiany: 119138,06",
+          "categories": [],
+          "status": "source_fact"
+        },
+        {
+          "source_id": "2026/BZP 00485825/01",
+          "url": "https://ezamowienia.gov.pl/mo-board/api/v1/Board/GetNoticePdfById?noticeId=08df29b8-4469-3350-5997-b2000149a84f",
+          "locator": "5.4",
+          "excerpt": "wydłużenie terminu realizacji umowy do 20-07-2026",
+          "categories": [],
+          "status": "source_fact"
+        },
+        {
+          "source_id": "2026/BZP 00485880/01",
+          "url": "https://ezamowienia.gov.pl/mo-board/api/v1/Board/GetNoticePdfById?noticeId=08df29ba-7684-0e79-5997-b2000149a897",
+          "locator": "5.4",
+          "excerpt": "wydłużenie terminu wykonania umowy do 30-07-2026 r.",
+          "categories": [],
+          "status": "source_fact"
+        },
+        {
+          "source_id": "2026/BZP 00393139/01",
+          "url": "https://ezamowienia.gov.pl/mo-board/api/v1/Board/GetNoticePdfById?noticeId=08def9f9-226b-46f4-962b-12000126a3dc",
+          "locator": "4.2",
+          "excerpt": "do 2026-05-31",
+          "categories": [],
+          "status": "source_fact"
+        },
+        {
+          "source_id": "2026/BZP 00393139/01",
+          "url": "https://ezamowienia.gov.pl/mo-board/api/v1/Board/GetNoticePdfById?noticeId=08def9f9-226b-46f4-962b-12000126a3dc",
+          "locator": "4.4.",
+          "excerpt": "4.4.) Wartość umowy: 2890937,56 PLN",
+          "categories": [],
+          "status": "source_fact"
+        },
+        {
+          "source_id": "2026/BZP 00393139/01",
+          "url": "https://ezamowienia.gov.pl/mo-board/api/v1/Board/GetNoticePdfById?noticeId=08def9f9-226b-46f4-962b-12000126a3dc",
+          "locator": "5.1.",
+          "excerpt": "5.1.) Czy umowa została wykonana: Tak",
+          "categories": [],
+          "status": "source_fact"
+        },
+        {
+          "source_id": "2026/BZP 00393139/01",
+          "url": "https://ezamowienia.gov.pl/mo-board/api/v1/Board/GetNoticePdfById?noticeId=08def9f9-226b-46f4-962b-12000126a3dc",
+          "locator": "5.2.",
+          "excerpt": "5.2.) Termin wykonania umowy: 2026-07-31",
+          "categories": [],
+          "status": "source_fact"
+        },
+        {
+          "source_id": "2026/BZP 00393139/01",
+          "url": "https://ezamowienia.gov.pl/mo-board/api/v1/Board/GetNoticePdfById?noticeId=08def9f9-226b-46f4-962b-12000126a3dc",
+          "locator": "5.3.",
+          "excerpt": "5.3.) Czy umowę wykonano w pierwotnie określonym terminie: Nie",
+          "categories": [],
+          "status": "source_fact"
+        },
+        {
+          "source_id": "2026/BZP 00393139/01",
+          "url": "https://ezamowienia.gov.pl/mo-board/api/v1/Board/GetNoticePdfById?noticeId=08def9f9-226b-46f4-962b-12000126a3dc",
+          "locator": "5.4.1.",
+          "excerpt": "5.4.1.) Liczba zmian: 3",
+          "categories": [],
+          "status": "source_fact"
+        },
+        {
+          "source_id": "2026/BZP 00393139/01",
+          "url": "https://ezamowienia.gov.pl/mo-board/api/v1/Board/GetNoticePdfById?noticeId=08def9f9-226b-46f4-962b-12000126a3dc",
+          "locator": "5.5.",
+          "excerpt": "5.5.) Łączna wartość wynagrodzenia wypłacona z tytułu zrealizowanej umowy: 30010075,62 PLN",
+          "categories": [],
+          "status": "source_fact"
+        },
+        {
+          "source_id": "2026/BZP 00393139/01",
+          "url": "https://ezamowienia.gov.pl/mo-board/api/v1/Board/GetNoticePdfById?noticeId=08def9f9-226b-46f4-962b-12000126a3dc",
+          "locator": "5.6.",
+          "excerpt": "5.6.) Czy umowa została wykonana należycie: Tak",
+          "categories": [],
+          "status": "source_fact"
+        }
+      ],
+      "effects": {
+        "contracts": [
+          {
+            "scope": "Umowa na kanalizację w Kaliskach",
+            "completion_source": "2026/BZP 00393139/01",
+            "reported": {
+              "initial_value_pln": "2890937.56",
+              "executed": true,
+              "completion_date": "2026-07-31",
+              "within_original_term": false,
+              "number_of_changes": 3,
+              "total_paid_pln": "30010075.62",
+              "proper_performance": true
+            },
+            "interpretation": "Wartość wypłacona wpisana w 5.5 przekracza sumę pierwotnej umowy i jedynej podanej zmiany ceny. Do interpretacji łącznego rozliczenia wymagane jest dodatkowe źródło.",
+            "original_deadline": "2026-05-31",
+            "amended_deadlines": [
+              "2026-07-20",
+              "2026-07-30"
+            ],
+            "documented_price_increase_pln": "119138.06",
+            "financial_reconciliation": "unresolved"
+          }
+        ]
+      },
+      "notes": "Wykonano zwiększony zakres robót. Wnioski o wydłużenie terminu i późniejszy odbiór nie określają przyczyny terminowej ani nie dowodzą błędu harmonogramowania.",
+      "sources": [
+        {
+          "external_id": "2026/BZP 00393139/01",
+          "url": "https://ezamowienia.gov.pl/mo-board/api/v1/Board/GetNoticePdfById?noticeId=08def9f9-226b-46f4-962b-12000126a3dc",
+          "published_at": "2026-08-14T11:42:35.0884597Z",
+          "kind": "completion"
+        },
+        {
+          "external_id": "2026/BZP 00485825/01",
+          "url": "https://ezamowienia.gov.pl/mo-board/api/v1/Board/GetNoticePdfById?noticeId=08df29b8-4469-3350-5997-b2000149a84f",
+          "published_at": "2026-10-14T05:59:10.8237121Z",
+          "kind": "change"
+        },
+        {
+          "external_id": "2026/BZP 00485860/01",
+          "url": "https://ezamowienia.gov.pl/mo-board/api/v1/Board/GetNoticePdfById?noticeId=08df29b9-a3a2-614f-5997-b2000149a87b",
+          "published_at": "2026-10-14T06:08:59.9217295Z",
+          "kind": "change"
+        },
+        {
+          "external_id": "2026/BZP 00485880/01",
+          "url": "https://ezamowienia.gov.pl/mo-board/api/v1/Board/GetNoticePdfById?noticeId=08df29ba-7684-0e79-5997-b2000149a897",
+          "published_at": "2026-10-14T06:14:53.8747752Z",
+          "kind": "change"
+        }
+      ]
+    },
+    {
+      "case_id": "H04",
+      "ocid": "ocds-148610-c5a97bb5-6e64-4083-8ea1-9736c7abed09",
+      "title": "Rozbudowa sieci kanalizacji sanitarnej w miejscowości Żmijewko",
+      "outcomes_sha256": "41bbcb2ac097166966dd361781e2644099ae3236374fcbd062aab1204306b1fc",
+      "positive": [],
+      "ambiguous": [],
+      "explicit_negative": [],
+      "not_documented": [
+        "R01",
+        "R02",
+        "R03",
+        "R04",
+        "R05",
+        "R06",
+        "R07",
+        "R08",
+        "R09",
+        "R10",
+        "R11",
+        "R12",
+        "R13",
+        "R14",
+        "R15"
+      ],
+      "evidence": [
+        {
+          "source_id": "2025/BZP 00545681/01",
+          "url": "https://ezamowienia.gov.pl/mo-board/api/v1/Board/GetNoticePdfById?noticeId=08de2832-e1b7-960c-592a-d10001be01e6",
+          "locator": "5.3",
+          "excerpt": "wydłużenie terminu realizacji zadania",
+          "categories": [],
+          "status": "source_fact"
+        },
+        {
+          "source_id": "2025/BZP 00545681/01",
+          "url": "https://ezamowienia.gov.pl/mo-board/api/v1/Board/GetNoticePdfById?noticeId=08de2832-e1b7-960c-592a-d10001be01e6",
+          "locator": "5.4",
+          "excerpt": "zmiana terminu realizacji zadania o 30 dni",
+          "categories": [],
+          "status": "source_fact"
+        },
+        {
+          "source_id": "2025/BZP 00545681/01",
+          "url": "https://ezamowienia.gov.pl/mo-board/api/v1/Board/GetNoticePdfById?noticeId=08de2832-e1b7-960c-592a-d10001be01e6",
+          "locator": "5.5.3",
+          "excerpt": "5.5.3.) Wzrost ceny w związku ze zmianą umowy/umowy ramowej: Nie",
+          "categories": [],
+          "status": "source_fact"
+        },
+        {
+          "source_id": "2025/BZP 00627415/01",
+          "url": "https://ezamowienia.gov.pl/mo-board/api/v1/Board/GetNoticePdfById?noticeId=08de4795-7728-799a-d6d3-f50001629acb",
+          "locator": "4.4.",
+          "excerpt": "4.4.) Wartość umowy: 768750,00 PLN",
+          "categories": [],
+          "status": "source_fact"
+        },
+        {
+          "source_id": "2025/BZP 00627415/01",
+          "url": "https://ezamowienia.gov.pl/mo-board/api/v1/Board/GetNoticePdfById?noticeId=08de4795-7728-799a-d6d3-f50001629acb",
+          "locator": "5.1.",
+          "excerpt": "5.1.) Czy umowa została wykonana: Tak",
+          "categories": [],
+          "status": "source_fact"
+        },
+        {
+          "source_id": "2025/BZP 00627415/01",
+          "url": "https://ezamowienia.gov.pl/mo-board/api/v1/Board/GetNoticePdfById?noticeId=08de4795-7728-799a-d6d3-f50001629acb",
+          "locator": "5.2.",
+          "excerpt": "5.2.) Termin wykonania umowy: 2025-11-19",
+          "categories": [],
+          "status": "source_fact"
+        },
+        {
+          "source_id": "2025/BZP 00627415/01",
+          "url": "https://ezamowienia.gov.pl/mo-board/api/v1/Board/GetNoticePdfById?noticeId=08de4795-7728-799a-d6d3-f50001629acb",
+          "locator": "5.3.",
+          "excerpt": "5.3.) Czy umowę wykonano w pierwotnie określonym terminie: Nie",
+          "categories": [],
+          "status": "source_fact"
+        },
+        {
+          "source_id": "2025/BZP 00627415/01",
+          "url": "https://ezamowienia.gov.pl/mo-board/api/v1/Board/GetNoticePdfById?noticeId=08de4795-7728-799a-d6d3-f50001629acb",
+          "locator": "5.4.1.",
+          "excerpt": "5.4.1.) Liczba zmian: 1",
+          "categories": [],
+          "status": "source_fact"
+        },
+        {
+          "source_id": "2025/BZP 00627415/01",
+          "url": "https://ezamowienia.gov.pl/mo-board/api/v1/Board/GetNoticePdfById?noticeId=08de4795-7728-799a-d6d3-f50001629acb",
+          "locator": "5.5.",
+          "excerpt": "5.5.) Łączna wartość wynagrodzenia wypłacona z tytułu zrealizowanej umowy: 768750,00 PLN",
+          "categories": [],
+          "status": "source_fact"
+        },
+        {
+          "source_id": "2025/BZP 00627415/01",
+          "url": "https://ezamowienia.gov.pl/mo-board/api/v1/Board/GetNoticePdfById?noticeId=08de4795-7728-799a-d6d3-f50001629acb",
+          "locator": "5.6.",
+          "excerpt": "5.6.) Czy umowa została wykonana należycie: Tak",
+          "categories": [],
+          "status": "source_fact"
+        }
+      ],
+      "effects": {
+        "contracts": [
+          {
+            "scope": "Umowa na rozbudowę sieci w Żmijewku",
+            "completion_source": "2025/BZP 00627415/01",
+            "reported": {
+              "initial_value_pln": "768750.00",
+              "executed": true,
+              "completion_date": "2025-11-19",
+              "within_original_term": false,
+              "number_of_changes": 1,
+              "total_paid_pln": "768750.00",
+              "proper_performance": true
+            },
+            "interpretation": "30 dni jest zmianą uzgodnionego terminu. Rzeczywistego opóźnienia w dniach nie wyprowadzano z samego aneksu.",
+            "formal_extension_days": 30,
+            "price_increase_in_amendment": false
+          }
+        ]
+      },
+      "notes": "Ogłoszenia potwierdzają przesunięcie terminu. Przyczyny źródłowej nie opisano: pole przyczyny powtarza samą zmianę. Brak podstaw do R06 lub do rozpoznania innej kategorii przyczynowej.",
+      "sources": [
+        {
+          "external_id": "2025/BZP 00545681/01",
+          "url": "https://ezamowienia.gov.pl/mo-board/api/v1/Board/GetNoticePdfById?noticeId=08de2832-e1b7-960c-592a-d10001be01e6",
+          "published_at": "2025-11-20T12:46:53.3468286Z",
+          "kind": "change"
+        },
+        {
+          "external_id": "2025/BZP 00627415/01",
+          "url": "https://ezamowienia.gov.pl/mo-board/api/v1/Board/GetNoticePdfById?noticeId=08de4795-7728-799a-d6d3-f50001629acb",
+          "published_at": "2025-12-30T11:20:40.784672Z",
+          "kind": "completion"
+        }
+      ]
+    },
+    {
+      "case_id": "H05",
+      "ocid": "ocds-148610-f0da24f0-7dff-4e21-8b08-2e1d2982bbef",
+      "title": "Budowa kanalizacji sanitarnej ul. Spokojna i Słoneczna w Solcu nad Wisłą",
+      "outcomes_sha256": "ec1ecc3294303b365f0604b3c184336553a01f9ba14e92c4f147d1f2ac95c52d",
+      "positive": [],
+      "ambiguous": [],
+      "explicit_negative": [],
+      "not_documented": [
+        "R01",
+        "R02",
+        "R03",
+        "R04",
+        "R05",
+        "R06",
+        "R07",
+        "R08",
+        "R09",
+        "R10",
+        "R11",
+        "R12",
+        "R13",
+        "R14",
+        "R15"
+      ],
+      "evidence": [
+        {
+          "source_id": "2025/BZP 00552930/01",
+          "url": "https://ezamowienia.gov.pl/mo-board/api/v1/Board/GetNoticePdfById?noticeId=08de2bf5-6957-a972-0560-490001b55d28",
+          "locator": "4.4.",
+          "excerpt": "4.4.) Wartość umowy: 449645,11 PLN",
+          "categories": [],
+          "status": "source_fact"
+        },
+        {
+          "source_id": "2025/BZP 00552930/01",
+          "url": "https://ezamowienia.gov.pl/mo-board/api/v1/Board/GetNoticePdfById?noticeId=08de2bf5-6957-a972-0560-490001b55d28",
+          "locator": "5.1.",
+          "excerpt": "5.1.) Czy umowa została wykonana: Tak",
+          "categories": [],
+          "status": "source_fact"
+        },
+        {
+          "source_id": "2025/BZP 00552930/01",
+          "url": "https://ezamowienia.gov.pl/mo-board/api/v1/Board/GetNoticePdfById?noticeId=08de2bf5-6957-a972-0560-490001b55d28",
+          "locator": "5.2.",
+          "excerpt": "5.2.) Termin wykonania umowy: 2025-11-03",
+          "categories": [],
+          "status": "source_fact"
+        },
+        {
+          "source_id": "2025/BZP 00552930/01",
+          "url": "https://ezamowienia.gov.pl/mo-board/api/v1/Board/GetNoticePdfById?noticeId=08de2bf5-6957-a972-0560-490001b55d28",
+          "locator": "5.3.",
+          "excerpt": "5.3.) Czy umowę wykonano w pierwotnie określonym terminie: Tak",
+          "categories": [],
+          "status": "source_fact"
+        },
+        {
+          "source_id": "2025/BZP 00552930/01",
+          "url": "https://ezamowienia.gov.pl/mo-board/api/v1/Board/GetNoticePdfById?noticeId=08de2bf5-6957-a972-0560-490001b55d28",
+          "locator": "5.4.1.",
+          "excerpt": "5.4.1.) Liczba zmian: 0",
+          "categories": [],
+          "status": "source_fact"
+        },
+        {
+          "source_id": "2025/BZP 00552930/01",
+          "url": "https://ezamowienia.gov.pl/mo-board/api/v1/Board/GetNoticePdfById?noticeId=08de2bf5-6957-a972-0560-490001b55d28",
+          "locator": "5.5.",
+          "excerpt": "5.5.) Łączna wartość wynagrodzenia wypłacona z tytułu zrealizowanej umowy: 449645,11 PLN",
+          "categories": [],
+          "status": "source_fact"
+        },
+        {
+          "source_id": "2025/BZP 00552930/01",
+          "url": "https://ezamowienia.gov.pl/mo-board/api/v1/Board/GetNoticePdfById?noticeId=08de2bf5-6957-a972-0560-490001b55d28",
+          "locator": "5.6.",
+          "excerpt": "5.6.) Czy umowa została wykonana należycie: Tak",
+          "categories": [],
+          "status": "source_fact"
+        }
+      ],
+      "effects": {
+        "contracts": [
+          {
+            "scope": "Umowa w Solcu nad Wisłą",
+            "completion_source": "2025/BZP 00552930/01",
+            "reported": {
+              "initial_value_pln": "449645.11",
+              "executed": true,
+              "completion_date": "2025-11-03",
+              "within_original_term": true,
+              "number_of_changes": 0,
+              "total_paid_pln": "449645.11",
+              "proper_performance": true
+            }
+          }
+        ]
+      },
+      "notes": "Przebieg wykazuje terminowe wykonanie, zgodność kwot i zero formalnych zmian. Brak potwierdzenia poszczególnych ryzyk w treści ogłoszenia.",
+      "sources": [
+        {
+          "external_id": "2025/BZP 00552930/01",
+          "url": "https://ezamowienia.gov.pl/mo-board/api/v1/Board/GetNoticePdfById?noticeId=08de2bf5-6957-a972-0560-490001b55d28",
+          "published_at": "2025-11-25T07:36:56.7366239Z",
+          "kind": "completion"
+        }
+      ]
+    },
+    {
+      "case_id": "H06",
+      "ocid": "ocds-148610-67055818-2e55-40d3-80de-227792d65a92",
+      "title": "Gospodarka wodno-ściekowa w gminie Pokój poprzez rozbudowę sieci wodociągowej i przydomowych oczyszczalni ścieków",
+      "outcomes_sha256": "03d76b59d4e58067eb60096b1bbb48c4b5d54051279b4f1246505cc0da2286db",
+      "positive": [],
+      "ambiguous": [],
+      "explicit_negative": [],
+      "not_documented": [
+        "R01",
+        "R02",
+        "R03",
+        "R04",
+        "R05",
+        "R06",
+        "R07",
+        "R08",
+        "R09",
+        "R10",
+        "R11",
+        "R12",
+        "R13",
+        "R14",
+        "R15"
+      ],
+      "evidence": [
+        {
+          "source_id": "2026/BZP 00008029/01",
+          "url": "https://ezamowienia.gov.pl/mo-board/api/v1/Board/GetNoticePdfById?noticeId=08de4dd8-5017-b4bd-d6d3-f5000169ea40",
+          "locator": "4.2",
+          "excerpt": "do 2025-10-30",
+          "categories": [],
+          "status": "source_fact"
+        },
+        {
+          "source_id": "2026/BZP 00008029/01",
+          "url": "https://ezamowienia.gov.pl/mo-board/api/v1/Board/GetNoticePdfById?noticeId=08de4dd8-5017-b4bd-d6d3-f5000169ea40",
+          "locator": "4.4.",
+          "excerpt": "4.4.) Wartość umowy: 4572434,80 PLN",
+          "categories": [],
+          "status": "source_fact"
+        },
+        {
+          "source_id": "2026/BZP 00008029/01",
+          "url": "https://ezamowienia.gov.pl/mo-board/api/v1/Board/GetNoticePdfById?noticeId=08de4dd8-5017-b4bd-d6d3-f5000169ea40",
+          "locator": "5.1.",
+          "excerpt": "5.1.) Czy umowa została wykonana: Tak",
+          "categories": [],
+          "status": "source_fact"
+        },
+        {
+          "source_id": "2026/BZP 00008029/01",
+          "url": "https://ezamowienia.gov.pl/mo-board/api/v1/Board/GetNoticePdfById?noticeId=08de4dd8-5017-b4bd-d6d3-f5000169ea40",
+          "locator": "5.2.",
+          "excerpt": "5.2.) Termin wykonania umowy: 2025-12-15",
+          "categories": [],
+          "status": "source_fact"
+        },
+        {
+          "source_id": "2026/BZP 00008029/01",
+          "url": "https://ezamowienia.gov.pl/mo-board/api/v1/Board/GetNoticePdfById?noticeId=08de4dd8-5017-b4bd-d6d3-f5000169ea40",
+          "locator": "5.3.",
+          "excerpt": "5.3.) Czy umowę wykonano w pierwotnie określonym terminie: Nie",
+          "categories": [],
+          "status": "source_fact"
+        },
+        {
+          "source_id": "2026/BZP 00008029/01",
+          "url": "https://ezamowienia.gov.pl/mo-board/api/v1/Board/GetNoticePdfById?noticeId=08de4dd8-5017-b4bd-d6d3-f5000169ea40",
+          "locator": "5.4.1.",
+          "excerpt": "5.4.1.) Liczba zmian: 0",
+          "categories": [],
+          "status": "source_fact"
+        },
+        {
+          "source_id": "2026/BZP 00008029/01",
+          "url": "https://ezamowienia.gov.pl/mo-board/api/v1/Board/GetNoticePdfById?noticeId=08de4dd8-5017-b4bd-d6d3-f5000169ea40",
+          "locator": "5.5.",
+          "excerpt": "5.5.) Łączna wartość wynagrodzenia wypłacona z tytułu zrealizowanej umowy: 4526336,85 PLN",
+          "categories": [],
+          "status": "source_fact"
+        },
+        {
+          "source_id": "2026/BZP 00008029/01",
+          "url": "https://ezamowienia.gov.pl/mo-board/api/v1/Board/GetNoticePdfById?noticeId=08de4dd8-5017-b4bd-d6d3-f5000169ea40",
+          "locator": "5.6.",
+          "excerpt": "5.6.) Czy umowa została wykonana należycie: Tak",
+          "categories": [],
+          "status": "source_fact"
+        }
+      ],
+      "effects": {
+        "contracts": [
+          {
+            "scope": "Umowa w gminie Pokój",
+            "completion_source": "2026/BZP 00008029/01",
+            "reported": {
+              "initial_value_pln": "4572434.80",
+              "executed": true,
+              "completion_date": "2025-12-15",
+              "within_original_term": false,
+              "number_of_changes": 0,
+              "total_paid_pln": "4526336.85",
+              "proper_performance": true
+            },
+            "original_deadline": "2025-10-30",
+            "days_after_original_deadline_calculated": 46
+          }
+        ]
+      },
+      "notes": "Pierwotnego terminu nie dotrzymano; przyczyny nie podano. Wypłacono mniej niż wartość umowy bez formalnej zmiany; brak opisu mechanizmu rozliczenia.",
+      "sources": [
+        {
+          "external_id": "2026/BZP 00008029/01",
+          "url": "https://ezamowienia.gov.pl/mo-board/api/v1/Board/GetNoticePdfById?noticeId=08de4dd8-5017-b4bd-d6d3-f5000169ea40",
+          "published_at": "2026-01-07T10:34:18.5075414Z",
+          "kind": "completion"
+        }
+      ]
+    },
+    {
+      "case_id": "H07",
+      "ocid": "ocds-148610-f1d56e23-a34c-4f3c-b45a-4ec7b3eced59",
+      "title": "„Roboty remontowe i usuwanie awarii kanalizacji deszczowej”  - na terenie miasta Giżycka.",
+      "outcomes_sha256": "879bc185c39e6ab5c1ef645b08a49a53e7b567bfe8cf1deac41026de811813dc",
+      "positive": [],
+      "ambiguous": [],
+      "explicit_negative": [],
+      "not_documented": [
+        "R01",
+        "R02",
+        "R03",
+        "R04",
+        "R05",
+        "R06",
+        "R07",
+        "R08",
+        "R09",
+        "R10",
+        "R11",
+        "R12",
+        "R13",
+        "R14",
+        "R15"
+      ],
+      "evidence": [
+        {
+          "source_id": "2026/BZP 00379543/01",
+          "url": "https://ezamowienia.gov.pl/mo-board/api/v1/Board/GetNoticePdfById?noticeId=08def2f2-5ab1-26a9-962b-12000175fbfb",
+          "locator": "4.4.",
+          "excerpt": "4.4.) Wartość umowy: 315541,20 PLN",
+          "categories": [],
+          "status": "source_fact"
+        },
+        {
+          "source_id": "2026/BZP 00379543/01",
+          "url": "https://ezamowienia.gov.pl/mo-board/api/v1/Board/GetNoticePdfById?noticeId=08def2f2-5ab1-26a9-962b-12000175fbfb",
+          "locator": "5.1.",
+          "excerpt": "5.1.) Czy umowa została wykonana: Tak",
+          "categories": [],
+          "status": "source_fact"
+        },
+        {
+          "source_id": "2026/BZP 00379543/01",
+          "url": "https://ezamowienia.gov.pl/mo-board/api/v1/Board/GetNoticePdfById?noticeId=08def2f2-5ab1-26a9-962b-12000175fbfb",
+          "locator": "5.2.",
+          "excerpt": "5.2.) Termin wykonania umowy: 2026-07-15",
+          "categories": [],
+          "status": "source_fact"
+        },
+        {
+          "source_id": "2026/BZP 00379543/01",
+          "url": "https://ezamowienia.gov.pl/mo-board/api/v1/Board/GetNoticePdfById?noticeId=08def2f2-5ab1-26a9-962b-12000175fbfb",
+          "locator": "5.3.",
+          "excerpt": "5.3.) Czy umowę wykonano w pierwotnie określonym terminie: Tak",
+          "categories": [],
+          "status": "source_fact"
+        },
+        {
+          "source_id": "2026/BZP 00379543/01",
+          "url": "https://ezamowienia.gov.pl/mo-board/api/v1/Board/GetNoticePdfById?noticeId=08def2f2-5ab1-26a9-962b-12000175fbfb",
+          "locator": "5.4.1.",
+          "excerpt": "5.4.1.) Liczba zmian: 0",
+          "categories": [],
+          "status": "source_fact"
+        },
+        {
+          "source_id": "2026/BZP 00379543/01",
+          "url": "https://ezamowienia.gov.pl/mo-board/api/v1/Board/GetNoticePdfById?noticeId=08def2f2-5ab1-26a9-962b-12000175fbfb",
+          "locator": "5.5.",
+          "excerpt": "5.5.) Łączna wartość wynagrodzenia wypłacona z tytułu zrealizowanej umowy: 262924,82 PLN",
+          "categories": [],
+          "status": "source_fact"
+        },
+        {
+          "source_id": "2026/BZP 00379543/01",
+          "url": "https://ezamowienia.gov.pl/mo-board/api/v1/Board/GetNoticePdfById?noticeId=08def2f2-5ab1-26a9-962b-12000175fbfb",
+          "locator": "5.6.",
+          "excerpt": "5.6.) Czy umowa została wykonana należycie: Tak",
+          "categories": [],
+          "status": "source_fact"
+        },
+        {
+          "source_id": "2026/BZP 00379543/01",
+          "url": "https://ezamowienia.gov.pl/mo-board/api/v1/Board/GetNoticePdfById?noticeId=08def2f2-5ab1-26a9-962b-12000175fbfb",
+          "locator": "4.1",
+          "excerpt": "4.1.) Data zawarcia umowy: 2025-06-11",
+          "categories": [],
+          "status": "source_fact"
+        },
+        {
+          "source_id": "2026/BZP 00379543/01",
+          "url": "https://ezamowienia.gov.pl/mo-board/api/v1/Board/GetNoticePdfById?noticeId=08def2f2-5ab1-26a9-962b-12000175fbfb",
+          "locator": "4.2",
+          "excerpt": "12 miesiące",
+          "categories": [],
+          "status": "source_fact"
+        }
+      ],
+      "effects": {
+        "contracts": [
+          {
+            "scope": "Umowa na remont i usuwanie awarii w Giżycku",
+            "completion_source": "2026/BZP 00379543/01",
+            "reported": {
+              "initial_value_pln": "315541.20",
+              "executed": true,
+              "completion_date": "2026-07-15",
+              "within_original_term": true,
+              "number_of_changes": 0,
+              "total_paid_pln": "262924.82",
+              "proper_performance": true
+            },
+            "interpretation": "Ogłoszenie podaje terminowość, datę zawarcia 11.06.2025, okres 12 miesięcy i wykonanie 15.07.2026. Sprawdzenie sposobu liczenia okresu wymaga umowy. Brak podstaw do samodzielnej zamiany odpowiedzi zamawiającego na „Nie”."
+          }
+        ]
+      },
+      "notes": "Usuwanie awarii było zamówioną usługą. Nie jest samodzielnym dowodem wystąpienia ryzyka przy wykonywaniu kontraktu. Kwota wypłacona jest niższa od wartości umowy.",
+      "sources": [
+        {
+          "external_id": "2026/BZP 00379543/01",
+          "url": "https://ezamowienia.gov.pl/mo-board/api/v1/Board/GetNoticePdfById?noticeId=08def2f2-5ab1-26a9-962b-12000175fbfb",
+          "published_at": "2026-08-05T13:06:24.9911027Z",
+          "kind": "completion"
+        }
+      ]
+    },
+    {
+      "case_id": "H08",
+      "ocid": "ocds-148610-627a0864-7475-4d26-bd90-5f8c43e4a33b",
+      "title": "Uzbrojenie i włączenie studni S-4 do sieci wodociągowej w miejscowości Zimnice Małe, gm. Prószków, woj. opolskie w formule zaprojektuj i wybuduj.",
+      "outcomes_sha256": "38ee24addc474c66874772885ded4599530b66a40c007669d21c4235184724d5",
+      "positive": [],
+      "ambiguous": [],
+      "explicit_negative": [],
+      "not_documented": [
+        "R01",
+        "R02",
+        "R03",
+        "R04",
+        "R05",
+        "R06",
+        "R07",
+        "R08",
+        "R09",
+        "R10",
+        "R11",
+        "R12",
+        "R13",
+        "R14",
+        "R15"
+      ],
+      "evidence": [
+        {
+          "source_id": "2026/BZP 00084270/01",
+          "url": "https://ezamowienia.gov.pl/mo-board/api/v1/Board/GetNoticePdfById?noticeId=08de5fea-42f0-418d-4c32-fc0001f11ad0",
+          "locator": "4.4.",
+          "excerpt": "4.4.) Wartość umowy: 516600 PLN",
+          "categories": [],
+          "status": "source_fact"
+        },
+        {
+          "source_id": "2026/BZP 00084270/01",
+          "url": "https://ezamowienia.gov.pl/mo-board/api/v1/Board/GetNoticePdfById?noticeId=08de5fea-42f0-418d-4c32-fc0001f11ad0",
+          "locator": "5.1.",
+          "excerpt": "5.1.) Czy umowa została wykonana: Tak",
+          "categories": [],
+          "status": "source_fact"
+        },
+        {
+          "source_id": "2026/BZP 00084270/01",
+          "url": "https://ezamowienia.gov.pl/mo-board/api/v1/Board/GetNoticePdfById?noticeId=08de5fea-42f0-418d-4c32-fc0001f11ad0",
+          "locator": "5.2.",
+          "excerpt": "5.2.) Termin wykonania umowy: 2025-12-15",
+          "categories": [],
+          "status": "source_fact"
+        },
+        {
+          "source_id": "2026/BZP 00084270/01",
+          "url": "https://ezamowienia.gov.pl/mo-board/api/v1/Board/GetNoticePdfById?noticeId=08de5fea-42f0-418d-4c32-fc0001f11ad0",
+          "locator": "5.3.",
+          "excerpt": "5.3.) Czy umowę wykonano w pierwotnie określonym terminie: Tak",
+          "categories": [],
+          "status": "source_fact"
+        },
+        {
+          "source_id": "2026/BZP 00084270/01",
+          "url": "https://ezamowienia.gov.pl/mo-board/api/v1/Board/GetNoticePdfById?noticeId=08de5fea-42f0-418d-4c32-fc0001f11ad0",
+          "locator": "5.4.1.",
+          "excerpt": "5.4.1.) Liczba zmian: 0",
+          "categories": [],
+          "status": "source_fact"
+        },
+        {
+          "source_id": "2026/BZP 00084270/01",
+          "url": "https://ezamowienia.gov.pl/mo-board/api/v1/Board/GetNoticePdfById?noticeId=08de5fea-42f0-418d-4c32-fc0001f11ad0",
+          "locator": "5.5.",
+          "excerpt": "5.5.) Łączna wartość wynagrodzenia wypłacona z tytułu zrealizowanej umowy: 516600,00 PLN",
+          "categories": [],
+          "status": "source_fact"
+        },
+        {
+          "source_id": "2026/BZP 00084270/01",
+          "url": "https://ezamowienia.gov.pl/mo-board/api/v1/Board/GetNoticePdfById?noticeId=08de5fea-42f0-418d-4c32-fc0001f11ad0",
+          "locator": "5.6.",
+          "excerpt": "5.6.) Czy umowa została wykonana należycie: Tak",
+          "categories": [],
+          "status": "source_fact"
+        },
+        {
+          "source_id": "2026/BZP 00084270/01",
+          "url": "https://ezamowienia.gov.pl/mo-board/api/v1/Board/GetNoticePdfById?noticeId=08de5fea-42f0-418d-4c32-fc0001f11ad0",
+          "locator": "3.8",
+          "excerpt": "Wykonanie rozruchu z osiągnięciem wymaganych przez zamawiającego parametrów",
+          "categories": [],
+          "status": "requirement"
+        }
+      ],
+      "effects": {
+        "contracts": [
+          {
+            "scope": "Umowa na włączenie studni S-4 w Zimnicach Małych",
+            "completion_source": "2026/BZP 00084270/01",
+            "reported": {
+              "initial_value_pln": "516600",
+              "executed": true,
+              "completion_date": "2025-12-15",
+              "within_original_term": true,
+              "number_of_changes": 0,
+              "total_paid_pln": "516600.00",
+              "proper_performance": true
+            }
+          }
+        ]
+      },
+      "notes": "Wymóg rozruchu i osiągnięcia parametrów należy do zakresu zamówienia. W ogłoszeniu brak ustalenia, że rozruch się nie udał albo parametry nie zostały osiągnięte.",
+      "sources": [
+        {
+          "external_id": "2026/BZP 00084270/01",
+          "url": "https://ezamowienia.gov.pl/mo-board/api/v1/Board/GetNoticePdfById?noticeId=08de5fea-42f0-418d-4c32-fc0001f11ad0",
+          "published_at": "2026-01-30T10:28:08.3092836Z",
+          "kind": "completion"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "version": "1.0",
+  "release": "de7627c725ba9e763c2f882875e311358736b706",
+  "objective": "Test techniczny na zakończonych zamówieniach spoza 22 przypadków startowych. Wynik porównujemy z udokumentowanymi zdarzeniami w BZP. Brak dokumentacji nie dowodzi, że zdarzenie nie wystąpiło.",
+  "cohort": "BZP, publikacja pierwotna od 2025-01-01 do 2026-03-31. Jedno ogłoszenie o zamówieniu, jeden wynik i jedno ogłoszenie o wykonaniu. Bez ofert częściowych. Tytuł zawiera wodociąg, kanalizację lub oczyszczalnię i nie dotyczy dokumentacji ani nadzoru. Wykluczenie każdego identyfikatora OCID, numeru ogłoszenia, zgodnego znormalizowanego tytułu lub NIP zamawiającego z pakietu referencyjnego.",
+  "sampling": "Dwie warstwy na podstawie obecności osobnego ogłoszenia o zmianie umowy. W każdej cztery najniższe skróty SHA256 z ciągu riskminer-holdout-water-2026-v1|OCID. Brak doboru na podstawie opisu lub skutku zdarzenia.",
+  "basis": "Data graniczna równa dacie publikacji pierwotnego ogłoszenia. Do silnika trafia wyłącznie to ogłoszenie oraz oryginalne 22 przypadki wersji 1.0 w trybie roboczego podglądu powiązań po identyfikatorach. W eksperymencie nie uczymy reguł ani nie zatwierdzamy zdarzeń w korpusie startowym.",
+  "prediction": "Ryzyko wskazane oznacza kategorię R01–R15 zwróconą przez zamrożone run_backtest z flag.status różnym od documented. Wskaźniki główne dotyczą wszystkich takich kategorii. Dodatkowe dotyczą pierwszych trzech w kolejności silnika.",
+  "annotation": "Odrębny recenzent techniczny nie otrzyma przewidywań. Ocenia wyłącznie pełne publiczne ogłoszenia o wykonaniu i zmianie oraz ekspercki katalog. Odrębnie oznacza ryzyko udokumentowane, niejednoznaczne, wyraźnie zaprzeczone i niewymienione. Wskazuje fragment i numer źródła oraz efekty kontraktowe. Brak formalnie niezależnego eksperta dziedzinowego.",
+  "scoring": "Dla par przypadek–kategoria niejednoznaczna anotacja jest wyłączana. TP i FN wymagają pozytywnej anotacji. FP dla głównego wyniku oznacza sygnał bez pozytywnego potwierdzenia w dostępnych dokumentach (wyraźnie ujemne lub niewymienione), a nie obalenie ryzyka. Podajemy osobno FP zaprzeczone i niewymienione. P = TP/(TP+FP), R = TP/(TP+FN), F1 = 2TP/(2TP+FP+FN). Mianownik zero daje wynik nieokreślony. Przedziały i częstości populacyjne poza zakresem tej małej próby warstwowej.",
+  "immutability": "Git przechowuje protokół przed uruchomieniem. Następny stan zapisze listę prób, przewidywania, kopie źródeł i skróty SHA-256 przed oceną końcową. Wyniku nie wykorzystujemy do zmiany testowanej wersji."
+}

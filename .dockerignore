@@ -1,0 +1,12 @@
+*
+!requirements.txt
+!constraints.txt
+!riskminer
+!riskminer/**
+!static
+!static/**
+!fixtures
+!fixtures/**
+fixtures/validation/
+**/__pycache__
+**/*.pyc
