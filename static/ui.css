@@ -1362,6 +1362,12 @@ hr {
 .sidebar .account small { color: #b4cac4; }
 .sidebar .avatar { color: #c8dfcf; background: #274544; border-color: #52706a; }
 .sidebar :focus-visible { outline-color: #daf0be; }
+.hero-actions { display: flex; align-items: center; flex-wrap: wrap; gap: 8px 20px; }
+.hero-actions .dossier-link { display: inline-flex; align-items: center; min-height: 40px; color: white; font-size: .88rem; font-weight: 600; text-decoration: underline; text-underline-offset: .2em; }
+.hero-actions .dossier-link:focus-visible { outline-color: #daf0be; }
+@media (max-width: 720px) {
+  .topbar .mobile-menu, .topbar .search-button, .sidebar .mobile-close { min-width: 44px; min-height: 44px; }
+}
 .desk-lead { display: grid; gap: 15px; margin-bottom: 16px; }
 .desk-lead.has-evidence { grid-template-columns: minmax(0, 1.17fr) minmax(0, 1fr); }
 .evidence-spot, .replay-feature { border-radius: var(--radius); min-width: 0; padding: clamp(21px, 2.1vw, 34px); }

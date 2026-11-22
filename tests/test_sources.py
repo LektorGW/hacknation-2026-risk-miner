@@ -11,7 +11,7 @@ from pypdf import PdfWriter
 
 from riskminer.ingest import fold, load_file
 from riskminer.kpo import find
-from riskminer.sources import BZP, _bzp_query, enrich, match, notice_text
+from riskminer.sources import BZP, _bzp_query, _SourceNotes, enrich, match, notice_text
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -51,6 +51,10 @@ class Ingestion(unittest.TestCase):
         rows = load_file("sample.docx", out.getvalue())
         self.assertEqual([i["source"]["locator"] for i in rows], ["akapit 1", "tabela 1, wiersz 1"])
         self.assertIn("20 dni", rows[1]["text"])
+
+    def test_rejects_values_past_csv_header_instead_of_truncating_price(self):
+        with self.assertRaisesRegex(ValueError, "wiersz 2"):
+            load_file("projekt.csv", "Tytuł;Planowany koszt\nKanalizacja;1500;25".encode())
 
     def test_malformed_input_blank_pdf_missing_columns_and_duplicates(self):
         writer = PdfWriter()
@@ -142,6 +146,35 @@ class Sources(unittest.TestCase):
         self.assertEqual(len(notices), 30)
         self.assertIn("SearchAfter=last-object", req.call_args.args[0])
         self.assertNotIn("style", notice_text("<head><style>body{}</style></head><p>Treść</p>"))
+
+    def test_similar_title_and_name_cannot_override_a_different_nip(self):
+        project = {"title": "Budowa kanalizacji", "buyer": "Zakład komunalny", "nip": "1111111111"}
+        record = {"title": project["title"], "buyer": project["buyer"], "buyer_identifier": "2222222222"}
+        score, reasons = match(project, record)
+        self.assertLess(score, 0.74)
+        self.assertTrue(any("identyfikatory" in r for r in reasons))
+
+    def test_bzp_retains_first_page_when_second_page_fails(self):
+        raw = {"noticeNumber": "2024/BZP 00000001/01", "objectId": "cursor"}
+        notes = _SourceNotes()
+        with patch("riskminer.sources._request", side_effect=[[raw] * 30, URLError("offline")]):
+            rows = _bzp_query(BZP, {"NoticeType": "ContractNotice"}, notes)
+        self.assertEqual(len(rows), 30)
+        self.assertFalse(notes.complete)
+
+    def test_ted_retains_valid_notices_after_invalid_row_and_failed_page(self):
+        project = {"title": "Budowa wodociągu", "buyer": "Gmina"}
+        page = [None] + [
+            {"publication-number": f"{i}-2025", "title-proc": project["title"], "buyer-name": project["buyer"]}
+            for i in range(1, 20)
+        ]
+        with (
+            patch("riskminer.sources._search_bzp", return_value=[]),
+            patch("riskminer.sources._request", side_effect=[{"notices": page}, URLError("offline")]),
+        ):
+            result = enrich(project)
+        self.assertFalse(result["complete"])
+        self.assertEqual(result["source_status"]["TED"], {"status": "partial", "matched": 19})
 
     def test_ted_format_normalization_and_independent_failure(self):
         raw = {

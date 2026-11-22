@@ -49,12 +49,12 @@ def claim():
     now = time.time()
     with db.connection(True) as c:
         c.execute(
-            "UPDATE tasks SET status='failed',result=? WHERE status='running' AND lease<? AND attempt>=3",
+            "UPDATE tasks SET status='failed',result=? WHERE status='running' AND lease<=? AND attempt>=3",
             (db.dump({"error": "Przetwarzanie przerwane po trzech próbach."}), now),
         )
         task = c.execute(
             """SELECT job_id,project_id,attempt,actor FROM tasks JOIN jobs ON jobs.id=tasks.job_id
-            WHERE status='queued' OR (status='running' AND lease<?) ORDER BY created_at,project_id LIMIT 1""",
+            WHERE status IN ('queued','running') AND lease<=? ORDER BY created_at,project_id LIMIT 1""",
             (now,),
         ).fetchone()
         if task:
@@ -81,10 +81,12 @@ def cycle():
         log.exception("Nieudane wzbogacenie projektu %s", pid)
         result = {"error": "Źródło lub proces przetwarzania jest niedostępny."}
         status = "queued" if attempt < 2 else "failed"
+    next_lease = time.time() + 30 * (attempt + 1) if status == "queued" else 0
     with db.connection(True) as c:
         c.execute(
-            "UPDATE tasks SET status=?,result=?,lease=0 WHERE job_id=? AND project_id=? AND attempt=?",
-            (status, db.dump(result), jid, pid, attempt + 1),
+            """UPDATE tasks SET status=?,result=?,lease=?
+               WHERE job_id=? AND project_id=? AND attempt=? AND status='running'""",
+            (status, db.dump(result), next_lease, jid, pid, attempt + 1),
         )
     return True
 

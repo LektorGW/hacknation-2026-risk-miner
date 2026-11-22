@@ -250,3 +250,34 @@ def test_public_dossier_reconstructs_only_published_contract_fields(http):
         assert "ten sam termin umowy" in http.get("/pokaz", params={"sprawa": name}).text
     for query in ("etap=0", "etap=4", "sprawa=inne"):
         assert http.get("/pokaz?" + query).status_code == 404
+
+
+def test_repeated_analysis_keeps_expert_decision_and_detects_stale_review(http):
+    aid = http.post("/api/analyze", json=SAMPLE).json()["analysis_id"]
+    path = f"/api/analyses/{aid}/review"
+    first = http.post(path, json={"decision": "rejected", "comment": "Brak potwierdzenia.", "expected_at": None})
+    first.raise_for_status()
+    repeated = http.post("/api/analyze", json=SAMPLE).json()
+    assert repeated["analysis_id"] == aid and repeated["reviews"]["all"] == first.json()
+    stale = http.post(path, json={"decision": "accepted", "expected_at": None})
+    assert stale.status_code == 409
+    assert http.get(f"/api/analyses/{aid}").json()["reviews"]["all"] == first.json()
+    updated = http.post(path, json={"decision": "accepted", "expected_at": first.json()["at"]})
+    assert updated.status_code == 200 and updated.json()["status"] == "accepted"
+
+
+def test_partial_evidence_edit_keeps_other_field_sources_and_unchanged_dates(http):
+    body = b"title;buyer;planned_cost;actual_cost\nBudowa;Gmina;100;120"
+    res = http.post("/api/import", files={"file": ("budowa.csv", body)})
+    pid = res.json()["project_ids"][0]
+    url = "/api/projects/" + pid
+    old = http.get(url).json()
+    src = old["field_sources"]["actual_cost"]
+    assert src == old["field_sources"]["planned_cost"]
+    changed = http.patch(url, json={"fields": {"title": old["title"], "field_sources": {"description": src}}})
+    changed.raise_for_status()
+    p = http.get(url).json()
+    assert p["field_sources"] == {**old["field_sources"], "description": src}
+    assert "title" not in p["field_updated_at"]
+    assert http.patch(url, json={"fields": {"field_sources": ["actual_cost"]}}).status_code == 422
+    assert http.post("/api/replay", json={"cutoff": "2026-01-01"}).status_code == 422

@@ -2,7 +2,7 @@
 
 Narzędzie dla gmin przygotowujących przetargi. Powstało na HackNation 2026 w ramach zadania Ministerstwa Funduszy i Polityki Regionalnej. Zespół KryptoTrop.
 
-**[Otwórz akta umowy](https://spouse-advocate-iron-solutions.trycloudflare.com/pokaz)** · [Film (1 min 54 s)](https://github.com/LektorGW/hacknation-2026-risk-miner/blob/main/deliverables/demo-risk-miner.mp4?raw=true) · [Prezentacja (8 slajdów)](deliverables/prezentacja-risk-miner.pdf) · [Opis projektu (PDF)](deliverables/opis-projektu.pdf)
+**[Otwórz akta umowy](https://lektorgw.github.io/hacknation-2026-risk-miner/)** · [Panel aplikacji](https://spouse-advocate-iron-solutions.trycloudflare.com/) · [Film (1 min 54 s)](https://github.com/LektorGW/hacknation-2026-risk-miner/blob/main/deliverables/demo-risk-miner.mp4?raw=true) · [Prezentacja (8 slajdów)](deliverables/prezentacja-risk-miner.pdf) · [Opis projektu (PDF)](deliverables/opis-projektu.pdf)
 
 ## Problem i założenia
 
@@ -15,7 +15,7 @@ Gmina planuje kanalizację z przepompownią i zakłada rok na wykonanie robót. 
 
 ## Scenariusz demonstracyjny
 
-W aktach Zagrodna wybierz **8 czerwca 2026 r.** Ogłoszenie o wykonaniu umowy podaje trzy miesiące. Przesuń datę na **11 czerwca** i otwórz pole **4.2** w obu ogłoszeniach. Późniejszy dokument podaje dwa miesiące dla tej samej umowy. Oba źródła są dostępne do porównania.
+W aktach Zagrodna wybierz **8 czerwca 2026 r.** Ogłoszenie o wykonaniu umowy podaje trzy miesiące. Przesuń datę na **11 czerwca** i otwórz pole **4.2** w obu ogłoszeniach. Późniejszy dokument podaje dwa miesiące dla tej samej umowy. Wybierz „Pobierz kartę dowodową”, aby zachować oba cytaty, daty i odsyłacze do BZP.
 
 W przykładowej analizie nowej kanalizacji system wskazał 14 podobnych inwestycji. Siedem umów miało porównywalne dane o terminach. Dla planu na 365 dni dało to roboczy zakres 365–442 dni. W eksporcie można sprawdzić, które umowy wpłynęły na wynik. [Przykładowy eksport JSON](deliverables/przyklad-analizy.json)
 

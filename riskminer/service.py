@@ -352,7 +352,7 @@ def edit_project(pid: str, body: dict = Body(...), user=Depends(role("expert")))
         raise ValueError("Nieobsługiwane pola projektu.")
     if "status" in changes and changes["status"] not in {"completed", "active", "planned"}:
         raise ValueError("Nieprawidłowy status inwestycji.")
-    if "title" in changes and not str(changes["title"] or "").strip():
+    if "title" in changes and (not isinstance(changes["title"], str) or not changes["title"].strip()):
         raise ValueError("Tytuł projektu jest wymagany.")
     with db.connection(True) as conn:
         p = db.project(conn, pid)
@@ -360,13 +360,21 @@ def edit_project(pid: str, body: dict = Body(...), user=Depends(role("expert")))
             n = changes.get(field)
             if n is not None and (type(n) not in (int, float) or not math.isfinite(n) or n < 0):
                 raise ValueError("Koszt i czas muszą być nieujemną liczbą.")
-        refs = {**(changes.get("field_sources") or {})}
+        refs = changes.get("field_sources", {})
+        if not isinstance(refs, dict) or any(not isinstance(v, str) for v in refs.values()):
+            raise ValueError("Źródła pól muszą wskazywać dokumenty projektu.")
+        refs = dict(refs)
         for field in ("plan_source_id", "outcome_source_id"):
             if changes.get(field):
                 refs[field] = changes[field]
         for ref in refs.values():
-            if ref not in {d["id"] for d in p["documents"]}:
+            if not isinstance(ref, str) or ref not in {d["id"] for d in p["documents"]}:
                 raise ValueError("Dowód musi należeć do dokumentów projektu.")
+        if "field_sources" in changes:
+            changes = {**changes, "field_sources": {**(p.get("field_sources") or {}), **changes["field_sources"]}}
+        changes = {k: v for k, v in changes.items() if p.get(k) != v}
+        if not changes:
+            return p
         db.audit(
             conn, user["actor"], "edit_project", pid, before={k: p.get(k) for k in changes}, after=changes
         )
@@ -645,11 +653,14 @@ def analyze(body: dict = Body(...), user=Depends(identity)):
     result = analyze_input(body)
     aid = db.key("analysis", body, result)
     with db.connection(True) as conn:
-        conn.execute(
+        inserted = conn.execute(
             "INSERT OR IGNORE INTO analyses VALUES(?,?,?)",
             (aid, db.timestamp(), db.dump({"input": body, "result": result})),
-        )
-    return {**result, "analysis_id": aid}
+        ).rowcount
+        reviews = {} if inserted else json.loads(
+            conn.execute("SELECT body FROM analyses WHERE id=?", (aid,)).fetchone()[0]
+        ).get("reviews", {})
+    return {**result, "analysis_id": aid, "reviews": reviews}
 
 
 @app.get("/api/analyses/{aid}")
@@ -676,6 +687,9 @@ def review_analysis(aid: str, body: dict = Body(...), user=Depends(role("expert"
         target = body.get("flag_id") or "all"
         if target != "all" and target not in {f["id"] for f in saved["result"]["flags"]}:
             raise ValueError("Nie znaleziono wniosku w zapisanej analizie.")
+        previous = saved.get("reviews", {}).get(target, {})
+        if "expected_at" in body and body["expected_at"] != previous.get("at"):
+            raise HTTPException(409, "Inny ekspert zmienił tę ocenę. Odczytaj aktualną decyzję.")
         assessment = dict(
             status=decision,
             actor=user["actor"],

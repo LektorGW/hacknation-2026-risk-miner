@@ -6,7 +6,7 @@ import pytest
 
 from riskminer.analysis import analyze_project, run_backtest
 from riskminer.case_view import detailed_view
-from riskminer.projection import project_view
+from riskminer.projection import planning_passage, project_view
 
 
 @pytest.fixture(scope="module")
@@ -56,6 +56,38 @@ def test_contradictory_periods_zagrodno_compare_against_original_award(official_
     assert {v["days"] for v in conflict["variants"]} == {61, 92}
     assert len({v["source"]["id"] for v in conflict["variants"]}) == 2
     assert b["period_evidence"]["original"]["source"]["locator"].endswith("8.3")
+
+
+def test_missing_award_lot_never_cites_a_neighboring_lot(official_records):
+    p = reviewed(official_records[7])
+    award = next(d for d in p["documents"] if d.get("kind") == "award")
+    # Only a different section has survived the import.
+    award["text"] = "SEKCJA VIII UMOWA (dla części 2)\n8.1.) Data: 2023-03-01\n8.2.) Wartość: 17 PLN\n8.3.) Okres: 9 dni"
+    (entry,) = project_view(p)["contract_benchmarks"]
+    assert entry["planned_cost"] is None and entry["planned_days"] is None
+    assert entry["field_sources"]["planned_cost"] == []
+    assert entry["actual_cost"] == 2375309.26 and entry["actual_days"] == 46
+    assert entry["warnings"]
+
+
+def test_current_and_replayed_preflight_only_cite_the_selected_tender_lot():
+    body = "Część 1\nUnikalny przewiert.\nCzęść 2\nOdbiór pomp.\nSEKCJA V"
+    doc = {"id": "notice", "kind": "notice", "source": "BZP", "title": "Roboty",
+           "text": body, "excerpt": "Unikalny przewiert.", "published_at": "2022-01-01"}
+    p = {"id": "one", "title": "Roboty", "documents": [doc], "plan_snapshot": {
+        "source_id": "notice", "title": "Roboty", "description": "Odbiór pomp.", "lot": "2",
+        "published_at": "2022-01-01"}}
+    rules = [{"id": "A", "signals": ["przewiert"]}, {"id": "B", "signals": ["odbiór pomp"]}]
+    for cutoff in (None, "2022-01-01"):
+        result = analyze_project(p, [], rules, as_of=cutoff)
+        assert [f["id"] for f in result["flags"]] == ["B"]
+        (ref,) = result["flags"][0]["evidence"]
+        assert ref["id"] == "notice" and ref["locator"] == "BZP, część 2"
+        assert body[ref["start"]:ref["end"]] == ref["excerpt"]
+    p["plan_snapshot"]["lot"] = "3"
+    assert not analyze_project(p, [], rules)["flags"]
+    duplicate = body.replace("Unikalny przewiert.", "Odbiór pomp.")
+    assert planning_passage({**doc, "text": duplicate}, "2")["offset_base"] == duplicate.rindex("Odbiór pomp.")
 
 
 def test_desk_shows_original_period_and_field_for_each_pending_notice(official_records):

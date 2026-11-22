@@ -1,5 +1,6 @@
 """Create an editable, source-linked preparatory note for the investment file."""
 
+import re
 from datetime import date
 from io import BytesIO
 from docx import Document
@@ -9,8 +10,15 @@ from docx.opc.constants import RELATIONSHIP_TYPE as RT
 from docx.shared import Cm, Pt, RGBColor
 
 
+def _word_text(value):
+    # Form feeds separate pages in extracted text but are invalid inside Office XML.
+    text = str(value).replace("\f", "\n").replace("\v", "\n")
+    return re.sub(r"[\x00-\x08\x0e-\x1f\ud800-\udfff\ufffe\uffff]", " ", text)
+
+
 def _external(paragraph, url, label):
-    if not str(url or "").startswith(("https://", "http://")):
+    label = _word_text(label)
+    if not isinstance(url, str) or url != _word_text(url) or not url.startswith(("https://", "http://")):
         paragraph.add_run(label)
         return
     link = OxmlElement("w:hyperlink")
@@ -34,6 +42,12 @@ def _interval_text(interval):
 
 def create_brief(project, result, sensitivity_selection=None):
     doc = Document()
+    def paragraph(text="", style=None):
+        return doc.add_paragraph(_word_text(text), style)
+
+    def heading(text, level):
+        return doc.add_heading(_word_text(text), level)
+
     sec = doc.sections[0]
     sec.page_width, sec.page_height = Cm(21), Cm(29.7)
     sec.left_margin = sec.right_margin = Cm(2.2)
@@ -52,29 +66,29 @@ def create_brief(project, result, sensitivity_selection=None):
         style_pr.remove(border)
     sec.header.paragraphs[0].text = "RISK MINER     /     PRZYGOTOWANIE INWESTYCJI"
     sec.footer.paragraphs[0].text = "Risk Miner  ·  Karta robocza do weryfikacji przez eksperta"
-    doc.add_paragraph("Karta przygotowania inwestycji", "Title")
-    doc.add_heading(str(project.get("title") or "Planowane przedsięwzięcie"), 1)
-    doc.add_paragraph(
+    paragraph("Karta przygotowania inwestycji", "Title")
+    heading(str(project.get("title") or "Planowane przedsięwzięcie"), 1)
+    paragraph(
         f"Data opracowania {date.today():%d.%m.%Y}     •     Liczba podobnych projektów {result['sample_size']}"
     )
     approval = result.get("reviews", {}).get("all")
     if approval:
         status = "zatwierdzona" if approval["status"] == "accepted" else "odrzucona"
-        doc.add_paragraph(
+        paragraph(
             f"Ocena ekspercka: {status}. Osoba: {approval['actor']}. Data: {approval['at'][:10]}."
         )
         if approval.get("comment"):
-            doc.add_paragraph(approval["comment"])
+            paragraph(approval["comment"])
     else:
-        doc.add_paragraph("Status: analiza robocza do oceny eksperta.")
+        paragraph("Status: analiza robocza do oceny eksperta.")
     if project.get("description"):
-        doc.add_paragraph(str(project["description"])[:1400])
+        paragraph(str(project["description"])[:1400])
     refs = {}
 
     def cite(ref):
         if not isinstance(ref, dict):
             return ""
-        k = (ref.get("id"), str(ref.get("locator") or ""))
+        k = tuple(str(ref.get(key) or "") for key in ("id", "url", "locator", "excerpt", "start", "end"))
         if k not in refs:
             refs[k] = (len(refs) + 1, ref)
         return f"[{refs[k][0]}]"
@@ -89,22 +103,42 @@ def create_brief(project, result, sensitivity_selection=None):
                 groups.append([n])
         return " ".join(f"[{g[0]}–{g[-1]}]" if len(g) > 1 else f"[{g[0]}]" for g in groups)
 
-    doc.add_heading("Pytania do wyjaśnienia", 1)
-    for f in result.get("checklist", []):
-        doc.add_heading(f.get("question") or f["title"], 2)
-        evidence = list(f.get("evidence") or [])
-        if f.get("expert_source"):
-            evidence.append(f["expert_source"])
+    heading("Pytania do wyjaśnienia", 1)
+    checklist = list(result.get("checklist") or [])
+    selected = {f.get("id") for f in checklist}
+    reviews = result.get("reviews") or {}
+    checklist.extend(f for f in result.get("flags", []) if f.get("id") in reviews and f.get("id") not in selected)
+    for f in checklist:
+        heading(f.get("question") or f["title"], 2)
+        review = reviews.get(f.get("id"))
+        if review:
+            status = "zatwierdzony" if review["status"] == "accepted" else "odrzucony"
+            paragraph(f"Wniosek {status} przez eksperta. {review['actor']}, {review['at'][:10]}.")
+            if review.get("comment"):
+                paragraph(review["comment"])
+            if status == "odrzucony":
+                continue
+        labels = short_refs([*(f.get("evidence") or [])[:2], f.get("expert_source")])
+        paragraph(f"{f.get('action', '')} {labels}".strip())
         for precedent in f.get("precedents", [])[:2]:
-            evidence.extend(precedent.get("event", {}).get("evidence") or [])
-        labels = " ".join(dict.fromkeys(cite(r) for r in evidence[:5]))
-        doc.add_paragraph(f"{f.get('action', '')} {labels}".strip())
-        doc.add_paragraph("Odpowiedź osoby prowadzącej: ____________________________________")
-    if not result.get("checklist"):
-        doc.add_paragraph(
+            event = precedent.get("event") or {}
+            paragraph(f"Podobny przypadek: {precedent.get('title') or precedent.get('id')}. "
+                              f"{event.get('title') or ''} {short_refs((event.get('evidence') or [])[:2])}".strip())
+        for check in f.get("checks") or []:
+            status = "Znaleziono w dokumentacji" if check.get("found") else "Do uzupełnienia"
+            paragraph(f"{status}: {check['label']}. {short_refs((check.get('evidence') or [])[:2])}".strip())
+        if not f.get("checks") and f.get("answer_evidence"):
+            paragraph("Odpowiedź w dokumentacji " + short_refs(f["answer_evidence"][:2]))
+        clause = f.get("draft_clause")
+        if isinstance(clause, dict) and clause.get("text"):
+            paragraph(f"Propozycja zapisu do oceny eksperta: {clause['text']} {cite(clause.get('source'))}".strip())
+        if f.get("status") != "documented":
+            paragraph("Uzupełnienie osoby prowadzącej: ____________________________________")
+    if not checklist:
+        paragraph(
             "W analizowanym materiale nie znaleziono podstaw do sformułowania pytań według aktywnego katalogu."
         )
-    doc.add_heading("Porównanie kosztów i terminów", 1)
+    heading("Porównanie kosztów i terminów", 1)
     for k, title in (
         ("days_change", "Zmiana czasu realizacji"),
         ("cost_change_pct", "Zmiana kosztu"),
@@ -113,17 +147,17 @@ def create_brief(project, result, sensitivity_selection=None):
         m = result["metrics"][k]
         if m["count"]:
             labels = short_refs(s for p in m["points"] for s in p["sources"])
-            doc.add_paragraph(
+            paragraph(
                 f"{title} ({m.get('scope_label', '')}). Zakres obserwowany {m['min']:g}–{m['max']:g} {m['unit']}. Mediana {m['median']:g}. Liczba obserwacji {m['count']}. {labels}"
             )
         else:
-            doc.add_paragraph(f"{title}. Brak porównywalnych wartości ze wskazanym źródłem.")
+            paragraph(f"{title}. Brak porównywalnych wartości ze wskazanym źródłem.")
     for w in result.get("warnings", []):
-        doc.add_paragraph(w)
+        paragraph(w)
     for k in ("cost", "duration"):
         scenario = result.get("scenario", {}).get(k)
         if scenario:
-            doc.add_paragraph(
+            paragraph(
                 f"Scenariusz przy historycznych odchyleniach ({scenario['basis']}): "
                 f"{scenario['low']:g}–{scenario['high']:g} {scenario['unit']}. "
                 f"Liczba obserwacji {scenario['count']}."
@@ -144,32 +178,32 @@ def create_brief(project, result, sensitivity_selection=None):
         if choice is None:
             raise ValueError("Wybrany projekt nie występuje w tej grupie porównawczej.")
         point = next(p for p in result["metrics"][base["metric"]]["points"] if p["id"] == choice["omitted_id"])
-        doc.add_heading("Wpływ pominięcia jednego projektu", 1)
+        heading("Wpływ pominięcia jednego projektu", 1)
         unit = "zł" if key == "cost" else "dni"
-        doc.add_paragraph(f"Pełna grupa (n = {base['count']}): {_interval_text(base)} {unit}.")
-        doc.add_paragraph(f"Pominięty przypadek: {point['title']} ({point['id']}). " + short_refs(point["sources"]))
+        paragraph(f"Pełna grupa (n = {base['count']}): {_interval_text(base)} {unit}.")
+        paragraph(f"Pominięty przypadek: {point['title']} ({point['id']}). " + short_refs(point["sources"]))
         if choice["low"] is None:
-            doc.add_paragraph(f"Po pominięciu pozostały {choice['count']} obserwacje. Wymagane są co najmniej trzy.")
+            paragraph(f"Po pominięciu pozostały {choice['count']} obserwacje. Wymagane są co najmniej trzy.")
         else:
-            doc.add_paragraph(f"Po pominięciu (n = {choice['count']}): {_interval_text(choice)} {unit}.")
-        doc.add_paragraph("Porównanie wykorzystuje ten sam plan i historyczne odchylenia z zapisanej analizy.")
-    doc.add_heading("Decyzja prowadzącego", 1)
-    doc.add_paragraph("Działanie i osoba odpowiedzialna: __________________________________")
-    doc.add_paragraph("Termin i podpis: ___________________________________________________")
+            paragraph(f"Po pominięciu (n = {choice['count']}): {_interval_text(choice)} {unit}.")
+        paragraph("Porównanie wykorzystuje ten sam plan i historyczne odchylenia z zapisanej analizy.")
+    heading("Decyzja prowadzącego", 1)
+    paragraph("Działanie i osoba odpowiedzialna: __________________________________")
+    paragraph("Termin i podpis: ___________________________________________________")
     if refs:
         if len(refs) > 5:
             doc.add_page_break()
-        doc.add_heading("Dokumenty i fragmenty źródłowe", 1)
+        heading("Dokumenty i fragmenty źródłowe", 1)
         for n, r in refs.values():
-            p = doc.add_paragraph()
+            p = paragraph()
             p.add_run(f"[{n}] ").bold = True
             label = str(r.get("source") or r.get("title") or r.get("id"))
             if r.get("source") in {"BZP", "TED"}:
                 label += " · " + str(r.get("title") or r.get("external_id") or r["id"])
             _external(p, r.get("url"), label)
-            p.add_run(" · " + str(r.get("locator") or r.get("id") or ""))
+            p.add_run(" · " + _word_text(r.get("locator") or r.get("id") or ""))
             if r.get("excerpt"):
-                p.add_run("\n" + str(r["excerpt"])[:310])
+                p.add_run("\n" + _word_text(r["excerpt"]))
     stream = BytesIO()
     doc.save(stream)
     return stream.getvalue()

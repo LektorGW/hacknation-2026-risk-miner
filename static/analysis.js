@@ -423,11 +423,25 @@ export function handleAnalysisSubmit(e) {
         r = m.result,
         data = new FormData(form);
       if (r?.analysis_id !== form.dataset.id) throw new Error('Otwórz ponownie wynik analizy.');
-      const target = form.dataset.flag || 'all',
-        assessment = await api('/api/analyses/' + encodeURIComponent(r.analysis_id) + '/review', {
+      const target = form.dataset.flag || 'all';
+      const url = '/api/analyses/' + encodeURIComponent(r.analysis_id);
+      let assessment;
+      try {
+        assessment = await api(url + '/review', {
           method: 'POST',
-          body: { decision: data.get('decision'), comment: data.get('comment'), flag_id: target },
+          body: {
+            decision: data.get('decision'), comment: data.get('comment'),
+            flag_id: target, expected_at: r.reviews?.[target]?.at ?? null,
+          },
         });
+      } catch (error) {
+        if (error.status !== 409) throw error;
+        const saved = await api(url);
+        r.reviews = saved.reviews || {};
+        renderResult('analiza');
+        const current = r.reviews[target];
+        throw new Error(`Ocena zmieniła się. Aktualna decyzja: ${label(current.status)} (${current.actor}). ${current.comment || ''} Sprawdź ją przed ponownym zapisem.`);
+      }
       r.reviews = { ...r.reviews, [target]: assessment };
       closeDialog();
       renderResult('analiza');

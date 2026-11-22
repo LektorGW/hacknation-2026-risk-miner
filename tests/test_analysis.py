@@ -113,6 +113,38 @@ def test_undated_target_has_no_plan_and_no_future_evidence():
         run_backtest(target, [], "bez daty")
 
 
+def test_reimported_identifiers_and_later_corrections_do_not_leak_into_replay():
+    target = {**case("new-id"), "cst_id": "FENX.01.02-ABC"}
+    duplicate = {**case("old-id"), "cst_number": target["cst_id"]}
+    corrected = case("corrected-document")
+    corrected["documents"][1]["corrected_at"] = "2024-01-09"
+    revised_event = case("revised-event")
+    revised_event["events"][0].update(reviewed_at="2022-06-10", classified_at="2024-01-10")
+    result = run_backtest(target, [duplicate, corrected, revised_event], "2023-01-01")
+    assert [c["id"] for c in result["comparables"]] == ["revised-event"]
+    assert result["comparables"][0]["events"] == []
+
+
+@pytest.mark.parametrize("basis", ["koszt internetu", "netto lub brutto"])
+def test_tax_basis_requires_unambiguous_complete_word(basis):
+    other = {**case("other"), "cost_basis": basis}
+    result = analyze_project(case("target"), [other])
+    assert result["metrics"]["cost_change_pct"]["count"] == 0
+    assert result["metrics"]["actual_days"]["count"] == 1
+
+
+def test_extreme_numeric_inputs_still_produce_valid_json_and_no_unbounded_scenario():
+    target = {**case("new"), "planned_cost": 1.79e308}
+    others = [{**case(str(i)), "actual_days": 1.79e308} for i in range(4)]
+    others[0].update(planned_cost=1e-300, actual_cost=1e300)
+    result = analyze_project(target, others)
+    json.dumps(result, allow_nan=False)
+    assert result["metrics"]["actual_days"]["median"] == 1.79e308
+    assert result["metrics"]["cost_change_pct"]["count"] == 3
+    assert result["scenario"]["cost"] is None
+    assert any("zakres obliczeń" in reason for reason in result["scenario"]["reasons"])
+
+
 def test_reviewed_evidence_only_and_consistent_financial_basis():
     target = case("x")
     other = case("y")

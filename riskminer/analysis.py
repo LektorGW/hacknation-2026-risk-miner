@@ -168,7 +168,8 @@ def _visible(obj, day):
     if _status(obj) in REJECTED | {"pending", "uncertain", "proposed", "unverified"}:
         return False
     available = _date(obj.get("published_at") or obj.get("available_at"))
-    return day is None or (available is not None and available <= day)
+    corrected = _date(obj.get("corrected_at"))
+    return day is None or (available is not None and available <= day and not (corrected and corrected > day))
 
 
 def _ref(doc, excerpt=None):
@@ -417,8 +418,8 @@ def _accepted_events(project, docs, day):
             or e.get("kind") in {"signal", "hypothesis"}
         ):
             continue
-        decision = _date(e.get("reviewed_at") or e.get("approved_at") or e.get("classified_at"))
-        if day is not None and decision and decision > day:
+        decisions = (_date(e.get(key)) for key in ("reviewed_at", "approved_at", "classified_at", "corrected_at"))
+        if day is not None and any(d and d > day for d in decisions):
             continue
         refs = _lookup_refs(e.get("source_id") or e.get("evidence") or e.get("sources"), docs, day)
         if not refs:
@@ -443,11 +444,17 @@ def _accepted_events(project, docs, day):
 def _baseline(project, docs, day):
     visible = [d for d in docs.values() if _visible(d, day)]
     plan_id = str(project.get("plan_source_id") or "")
-    plan_docs = [d for d in visible if _kind(d) in PLAN_KINDS or _id(d) == plan_id]
     snapshot = project.get("plan_snapshot") or {}
+    source_ids = {plan_id, snapshot.get("source_id")} - {"", None}
+    plan_docs = [
+        d for d in visible
+        if _kind(d) in PLAN_KINDS or (_id(d) in source_ids and _kind(d) not in OUTCOME_KINDS)
+    ]
     if snapshot.get("lot"):
         plan_docs = [
-            planning_passage(d, snapshot["lot"]) if _id(d) == snapshot.get("source_id") else d
+            planning_passage(d, snapshot["lot"])
+            if _id(d) == snapshot.get("source_id") or (d.get("source") == "BZP" and d.get("notice_type") == "ContractNotice")
+            else d
             for d in plan_docs
         ]
     if day is None:
@@ -462,7 +469,7 @@ def _baseline(project, docs, day):
         snapshot
         and dated
         and dated <= day
-        and _lookup_refs(snapshot.get("source_id") or plan_id, docs, day)
+        and any(_id(d) == (snapshot.get("source_id") or plan_id) for d in plan_docs)
     ):
         for k in (
             "title",
@@ -585,16 +592,13 @@ def _similarity(target, candidate, target_features, cand_features):
 
 
 def _same_amount_basis(project):
-    # Where input identifies scope, tax or currency, refuse inconsistent pairs.
-    basis = (
-        project.get("cost_basis")
-        or project.get("cost_tax_basis")
-        or project.get("planned_cost_tax_basis")
-        or project.get("planned_cost_basis")
-    )
-    if not isinstance(basis, str) or not any(
-        t in _norm(basis) for t in ("netto", "brutto", "gross", "net")
-    ):
+    # A free-text description can contain both VAT bases or a word such as "internet".
+    tax = set()
+    for key in ("cost_basis", "cost_tax_basis", "planned_cost_tax_basis", "actual_cost_tax_basis",
+                "planned_cost_basis", "actual_cost_basis"):
+        words = re.findall(r"\b(?:netto|net|brutto|gross)\b", _norm(project.get(key)))
+        tax.update("net" if word in {"net", "netto"} else "gross" for word in words)
+    if len(tax) != 1:
         return False
     for field in ("scope", "tax_basis", "currency", "basis"):
         a, b = (project.get(f"{phase}_cost_{field}") for phase in ("planned", "actual"))
@@ -614,8 +618,10 @@ def _case_metrics(project, docs, day):
     values["days_change"] = None
     refs["cost_change_pct"], refs["days_change"] = [], []
     if values["planned_cost"] and values["actual_cost"] is not None and _same_amount_basis(project):
-        values["cost_change_pct"] = round((values["actual_cost"] / values["planned_cost"] - 1) * 100, 2)
-        refs["cost_change_pct"] = _unique(refs["planned_cost"] + refs["actual_cost"])
+        deviation = (values["actual_cost"] / values["planned_cost"] - 1) * 100
+        if math.isfinite(deviation):
+            values["cost_change_pct"] = round(deviation, 2)
+            refs["cost_change_pct"] = _unique(refs["planned_cost"] + refs["actual_cost"])
     if values["planned_days"] is not None and values["actual_days"] is not None:
         values["days_change"] = round(values["actual_days"] - values["planned_days"], 2)
         refs["days_change"] = _unique(refs["planned_days"] + refs["actual_days"])
@@ -643,8 +649,9 @@ def _with_subsector(base, module=None):
 def _same_project(a, b):
     # A reimport may acquire a different internal id. A buyer, title or NIP
     # is not a unique project identifier, while the organizer's project key is.
-    for key in ("id", "project_id", "cst", "cst_id", "project_number", "cst_number"):
-        if a.get(key) and b.get(key) and _norm(a[key]).strip() == _norm(b[key]).strip():
+    for keys in (("id", "project_id"), ("cst", "cst_id", "cst_number"), ("project_number",)):
+        a_ids = {_norm(a.get(k)) for k in keys} - {""}
+        if a_ids.intersection(_norm(b.get(k)) for k in keys):
             return True
     return False
 
@@ -734,6 +741,9 @@ def _summarize(cases, key, unit, scope):
         if c["metrics"][key] is not None and c["metric_scope"] == scope
     ]
     values = [p["value"] for p in points]
+    median = statistics.median(values) if values else None
+    if median is not None and not math.isfinite(median):
+        median = statistics.median(v / 2 for v in values) * 2
     return {
         "count": len(points),
         "unit": unit,
@@ -741,7 +751,7 @@ def _summarize(cases, key, unit, scope):
         "scope_label": "umowa na roboty" if scope == "contract" else "całe przedsięwzięcie",
         "min": min(values, default=None),
         "max": max(values, default=None),
-        "median": statistics.median(values) if values else None,
+        "median": median,
         "points": points,
         "kind": "calculation",
         "interpretation": "obserwowane wartości historyczne",
@@ -750,7 +760,7 @@ def _summarize(cases, key, unit, scope):
 
 def _plan_bound(value, deviation, label):
     adjusted = value * (1 + deviation / 100) if label == "cost" else value + deviation
-    return round(max(0, adjusted), 2)
+    return round(max(0, adjusted), 2) if math.isfinite(adjusted) else None
 
 
 def _sensitivity(points, planned, label):
@@ -772,12 +782,12 @@ def _sensitivity(points, planned, label):
 
 
 def _check_documents(project, base, docs, planning, day):
-    # During replay only material available in the planning snapshot enters.
-    visible = planning if day else [d for d in docs.values() if _visible(d, None)]
-    if day is None or (
-        (project.get("plan_snapshot") or {}).get("description")
-        and base.get("description") == project["plan_snapshot"]["description"]
-    ):
+    visible = list(planning)
+    if day is None:
+        plan_ids = {_id(d) for d in planning}
+        visible.extend(d for d in docs.values() if _id(d) not in plan_ids and _visible(d, None))
+        # A replay already has the dated source. Synthetic input citations are
+        # reserved for the user's present-day description and title.
         description = str(base.get("description") or base.get("title") or "")
         if description:
             visible = [
@@ -790,7 +800,7 @@ def _check_documents(project, base, docs, planning, day):
                     "locator": "opis użytkownika",
                 },
             ]
-        if day is None and base.get("title") and base["title"] != description:
+        if base.get("title") and base["title"] != description:
             visible.append(
                 {
                     "id": f"input-title-{_id(project) or 'new'}",
@@ -986,9 +996,13 @@ def analyze_project(project, projects, catalog=None, *, as_of=None, filters=None
         if label == "cost" and base.get("currency", "PLN") != "PLN":
             scenario["reasons"].append("Do scenariusza kosztowego wymagany jest budżet w PLN.")
             continue
+        low, high = (_plan_bound(value, group[k], label) for k in ("min", "max"))
+        if low is None or high is None:
+            scenario["reasons"].append(f"Wartości planu i odchyleń przekraczają zakres obliczeń ({unit}).")
+            continue
         scenario[label] = {
-            "low": _plan_bound(value, group["min"], label),
-            "high": _plan_bound(value, group["max"], label),
+            "low": low,
+            "high": high,
             "unit": unit,
             "count": group["count"],
             "metric": metric,

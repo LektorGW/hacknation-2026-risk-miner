@@ -21,6 +21,7 @@ MAX_ROWS = 15000
 MAX_COLUMNS = 250
 MAX_PASSAGES = 2500
 MAX_TEXT = 3_000_000
+NON_PROJECT_SHEETS = {"opis kolumn", "slownik", "legenda", "instrukcja"}
 
 
 def fold(value) -> str:
@@ -107,6 +108,8 @@ def _projects(rows, sheet, source):
         values = [_string(value) for value in row]
         if not any(values):
             continue
+        if any(values[len(headers):]):
+            raise ValueError(f"Dane wykraczają poza nagłówek: {sheet}, wiersz {index}. Sprawdź separator kolumn.")
         data = {key: value for key, value in zip(keys, values) if key and value}
         if not data.get("title"):
             raise ValueError(f"Brak nazwy projektu: {sheet}, wiersz {index}.")
@@ -236,7 +239,7 @@ def load_file(name: str, data: bytes) -> list[dict]:
             workbook = load_workbook(io.BytesIO(data), data_only=True, read_only=True, keep_links=False)
             try:
                 for sheet in workbook:
-                    if fold(sheet.title) in ("opis kolumn", "slownik", "legenda", "instrukcja"):
+                    if fold(sheet.title) in NON_PROJECT_SHEETS:
                         continue
                     if (sheet.max_row or 0) > MAX_ROWS or (sheet.max_column or 0) > MAX_COLUMNS:
                         raise ValueError("Arkusz przekracza limit wierszy lub kolumn.")
@@ -249,6 +252,8 @@ def load_file(name: str, data: bytes) -> list[dict]:
             workbook = xlrd.open_workbook(file_contents=data, on_demand=True)
             try:
                 for sheet in workbook.sheets():
+                    if fold(sheet.name) in NON_PROJECT_SHEETS:
+                        continue
                     rows = (
                         [
                             xlrd.xldate_as_datetime(c.value, workbook.datemode)

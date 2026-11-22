@@ -83,12 +83,18 @@ const active = () => {
   }
 };
 const sidebar = document.querySelector('#sidebar');
+const menuButton = document.querySelector('.mobile-menu');
 function menu(open) {
   document.body.classList.toggle('menu-open', open);
   sidebar.inert = window.matchMedia('(max-width:720px)').matches && !open;
   document.querySelector('.workspace').inert = open;
-  document.querySelector('.mobile-menu').setAttribute('aria-expanded', String(open));
+  document.querySelector('.skip').inert = open;
+  menuButton.setAttribute('aria-expanded', String(open));
   if (open) sidebar.querySelector('.active')?.focus();
+}
+function closeMenu() {
+  menu(false);
+  menuButton.focus({ preventScroll: true });
 }
 function chrome(view) {
   document.querySelector('#nav').innerHTML = groups
@@ -138,7 +144,7 @@ function home() {
     `
  <div class="desk-lead${disputed ? ' has-evidence' : ''}">${disputed ? evidenceSpotlight(disputed) : ''}
  <section class="hero replay-feature" aria-labelledby="hero-title"><div><div class="hero-label">${icon('replay')} Symulacja historyczna</div><h2 id="hero-title">Próba generalna inwestycji</h2>
- <p>Oceń ryzyko przed przetargiem. Odsłoń dokumenty i porównaj swoją ocenę z przebiegiem prac.</p>${linkBtn('#proba', 'Rozpocznij próbę', 'right', 'mint')}</div></section></div>
+ <p>Oceń ryzyko przed przetargiem. Odsłoń dokumenty i porównaj swoją ocenę z przebiegiem prac.</p><div class="hero-actions">${linkBtn('#proba', 'Rozpocznij próbę', 'right', 'mint')}<a class="dossier-link" href="/pokaz">Publiczne akta umowy</a></div></div></section></div>
  <div class="stats">${stat('Inwestycje w bazie', s.projects, '#baza/all', 'layers')}${stat('Dokumenty źródłowe', s.documents, '#dokumenty', 'file', 'tone-blue')}${stat('Do weryfikacji', s.pending, '#ekspert', 'verify', 'tone-orange')}${stat('Zakończone inwestycje', s.completed, '#baza/completed', 'checkfile', 'tone-purple')}</div>
  <div class="dashboard-grid"><section class="panel"><div class="section-head"><h2>Baza inwestycji</h2><a class="text-button" href="#baza/all">Zobacz wszystkie ${icon('right')}</a></div><div class="project-list">${sorted.slice(0, 5).map(projectRow).join('') || empty('Baza jest pusta. Zaimportuj pierwszy arkusz inwestycji.')}</div></section>
  <section class="panel"><div class="section-head"><h2>Do weryfikacji</h2><a class="text-button" href="#ekspert" aria-label="Otwórz panel eksperta">${icon('right')}</a></div><div class="feed">${
@@ -274,7 +280,8 @@ async function action(b) {
     return;
   }
   if (a === 'menu') {
-    menu(!document.body.classList.contains('menu-open'));
+    if (document.body.classList.contains('menu-open')) closeMenu();
+    else menu(true);
     return;
   }
   if (a === 'search') {
@@ -383,6 +390,23 @@ document.addEventListener('input', (e) => {
   if (e.target.type === 'search') handleCaseInput(e);
 });
 document.addEventListener('keydown', (e) => {
+  if (document.body.classList.contains('menu-open') && !document.querySelector('#modal').open) {
+    if (e.key === 'Escape') {
+      e.preventDefault();
+      closeMenu();
+    } else if (e.key === 'Tab') {
+      const controls = sidebar.querySelectorAll('a[href],button');
+      const first = controls[0], last = controls[controls.length - 1];
+      if (e.shiftKey && document.activeElement === first) {
+        e.preventDefault();
+        last.focus();
+      } else if (!e.shiftKey && document.activeElement === last) {
+        e.preventDefault();
+        first.focus();
+      }
+    }
+    return;
+  }
   if (
     e.key === '/' &&
     !e.altKey &&
@@ -394,7 +418,6 @@ document.addEventListener('keydown', (e) => {
     e.preventDefault();
     searchModal();
   }
-  if (e.key === 'Escape') menu(false);
 });
 document.querySelector('#modal').addEventListener('click', (e) => {
   if (e.target === e.currentTarget) closeDialog();

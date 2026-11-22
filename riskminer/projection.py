@@ -30,14 +30,14 @@ def _accepted(project, cutoff):
             continue
         # Public historical facts may be transcribed retrospectively. An expert
         # intervention changing the link or content is available only afterwards.
-        corrected = _day(record.get("corrected_at") or doc.get("corrected_at"))
-        if cutoff and corrected and corrected > cutoff:
+        corrections = (_day(item.get("corrected_at")) for item in (record, doc))
+        if cutoff and any(d and d > cutoff for d in corrections):
             continue
         yield record, doc
 
 
 def field_reference(doc, code, body=None):
-    text = body or doc.get("text") or ""
+    text = (doc.get("text") or "") if body is None else body
     block = re.search(
         r"(?im)^" + re.escape(code) + r"\.\)[^\n]*(?:\n(?!\s*\d+\.\d+\.\)|SEKCJA|Część)\S[^\n]*)?", text
     )
@@ -58,14 +58,11 @@ def _lot_scope(project):
     return match[1] if match else ""
 
 
-def _lot_text(text, lot):
-    if not lot:
-        return text
-    match = re.search(
+def _lot_section(text, lot):
+    return re.search(
         r"(?im)^Część\s+" + re.escape(str(lot)) + r"\s*$\n([\s\S]*?)(?=^Część\s+\d+\s*$|^SEKCJA\s+V|\Z)",
         text,
     )
-    return match[1] if match else ""
 
 
 def _scope_text(text):
@@ -74,7 +71,7 @@ def _scope_text(text):
 
 
 def _planning_result(record, doc, lot):
-    body = _lot_text(doc.get("text") or "", lot)
+    body = planning_passage(doc, lot).get("text") or ""
     description = _scope_text(body)
     title = doc.get("title") or record.get("title") or ""
     snapshot = {
@@ -100,11 +97,14 @@ def planning_passage(doc, lot):
     if not lot:
         return doc
     full = doc.get("text") or ""
-    section = _lot_text(full, lot)
+    match = _lot_section(full, lot)
+    section = match[1] if match else ""
     return {
         **doc,
         "text": section,
-        "offset_base": full.index(section) if section else 0,
+        "body": section,
+        "excerpt": section,
+        "offset_base": match.start(1) if match else 0,
         "locator": f"BZP, część {lot}",
     }
 
@@ -118,7 +118,7 @@ def _award_body(doc, lot):
             return re.split(
                 r"(?im)^SEKCJA [IVX]+\s|^Część \d+\s*$", doc["text"][chunk.end() :], maxsplit=1
             )[0]
-    return doc.get("text", "") if not lot else ""
+    return doc.get("text", "") if not chunks and not lot else ""
 
 
 def project_view(project, *, as_of=None):
@@ -219,6 +219,12 @@ def project_view(project, *, as_of=None):
             "planned_days": [field_reference(award_doc, "8.1", award_body), field_reference(award_doc, "8.3", award_body)],
             "actual_days": [field_reference(out_doc, "4.1"), field_reference(out_doc, "5.2")],
         }
+        # A numeric observation may outlive the locally available text of its
+        # form field. Never substitute an adjacent lot or a generic document link.
+        absent = [
+            field for field, source in refs.items()
+            if not all(ref["excerpt"] for ref in (source if isinstance(source, list) else [source]))
+        ]
         entry = {
             "contract_key": key,
             "lot": contract_lot,
@@ -237,6 +243,11 @@ def project_view(project, *, as_of=None):
             "eligible": True,
             "warnings": [],
         }
+        if absent:
+            for field in absent:
+                entry[field] = None
+                refs[field] = []
+            entry["warnings"].append("W zachowanym fragmencie ogłoszenia brak pól źródłowych dla części pomiarów.")
         periods = [
             dict(
                 value=r.get("facts", {}).get("agreed_period"),
@@ -247,8 +258,8 @@ def project_view(project, *, as_of=None):
         ]
         if any(
             v["days"] is not None
-            and award.get("planned_days") is not None
-            and v["days"] != award["planned_days"]
+            and entry["planned_days"] is not None
+            and v["days"] != entry["planned_days"]
             for v in periods
         ):
             entry["warnings"].append(

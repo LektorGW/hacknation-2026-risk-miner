@@ -6,7 +6,7 @@ Wydanie sprawdzono 22 listopada 2026 r. na Windowsie z Docker Desktop i w konten
 
 | Sprawdzenie | Wynik |
 |---|---|
-| Testy automatyczne z repozytorium | 40 testów i 4 podtesty zakończyły się powodzeniem. Biblioteka klienta testowego informuje o przyszłej zmianie zależności. |
+| Testy automatyczne z repozytorium | 58 testów i 4 podtesty zakończyły się powodzeniem. Klient testowy Starlette zgłasza ostrzeżenie o zmianie zależności. |
 | Publiczne akta umowy | Sprawdzono wybór daty i trzy inwestycje w przeglądarce przy szerokościach 390 i 1440 px. Widok pokazuje tylko dokumenty opublikowane do wybranego dnia. |
 | Pulpit i porównanie źródeł | Na szerokościach 1440 i 390 px sprawdzono logowanie, pulpit i przejście do rozbieżności. W obu ogłoszeniach z Zagrodna otwarto pole 4.2 z oryginalnym okresem umowy. Test pominięcia Biecza dał 396–442 dni, a wybrany wariant zapisano w Wordzie i JSON. |
 | Integralność wejścia | Arkusz dał 22 projekty. Załączniki rozpoznano jako 26 akapitów DOCX, stronę tekstowego PDF i stronę skanu odczytaną OCR. |
@@ -23,6 +23,18 @@ Wydanie sprawdzono 22 listopada 2026 r. na Windowsie z Docker Desktop i w konten
 | Pakiety | `pip check` potwierdził spójność zależności kontenera. `pip-audit` dla wersji z constraints.txt nie zgłosił znanych podatności w chwili sprawdzenia. |
 
 Pomiar 12 odczytów opisuje obciążenie na stanowisku pilotażowym. Nie ustalano na jego podstawie maksymalnej liczby użytkowników ani SLA. Skuteczność prognoz wymaga osobnej walidacji na większym, niezależnym zbiorze. W trybie domyślnym przetwarzanie jest lokalne, a próby opcjonalnego klienta modelu obejmują jego zachowanie protokolarne.
+
+## Audyt wydania konkursowego
+
+| Obszar | Wynik sprawdzenia po poprawkach |
+|---|---|
+| Części zamówienia i koszty | Brak pola dla wskazanej części pozostawia pomiar pusty. Tekst o niejednoznacznej podstawie netto/brutto nie trafia do porównania kwot. Na 22 projektach organizatora zachowano wyniki kosztu i czasu dla 21 porównywalnych umów. |
+| Import i wzbogacanie | CSV zgłasza nadmiarowe komórki. BZP i TED zachowują poprawne rekordy przy awarii dalszej strony. Po zaimportowaniu 22 projektów do pustej bazy dwa pobrania Zagrodna dały po pięć ogłoszeń BZP i jeden wpis KPO. Pierwsze dodało jedną obserwację, drugie zero. |
+| Historia i decyzje | Powtórzenie identycznej analizy przywraca zapisaną ocenę. Przy równoległej decyzji interfejs pokazuje aktualną ocenę i komentarz drugiego eksperta. Osobne testy obejmują wykluczenie projektu po jego identyfikatorze CST i pomijanie późniejszych korekt przy próbie historycznej. |
+| Publiczne akta i dostępność | W Chrome sprawdzono siedem etapów trzech inwestycji przez HTTP i z dysku przy wyłączonym JavaScripcie. Każda karta dowodowa zawierała źródła dostępne w wybranym dniu. Osiem widoków aplikacji sprawdzono przy szerokościach 390 i 1440 px. W menu mobilnym sprawdzono Tab, Shift+Tab oraz Escape. |
+| Raport | Karta Word zachowuje decyzję eksperta i odpowiedź z aneksu. Otworzono dokument z tekstem OCR i wyrenderowano przykładową kartę w LibreOffice. Przez interfejs pobrano również Word i JSON z tym samym wybranym wariantem harmonogramu. |
+
+Odczyty z czytnikiem ekranu i testy w Safari pozostają do wykonania. Wyniki próby prognostycznej na ośmiu postępowaniach opisuje [odrębny raport](test-niezalezny.md).
 
 ## Materiały
 

@@ -18,38 +18,44 @@ ARCHIVE = "https://bzp.cytr.us/paczka/risk_miner_bzp_kopia.zip"
 
 
 def select_rows(workbook, raw):
-    ids = {r.get("bzp") for r in workbook}
-    nips = {r.get("nip") for r in workbook}
-    cities = {fold(r.get("location", "")) for r in workbook}
+    ids = {_bzp_number(r.get("bzp"))[0] for r in workbook} - {""}
+    nips = {str(r["nip"]).strip() for r in workbook if r.get("nip")} - {""}
+    cities = {fold(r.get("location") or "") for r in workbook} - {""}
     return [
         r
         for line in raw
         if (r := json.loads(line))
         and (
-            r.get("noticeNumber") in ids
-            or r.get("organizationNationalId") in nips
-            or fold(r.get("organizationCity", "")) in cities
+            str(r.get("organizationNationalId") or "").strip() in nips
+            or fold(r.get("organizationCity") or "") in cities
+            or _bzp_number(r.get("noticeNumber") or r.get("bzpNumber"))[0] in ids
         )
     ]
 
 
 def build_cases(projects, records, retrieved):
     result = []
-    by_number = {r.get("noticeNumber"): r for r in records}
+    records = [r for r in records if r.get("noticeNumber") or r.get("bzpNumber")]
+    by_number = {}
+    for raw in records:
+        number, version = _bzp_number(raw.get("noticeNumber") or raw.get("bzpNumber"))
+        if number:
+            by_number.setdefault(number, []).append((version, raw))
     for p in projects:
         candidates = []
-        anchor = by_number.get(p.get("bzp"))
-        if anchor:
-            candidates.append((anchor, "numer ogłoszenia z arkusza"))
-        else:
+        number, version = _bzp_number(p.get("bzp"))
+        for revision, anchor in by_number.get(number, []):
+            if not version or version == revision:
+                candidates.append((anchor, "numer ogłoszenia z arkusza"))
+        if not candidates:
             for raw in records:
-                if raw["noticeType"] not in ("ContractNotice", "ContractPerformingNotice"):
+                if raw.get("noticeType") not in ("ContractNotice", "ContractPerformingNotice"):
                     continue
-                if fold(raw.get("orderObject")) != fold(p["title"]):
+                if not p.get("title") or fold(raw.get("orderObject") or "") != fold(p["title"]):
                     continue
-                if fold(raw.get("organizationName")) == fold(p["buyer"]) or raw.get(
-                    "organizationNationalId"
-                ) == p.get("nip"):
+                if (p.get("buyer") and fold(raw.get("organizationName") or "") == fold(p["buyer"])) or (
+                    p.get("nip") and str(raw.get("organizationNationalId") or "").strip() == str(p["nip"]).strip()
+                ):
                     if raw["noticeType"] == "ContractNotice":
                         candidates.append((raw, "pełna nazwa przedsięwzięcia i zgodny zamawiający"))
                     elif p.get("bzp"):
@@ -70,11 +76,11 @@ def build_cases(projects, records, retrieved):
             if score < 0.86:
                 notices[candidate["external_id"]] = {**candidate, "confidence": score, "reasons": why}
                 continue
-            for raw in records:
-                if raw["tenderId"] != a["tenderId"]:
-                    continue
+            procedure = a.get("tenderId")
+            related = (r for r in records if r.get("tenderId") == procedure) if procedure else [a]
+            for raw in related:
                 record = bzp_record(raw, retrieved, via=ARCHIVE)
-                score, reasons = match({**p, "ocid": a["tenderId"]}, record)
+                score, reasons = match({**p, "ocid": procedure}, record)
                 record.update(
                     confidence=score, reasons=[*reasons, f"Podstawa wyboru postępowania: {basis}."]
                 )

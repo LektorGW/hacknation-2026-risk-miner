@@ -43,6 +43,29 @@ def _incomplete(warnings, message):
         warnings.complete = False
 
 
+def _page_failure(source, warnings, rows, exc):
+    """A later page can fail after earlier notices were successfully read."""
+    if not rows:
+        raise exc
+    issue = f"HTTP {exc.code}" if isinstance(exc, HTTPError) else type(exc).__name__
+    _incomplete(warnings, f"{source}: nie odczytano kolejnej strony ({issue}). Zachowano pobrane ogłoszenia.")
+    return rows
+
+
+def _page_records(batch, parser, source, warnings, **kwargs):
+    skipped = 0
+    for raw in batch:
+        if not isinstance(raw, dict):
+            skipped += 1
+            continue
+        try:
+            yield parser(raw, **kwargs)
+        except (KeyError, ValueError, TypeError, AttributeError):
+            skipped += 1
+    if skipped:
+        _incomplete(warnings, f"{source}: pominięto nieczytelne ogłoszenia na stronie: {skipped}.")
+
+
 def _now():
     return datetime.now(timezone.utc).isoformat(timespec="seconds")
 
@@ -196,8 +219,12 @@ def match(project, record):
         ):
             reasons.append("Rozbieżność nazwy lub podmiotu mimo zgodności identyfikatora.")
             score = 0.56
-    if not exact and not same_procedure and not cited_notice and title < 0.45:
-        return 0, reasons
+    else:
+        if title < 0.45:
+            return 0, reasons
+        if conflicting_id:
+            reasons.append("Rozbieżne identyfikatory zamawiającego mimo podobieństwa nazw.")
+            score = min(score, 0.56)
     proj_lot = re.search(r"czesc\s+(?:nr\s+)?(\d+)", fold(project.get("scope", "")))
     if proj_lot and record.get("lot") and str(record["lot"]) != proj_lot[1]:
         reasons.append(f"Dokument dotyczy innej części ({record['lot']}).")
@@ -485,13 +512,16 @@ def _bzp_query(endpoint, query, warnings):
     seen = set()
     for _ in range(3):
         url = endpoint + "?" + urlencode({**query, "PageSize": 30})
-        batch = _request(url)
-        if not isinstance(batch, list):
-            raise ValueError("Nieznana struktura odpowiedzi BZP.")
-        rows.extend(bzp_record(item, via=url) for item in batch)
+        try:
+            batch = _request(url)
+            if not isinstance(batch, list):
+                raise ValueError("Nieznana struktura odpowiedzi BZP.")
+            rows.extend(_page_records(batch, bzp_record, "BZP", warnings, via=url))
+        except (ValueError, OSError, URLError, TimeoutError) as exc:
+            return _page_failure("BZP", warnings, rows, exc)
         if len(batch) < 30:
             return rows
-        cursor = batch[-1].get("objectId")
+        cursor = batch[-1].get("objectId") if isinstance(batch[-1], dict) else None
         if not cursor or cursor in seen:
             break
         seen.add(cursor)
@@ -623,13 +653,17 @@ def _search_ted(project, warnings):
     ]
     rows = []
     for page in (1, 2, 3):
-        data = _request(TED, {"query": query, "fields": fields, "page": page, "limit": 20, "scope": "ALL"})
-        batch = data.get("notices")
-        if not isinstance(batch, list):
-            raise ValueError("Nieznana struktura odpowiedzi TED.")
-        rows.extend(ted_record(r) for r in batch)
-        if len(batch) < 20 or page * 20 >= int(data.get("totalNoticeCount", page * 20 + 1)):
-            return rows
+        try:
+            data = _request(TED, {"query": query, "fields": fields, "page": page, "limit": 20, "scope": "ALL"})
+            if not isinstance(data, dict) or not isinstance(data.get("notices"), list):
+                raise ValueError("Nieznana struktura odpowiedzi TED.")
+            batch = data["notices"]
+            rows.extend(_page_records(batch, ted_record, "TED", warnings))
+            total = data.get("totalNoticeCount")
+            if len(batch) < 20 or (total is not None and page * 20 >= int(total)):
+                return rows
+        except (ValueError, OSError, URLError, TimeoutError) as exc:
+            return _page_failure("TED", warnings, rows, exc)
     _incomplete(warnings, "Osiągnięto limit stron TED. Podaj numer ogłoszenia, aby zawęzić wyniki.")
     return rows
 

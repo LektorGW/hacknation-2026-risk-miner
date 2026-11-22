@@ -167,16 +167,16 @@ def put_entity(conn, pid, kind, obj):
 
 
 def projects(conn, pid=None):
-    params = (pid,) if pid else ()
+    params = (pid,) if pid is not None else ()
     items = {}
     for row in conn.execute(
-        "SELECT body FROM projects" + (" WHERE id=?" if pid else "") + " ORDER BY id", params
+        "SELECT body FROM projects" + (" WHERE id=?" if params else "") + " ORDER BY id", params
     ):
         obj = json.loads(row[0])
         items[obj["id"]] = {**obj, **{k: [] for k in GROUPS}}
     for r in conn.execute(
         "SELECT project_id,kind,body FROM entities"
-        + (" WHERE project_id=?" if pid else "")
+        + (" WHERE project_id=?" if params else "")
         + " ORDER BY rowid",
         params,
     ):
@@ -185,6 +185,8 @@ def projects(conn, pid=None):
 
 
 def project(conn, pid):
+    if not isinstance(pid, str) or not pid.strip():
+        raise ValueError("Wybierz projekt.")
     found = projects(conn, pid)
     if not found:
         raise KeyError("Nie znaleziono projektu.")
