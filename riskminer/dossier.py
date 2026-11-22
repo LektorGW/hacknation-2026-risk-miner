@@ -5,6 +5,7 @@ from datetime import date
 from functools import lru_cache
 from html import escape
 from string import Template
+from urllib.parse import quote
 
 from .db import ROOT
 from .projection import field_reference
@@ -60,7 +61,30 @@ def date_label(value):
     return date.fromisoformat(value).strftime("%d.%m.%Y")
 
 
-def dossier(slug, step):
+def evidence_note(title, place, visible, finding, detail):
+    last_day = date_label(visible[-1]["day"])
+    lines = [
+        f"# {place} · Karta dowodowa umowy",
+        title,
+        f"Stan dokumentów na {last_day}.",
+        "",
+        f"## {finding}",
+        detail,
+    ]
+    for item in visible:
+        lines.extend([
+            "",
+            f"## {date_label(item['day'])} · {item['number']}",
+            f"Okres umowny według pola {item['code']}: {item['period']}.",
+            f"> {item['quote']}",
+        ])
+        if item["finished"]:
+            lines.append(f"Data wykonania według pola 5.2: {date_label(item['finished'])}.")
+        lines.append(f"Źródło BZP: {item['url']}")
+    return "\n".join(lines) + "\n"
+
+
+def dossier(slug, step, *, static_site=False):
     cases = archive()
     place, title, notices = cases[slug]
     if step is None:
@@ -78,20 +102,25 @@ def dossier(slug, step):
     else:
         finding = "Dokumenty podają ten sam termin umowy."
         detail = "Zgodność zapisów dotyczy okresu umownego. Faktyczną datę wykonania podano osobno w polu 5.2."
+    def case_href(key, stage=None):
+        if static_site:
+            return f"{key}-{stage}.html" if stage else f"{key}.html"
+        return f"?sprawa={key}" + (f"&amp;etap={stage}" if stage else "")
+
     choices = "".join(
-        f'<a href="?sprawa={key}"'
+        f'<a href="{case_href(key)}"'
         + (' aria-current="page"' if key == slug else "")
         + f">{escape(info[0])}</a>"
         for key, info in cases.items()
     )
     timeline = "".join(
-        f'<a href="?sprawa={slug}&amp;etap={i}"'
+        f'<a href="{case_href(slug, i)}#os-czasu"'
         + (' aria-current="step"' if i == step else "")
         + f"><b>{date_label(n['day'])}</b><span>{'Wynik postępowania' if i == 1 else 'Ogłoszenie o wykonaniu'}</span></a>"
         for i, n in enumerate(notices, 1)
     )
     cards = []
-    for n in visible:
+    for index, n in enumerate(visible, 1):
         finished = ""
         if n["finished"]:
             days = (
@@ -102,12 +131,22 @@ def dossier(slug, step):
                 f"Od zawarcia umowy upłynęło {days} dni.</p>"
             )
         cards.append(
-            f"<article><small>{date_label(n['day'])} · pole {n['code']}</small>"
+            f'<article id="dowod-{index}" tabindex="-1"><small>{date_label(n["day"])} · pole {n["code"]}</small>'
             f"<h3>{escape(n['period'])}</h3><blockquote>{escape(n['quote'])}</blockquote>{finished}"
-            f'<a href="{escape(n["url"])}" target="_blank" rel="noopener noreferrer">{escape(n["number"])} ↗</a></article>'
+            f'<a href="{escape(n["url"])}">BZP · {escape(n["number"])}</a></article>'
         )
+    readings = "".join(
+        f'<li><a href="#dowod-{index}"><span>{date_label(item["day"])}</span>'
+        f'<strong>{escape(item["period"])}</strong></a></li>'
+        for index, item in enumerate(visible, 1)
+    )
+    note = evidence_note(title, place, visible, finding, detail)
     template = Template((ROOT / "riskminer/dossier.html").read_text(encoding="utf-8"))
     return template.substitute(
+        assets="static" if static_site else "/static",
+        readings=readings,
+        note="data:text/markdown;charset=utf-8," + quote(note, safe=""),
+        filename=f"Risk-Miner-{slug}-{visible[-1]['day']}.md",
         choices=choices,
         place=escape(place),
         title=escape(title),

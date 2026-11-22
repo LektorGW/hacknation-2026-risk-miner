@@ -52,6 +52,40 @@ a:focus-visible {
   outline-offset: 3px;
 }
 
+.skip {
+  position: absolute;
+  z-index: 1;
+  transform: translateY(-160%);
+  margin: 8px;
+  padding: 8px 12px;
+  background: white;
+}
+.skip:focus { transform: none; }
+#os-czasu, article { scroll-margin-top: 16px; }
+.readings {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  list-style: none;
+  padding: 0;
+  margin: 14px 0;
+}
+.readings a {
+  display: block;
+  min-width: 100px;
+  border: 1px solid #9fb6a3;
+  border-radius: 5px;
+  padding: 6px 12px;
+  background: #f8fbf4;
+  text-decoration: none;
+}
+.readings a:hover strong, .readings a:focus-visible strong { text-decoration: underline; }
+.readings span { display: block; font-size: .78rem; }
+.source-head { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px; margin: 24px 0 12px; }
+.download { display: inline-flex; align-items: baseline; gap: 5px; padding: 9px 14px; border-radius: 5px; background: #204e43; color: white; font-weight: 650; text-decoration: none; }
+.download:hover { text-decoration: underline; }
+article:target { border-color: #316a55; outline: 2px solid #316a55; outline-offset: 1px; }
+
 .cases,.timeline {
   display: flex;
   gap: 8px;
@@ -81,7 +115,7 @@ a:focus-visible {
   margin: 20px 0 28px;
   color: white;
   border-radius: 9px;
-  background: linear-gradient(90deg,#102d28 8%,#102d28e8 46%,#102d2830),url('/static/assets/oczyszczalnia.webp') center 56%/cover;
+  background: linear-gradient(90deg,#102d28 8%,#102d28e8 46%,#102d2830),url('assets/oczyszczalnia.webp') center 56%/cover;
   padding: clamp(22px,4vw,48px);
 }
 
@@ -204,10 +238,15 @@ article a {
     padding: 7px 9px;
     font-size: .85rem;
   }
+  .cover { margin: 14px 0 20px; padding: 18px 20px; }
+  .verdict { padding: 16px; }
+  .readings { gap: 6px; }
+  .readings li { flex: 1 1 75px; }
+  .readings a { min-width: 0; padding: 5px 7px; }
 }
 
 @media print {
-  header,.cases,.timeline {
+  header,.cases,#os-czasu,.skip,.download {
     display: none;
   }
   .cover {

@@ -1,11 +1,34 @@
 <!doctype html>
-<html lang="pl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<title>${place} · Akta umowy · Risk Miner</title><link rel="icon" href="/static/assets/znak.svg"><link rel="stylesheet" href="/static/dossier.css"></head>
-<body><header><span class="brand"><img src="/static/assets/znak.svg" alt="">Risk Miner</span><span>Akta umowy</span></header>
-<main><nav class="cases" aria-label="Wybierz inwestycję">${choices}</nav>
-<section class="cover"><div><p class="caption">Inwestycja wodno-kanalizacyjna</p><h1>${place}</h1><p>${title}</p></div></section>
-<section aria-labelledby="timeline"><h2 id="timeline">Co było wiadomo w dniu publikacji?</h2><p>Wybierz datę, aby odtworzyć stan dokumentacji.</p>
-<nav class="timeline" aria-label="Data publikacji">${timeline}</nav></section>
-<section class="verdict"><p class="caption">Stan na ${day}</p><h2>${finding}</h2><p>${detail}</p></section>
-<section aria-label="Dokumenty dostępne do wybranej daty" class="cards">${cards}</section>
-</main></body></html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>${place} · ${day} · Akta umowy · Risk Miner</title>
+  <link rel="icon" href="${assets}/assets/znak.svg">
+  <link rel="stylesheet" href="${assets}/dossier.css">
+</head>
+<body>
+  <a class="skip" href="#os-czasu">Przejdź do osi czasu</a>
+  <header><span class="brand"><img src="${assets}/assets/znak.svg" alt="">Risk Miner</span><span>Akta umowy</span></header>
+  <main>
+    <nav class="cases" aria-label="Wybierz inwestycję">${choices}</nav>
+    <section class="cover"><div><p class="caption">Inwestycja wodno-kanalizacyjna</p><h1>${place}</h1><p>${title}</p></div></section>
+    <section id="os-czasu" aria-labelledby="timeline" tabindex="-1">
+      <h2 id="timeline">Co było wiadomo w dniu publikacji?</h2>
+      <p>Wybierz datę, aby odtworzyć stan dokumentacji.</p>
+      <nav class="timeline" aria-label="Data publikacji">${timeline}</nav>
+    </section>
+    <section class="verdict" aria-labelledby="finding">
+      <p class="caption">Stan na ${day}</p><h2 id="finding">${finding}</h2>
+      <ul class="readings" aria-label="Okres umowny według daty publikacji">${readings}</ul>
+      <p>${detail}</p>
+    </section>
+    <section aria-labelledby="sources">
+      <div class="source-head"><h2 id="sources">Dowody źródłowe</h2>
+        <a class="download" href="${note}" download="${filename}">Pobierz kartę dowodową <small>· MD</small></a>
+      </div>
+      <div class="cards">${cards}</div>
+    </section>
+  </main>
+</body>
+</html>
