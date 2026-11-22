@@ -1,11 +1,34 @@
-# Risk Miner
+# Risk Miner — analiza ryzyka inwestycji wodno-kanalizacyjnych
 
-Gdy gmina planuje przetarg, Risk Miner pomaga sprawdzić, co wydarzyło się przy podobnych inwestycjach wodno-kanalizacyjnych. Każdą rozbieżność można prześledzić do pola w ogłoszeniu, a pytania do projektanta pobrać w edytowalnej karcie Word.
+Narzędzie dla gmin przygotowujących przetargi. Powstało na HackNation 2026 w ramach zadania Ministerstwa Funduszy i Polityki Regionalnej. Zespół KryptoTrop.
 
-**[Otwórz akta umowy](https://spouse-advocate-iron-solutions.trycloudflare.com/pokaz)** · [Film · 1 min 54 s](https://github.com/LektorGW/hacknation-2026-risk-miner/blob/main/deliverables/demo-risk-miner.mp4?raw=true) · [Prezentacja · 8 slajdów](deliverables/prezentacja-risk-miner.pdf)
+**[Otwórz akta umowy](https://spouse-advocate-iron-solutions.trycloudflare.com/pokaz)** · [Film (1 min 54 s)](https://github.com/LektorGW/hacknation-2026-risk-miner/blob/main/deliverables/demo-risk-miner.mp4?raw=true) · [Prezentacja (8 slajdów)](deliverables/prezentacja-risk-miner.pdf) · [Opis projektu (PDF)](deliverables/opis-projektu.pdf)
 
-W Zagrodnie dwa ogłoszenia o wykonaniu tej samej umowy podają różne okresy — dwa i trzy miesiące. Wybierz datę publikacji, porównaj zapisy i otwórz oryginały w Biuletynie Zamówień Publicznych.
+## Problem i założenia
 
-[Opis projektu](deliverables/opis-projektu.pdf) · [Uruchomienie i architektura](docs/wdrozenie.md) · [Wyniki testów i eksport JSON](docs/test-wydania.md)
+Gmina planuje kanalizację z przepompownią i zakłada rok na wykonanie robót. Żeby ocenić ten termin, musi odnaleźć podobne umowy, sprawdzić daty wykonania i ustalić, co zmieniło się w trakcie prac. Ogłoszenia, protokoły i aneksy opisują różne etapy tej samej inwestycji. Czasem podają sprzeczne informacje.
 
-KryptoTrop · HackNation 2026
+## Jak działa Risk Miner
+
+1. **Odtworzenie inwestycji.** System wczytuje arkusz projektów oraz dokumenty Word i PDF, wyszukuje ogłoszenia w BZP i TED, a następnie łączy je z postępowaniami i umowami. Ekspert może otworzyć źródło, poprawić powiązanie i zapisać uzasadnienie.
+2. **Ocena nowego planu.** Urzędnik podaje zakres robót, budżet i termin. Otrzymuje listę podobnych inwestycji z wyjaśnieniem doboru, porównanie kosztów i terminów oraz pytania do projektanta. Kartę można pobrać w Wordzie, a dane analizy w JSON.
+
+## Scenariusz demonstracyjny
+
+W aktach Zagrodna wybierz **8 czerwca 2026 r.** Ogłoszenie o wykonaniu umowy podaje trzy miesiące. Przesuń datę na **11 czerwca** i otwórz pole **4.2** w obu ogłoszeniach. Późniejszy dokument podaje dwa miesiące dla tej samej umowy. Oba źródła są dostępne do porównania.
+
+W przykładowej analizie nowej kanalizacji system wskazał 14 podobnych inwestycji. Siedem umów miało porównywalne dane o terminach. Dla planu na 365 dni dało to roboczy zakres 365–442 dni. W eksporcie można sprawdzić, które umowy wpłynęły na wynik. [Przykładowy eksport JSON](deliverables/przyklad-analizy.json)
+
+## Uruchomienie i testy
+
+Z katalogu repozytorium, z Pythonem 3.12 i Docker Compose, wykonaj kolejno:
+
+```sh
+python -m riskminer.cli bootstrap
+docker compose up -d --build
+docker compose exec app python -m riskminer.cli seed
+```
+
+Akta umów są dostępne lokalnie pod `http://127.0.0.1:8180/pokaz`. Konfigurację pełnego panelu, model danych i źródła opisuje [instrukcja wdrożenia](docs/wdrozenie.md).
+
+Testy objęły import, ponowne pobieranie ogłoszeń, decyzje eksperta i eksport. W osobnej próbie na ośmiu postępowaniach późniejsze dokumenty potwierdziły jedno z 40 ostrzeżeń. Podstawą decyzji pozostaje sprawdzenie dokumentu przez eksperta. [Raport z testów](docs/test-wydania.md) · [Wyniki próby na nowych postępowaniach](docs/test-niezalezny.md)
