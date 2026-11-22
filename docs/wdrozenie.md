@@ -43,6 +43,24 @@ flowchart LR
 
 **Model danych.** Projekt ma odrębne rekordy postępowań, publikacji, umów, zmian, pomiarów, źródeł i zdarzeń. Aplikacja waliduje typ oraz przynależność każdego identyfikatora obcego. Jedno postępowanie może zawierać kilka umów. Kandydatura powiązania zachowuje podstawę dopasowania. Decyzja ma wersję, autora, uzasadnienie i historię. Identyfikator analizy wskazuje jej utrwalone wejście i wynik. Próba historyczna utrwala obie fazy we wspólnym zapisie.
 
+**Relacje w bazie przypadków**
+
+```mermaid
+flowchart LR
+  projekt[Projekt] --> postepowanie[Postępowanie]
+  postepowanie --> publikacja[Ogłoszenie]
+  postepowanie --> umowa[Umowa lub część]
+  umowa --> zmiana[Zmiana umowy]
+  umowa --> pomiar[Pomiar kosztu lub terminu]
+  projekt --> zdarzenie[Zdarzenie ryzyka]
+  publikacja --> zrodlo[Dokument źródłowy]
+  zdarzenie --> zrodlo
+  pomiar --> zrodlo
+  zmiana --> zrodlo
+```
+
+Opis kryteriów dopasowania i sprawdzone pary zawiera [raport z integracji](walidacja-zrodel.md). Modele, usługi i licencje zestawiono w [wykazie zależności](zaleznosci.md).
+
 **Porównania.** Silnik uwzględnia cechy zakresu i treść dokumentów. Oddziela obserwacje dotyczące umowy od całego przedsięwzięcia. Niepełny materiał daje brak wartości lub zastrzeżenie. Czas, kwota przyznanego wsparcia i wynagrodzenie wykonawcy zachowują swoje znaczenie. Próba historyczna usuwa badany projekt z grupy i ogranicza dowody do dostępnych w dacie odcięcia. Korekty i źródła po tej dacie podlegają dodatkowym warunkom dostępności. Zakres prezentowany przez aplikację opisuje historyczne obserwacje. Liczbie podobieństwa nie przypisuje się znaczenia skalibrowanego prawdopodobieństwa.
 
 **Zasilanie.** Identyczne pliki mają ten sam SHA-256. Powtórzenie importu pozostawia decyzje użytkownika. Zmiana treści ogłoszenia tworzy kolejną wersję dowodu. Import wielu inwestycji z włączonym pobieraniem zakłada trwałe zadanie. Pracownik kolejki rezerwuje pojedyncze pozycje transakcyjnie, a po utracie procesu ponawia je po wygaśnięciu rezerwacji. Błędy źródła są widoczne w zadaniu. Jednostkowe wzbogacenie w interfejsie kończy się podsumowaniem tej operacji.
@@ -63,7 +81,7 @@ flowchart LR
 
 Uprawnienia `viewer` umożliwiają odczyt, analizy i eksport. `expert` może ponadto importować, poprawiać rekordy, oceniać wnioski i proponować kategorie. `admin` zarządza katalogiem. Osobne tokeny pozwalają przypisać decyzje konkretnym osobom. Domyślny model działa bez klucza. Po włączeniu zdalnego dostawcy tekst analizowanego dokumentu jest przekazywany do jego endpointu. Logika przyjmuje propozycje wyłącznie z cytatem sprawdzonym w materiale. Zmianę konfiguracji zastosuj przez `docker compose up -d --force-recreate`.
 
-Przykładowe jednorazowe utworzenie tokena na nowym stanowisku opisuje README. Do dodawania kolejnych kont wykorzystaj `scripts/konto.py`. Polecenie wypisuje wpis do konfiguracji, a sekret zapisuje w nowym lokalnym pliku. Odebranie dostępu polega na usunięciu wpisu lub zmianie skrótu i ponownym utworzeniu kontenera.
+Pierwsze konto tworzy polecenie bootstrap podane w sekcji „Uruchomienie na własnym stanowisku”. Do dodawania kolejnych kont wykorzystaj `scripts/konto.py`. Polecenie wypisuje wpis do konfiguracji, a sekret zapisuje w nowym lokalnym pliku. Odebranie dostępu polega na usunięciu wpisu lub zmianie skrótu i ponownym utworzeniu kontenera.
 
 ## Eksploatacja
 

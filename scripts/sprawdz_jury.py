@@ -1,7 +1,6 @@
 """Sprawdza działający pokaz przez publiczny HTTPS. Opcja --reset-test przywraca stan wzorcowy jury."""
 
 import argparse
-import base64
 import hashlib
 import io
 import json
@@ -29,7 +28,6 @@ def main():
         parser.error("Podaj adres HTTPS kopii dla jury.")
     token = (PRIVATE / "jury.txt").read_text().strip()
     bearer = "Bearer " + token
-    basic = "Basic " + base64.b64encode(("jury:" + token).encode()).decode()
 
     def request(path, auth=None, body=None, status=200):
         headers = {"Authorization": auth} if auth else {}
@@ -51,11 +49,13 @@ def main():
 
     request("/healthz")
     request("/api/state", status=401)
-    request("/materialy/", status=401)
+    request("/materialy/")
+    request("/materialy/niepublikowane.txt", status=401)
+    assert json.loads(request("/materialy/przyklad-analizy.json"))["result"]["sample_size"] > 0
     original = state()
     assert original["auth"]["role"] == "expert" and original["stats"]["projects"] == 22
     print("Konto jury i dostęp do 22 inwestycji: OK", flush=True)
-    film = request("/materialy/film.mp4", basic)
+    film = request("/materialy/film.mp4")
     assert (
         hashlib.sha256(film).digest()
         == hashlib.sha256(
@@ -65,16 +65,14 @@ def main():
     expected = subprocess.check_output(
         ["git", "rev-parse", "HEAD"], cwd=ROOT, text=True
     ).strip()
-    with ZipFile(io.BytesIO(request("/materialy/kod.zip", basic))) as archive:
+    with ZipFile(io.BytesIO(request("/materialy/kod.zip"))) as archive:
         assert archive.comment.decode() == expected and archive.testzip() is None
     with tempfile.TemporaryDirectory() as temp:
         env = dict(
             os.environ,
-            GIT_CONFIG_COUNT="2",
-            GIT_CONFIG_KEY_0="http.extraHeader",
-            GIT_CONFIG_VALUE_0="Authorization: " + basic,
-            GIT_CONFIG_KEY_1="credential.helper",
-            GIT_CONFIG_VALUE_1="",
+            GIT_CONFIG_COUNT="1",
+            GIT_CONFIG_KEY_0="credential.helper",
+            GIT_CONFIG_VALUE_0="",
             GIT_TERMINAL_PROMPT="0",
         )
         subprocess.run(

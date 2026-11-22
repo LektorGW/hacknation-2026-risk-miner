@@ -4,7 +4,7 @@ Kopia działa w projekcie Docker Compose `riskminer-jury`, na odrębnym wolumeni
 
 ## Dostęp
 
-Polecenie `python scripts/jury.py url` wyświetla bieżący adres HTTPS. Ten sam adres z dopiskiem `/materialy/` otwiera stronę z prezentacją, filmem, opisem projektu i kodem. W aplikacji należy wkleić token z lokalnego pliku `var/dostep-jury/jury.txt`. Materiały używają loginu `jury` i tego samego tokenu jako hasła. Do klonowania służy `git clone https://NAZWA-TUNELU/materialy/risk-miner.git`. Archiwum ZIP zawiera to samo wydanie. Token jurora ma uprawnienia eksperta wyłącznie w kopii pokazowej.
+Polecenie `python scripts/jury.py url` wyświetla bieżący adres HTTPS. Ten sam adres z dopiskiem `/materialy/` otwiera stronę z prezentacją, filmem, opisem projektu i kodem. Film, prezentację, opis, eksport oraz repozytorium można otworzyć bez logowania. Pełna przestrzeń robocza, w tym import i decyzje eksperta, wymaga tokenu z pliku operatora `var/dostep-jury/jury.txt`. Do klonowania służy `git clone https://NAZWA-TUNELU/materialy/risk-miner.git`. Archiwum ZIP zawiera to samo wydanie. Token jurora ma uprawnienia eksperta wyłącznie w kopii pokazowej.
 
 Publiczny adres jest adresem tymczasowego tunelu Cloudflare. Komputer, Docker i tunel muszą działać podczas pokazu. Po odtworzeniu procesu tunelu operator ponownie sprawdza adres i udostępnia aktualny. Kopia lokalna jest dostępna również pod `http://127.0.0.1:8181`. [Dokumentacja Quick Tunnels](https://developers.cloudflare.com/tunnel/get-started/quick-tunnels/)
 

@@ -117,6 +117,7 @@ def materials():
         for source, name in (
             ("deliverables/demo-risk-miner.mp4", "film.mp4"),
             ("deliverables/opis-projektu.pdf", "opis-projektu.pdf"),
+            ("deliverables/przyklad-analizy.json", "przyklad-analizy.json"),
             ("deliverables/prezentacja-risk-miner.pdf", "prezentacja.pdf"),
         ):
             shutil.copyfile(ROOT / source, staging / name)

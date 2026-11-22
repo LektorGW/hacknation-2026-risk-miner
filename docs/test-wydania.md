@@ -26,6 +26,10 @@ Pomiar 12 odczytów opisuje obciążenie na stanowisku pilotażowym. Nie ustalan
 
 ## Materiały
 
+[Eksport analizy nowej inwestycji (JSON)](../deliverables/przyklad-analizy.json) zawiera opis planowanej kanalizacji z przepompownią, przyjęty budżet 5 mln zł i harmonogram 365 dni. W wyniku można sprawdzić dobór projektów porównawczych, podstawę pomiarów i pytania do dokumentacji. Włączony podgląd obejmuje także powiązania oczekujące na ocenę eksperta.
+
+[Test łączenia rekordów i oryginalne ogłoszenia](walidacja-zrodel.md) · [Trafność ostrzeżeń na ośmiu nowych postępowaniach](test-niezalezny.md)
+
 W wersji z testem wrażliwości dodatkowo sprawdzono warianty po pominięciu każdej inwestycji, remisy na granicach przedziału i ograniczenie do minimum trzech pomiarów. Test przeglądarkowy objął przełączenie z terminu na koszt, wybór projektu, odczyt źródeł oraz zgodność identyfikatora w eksportach Word i JSON. Na szerokości 390 pikseli widok mieścił się bez poziomego przewijania. W odrębnym projekcie Docker sprawdzono przekierowanie HTTP, TLS 1.3 z zaufanym w teście lokalnym urzędem certyfikacji, odpowiedź zdrowia i odmowę dostępu do danych bez tokenu. Wydanie certyfikatu dla publicznej domeny wymaga skonfigurowanego serwera instytucji.
 
 - [Film z przebiegu pracy](../deliverables/demo-risk-miner.mp4)

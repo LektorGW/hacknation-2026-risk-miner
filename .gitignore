@@ -18,6 +18,7 @@ dist/
 !/deliverables/opis-projektu.pdf
 !/deliverables/prezentacja-risk-miner.pdf
 !/deliverables/demo-risk-miner.mp4
+!/deliverables/przyklad-analizy.json
 /docs/hacknation-2025.md
 /docs/wymagania-konkursowe.md
 /fixtures/real/projects.csv
