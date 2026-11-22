@@ -1,6 +1,6 @@
 # Przegląd trzech inwestycji
 
-Codex sprawdził powiązania, pomiary i propozycje zdarzeń względem materiałów konkursowych i ogłoszeń źródłowych. Poniższe liczby oznaczają sugestie techniczne AI. W aplikacji wszystkie ocenione w ten sposób propozycje oczekują na decyzję człowieka. Ekspert może zweryfikować źródło, zmienić sugestię i zapisać własną ocenę. [Formularz do uzupełnienia](../deliverables/ocena-trzech-spraw.csv)
+Codex sprawdził powiązania, pomiary i propozycje zdarzeń względem materiałów konkursowych i ogłoszeń źródłowych. Poniższe liczby oznaczają sugestie techniczne AI. W aplikacji wszystkie ocenione w ten sposób propozycje oczekują na decyzję człowieka. Ekspert może zweryfikować źródło, zmienić sugestię i zapisać własną ocenę.
 
 | Inwestycja | Propozycja przyjęcia | Propozycja korekty | Propozycja odrzucenia | Do dalszej oceny |
 |---|---:|---:|---:|---:|

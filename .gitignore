@@ -14,7 +14,10 @@ dist/
 .tmp/
 
 # Robocze materiały zespołu i odtwarzalne eksporty
-/deliverables/formularz-hacktribe.txt
+/deliverables/*
+!/deliverables/opis-projektu.pdf
+!/deliverables/prezentacja-risk-miner.pdf
+!/deliverables/demo-risk-miner.mp4
 /docs/hacknation-2025.md
 /fixtures/real/projects.csv
 /odtworzony-zestaw/

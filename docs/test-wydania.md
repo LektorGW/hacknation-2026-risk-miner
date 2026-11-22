@@ -29,5 +29,3 @@ W wersji z testem wrażliwości dodatkowo sprawdzono warianty po pominięciu ka�
 
 - [Film z przebiegu pracy](../deliverables/demo-risk-miner.mp4)
 - [Prezentacja dla jury](../deliverables/prezentacja-risk-miner.pdf)
-- [Przykład edytowalnej karty](../deliverables/karta-inwestycji.docx)
-- [Dane wejściowe i wynik tej analizy](../deliverables/przyklad-analizy.json)

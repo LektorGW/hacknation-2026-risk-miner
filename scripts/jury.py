@@ -116,13 +116,8 @@ def materials():
         )
         for source, name in (
             ("deliverables/demo-risk-miner.mp4", "film.mp4"),
-            ("deliverables/pulpit-inwestycji.png", "pulpit-inwestycji.png"),
             ("deliverables/opis-projektu.pdf", "opis-projektu.pdf"),
             ("deliverables/prezentacja-risk-miner.pdf", "prezentacja.pdf"),
-            ("deliverables/formularz-eksperta.zip", "formularz-eksperta.zip"),
-            ("deliverables/ocena-trzech-spraw.csv", "ocena-trzech-spraw.csv"),
-            ("docs/test-niezalezny.md", "test-niezalezny.txt"),
-            ("docs/przeglad-trzech-spraw.md", "przeglad.txt"),
         ):
             shutil.copyfile(ROOT / source, staging / name)
         shutil.copyfile(ROOT / "deploy" / "jury.html", staging / "index.html")

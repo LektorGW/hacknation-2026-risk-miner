@@ -42,7 +42,7 @@ W Kaliskach aplikacja wskazała R07. W polu 5.4 ogłoszenia `2026/BZP 00485860/0
 
 ## Ocena niezależnego eksperta branżowego
 
-Ekspertowi należy przekazać **wyłącznie archiwum formularza**. Po rozpakowaniu otwiera lokalny plik HTML, czyta dokumenty i oznacza 15 kategorii dla każdego postępowania. Przy decyzjach dodatnich, niejednoznacznych i wyraźnie ujemnych wskazuje numer źródła oraz dosłowny cytat. Może pobrać szkic i wznowić pracę. Po zapisaniu kompletu ocen pobiera plik `ocena-eksperta.json`. Archiwum nie zawiera predykcji ani wcześniejszych etykiet. [Pusty formularz i dokumenty źródłowe dla eksperta](../deliverables/formularz-eksperta.zip)
+Ekspertowi należy przekazać **wyłącznie archiwum formularza**. Po rozpakowaniu otwiera lokalny plik HTML, czyta dokumenty i oznacza 15 kategorii dla każdego postępowania. Przy decyzjach dodatnich, niejednoznacznych i wyraźnie ujemnych wskazuje numer źródła oraz dosłowny cytat. Może pobrać szkic i wznowić pracę. Po zapisaniu kompletu ocen pobiera plik `ocena-eksperta.json`. Archiwum nie zawiera predykcji ani wcześniejszych etykiet. Archiwum tworzy polecenie `python scripts/validation_pack.py`.
 
 Koordynator zachowuje otrzymany plik bez zmian i oblicza wynik osobno. Pierwsze polecenie odtwarza punktację oceny technicznej. Drugie działa po otrzymaniu niezależnej oceny człowieka.
 
